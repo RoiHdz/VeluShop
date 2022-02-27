@@ -1,0 +1,153 @@
+:root{
+    --color-principal: #1C474D;
+    --color-secundario: #33A638;
+    --color-font-uno: #0B0D17;
+    --color-font-dos: #f6f6f6;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Rubik', sans-serif;
+}
+
+.navbarshop{
+    width: 100%;
+    height: auto;
+    background-color: var(--color-principal);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-bottom: 0;
+}
+
+.img_nav{
+    width: auto;
+    height: 90%;
+}
+
+.nav_center-buscar{
+    border-radius: 5px 0 0 5px;
+    border: none;
+    height: 40px;
+    padding: 5px;
+    background-color: var(--color-font-dos);
+    outline: none;
+    font-size: 17px;
+    width: 100%;
+}
+
+.nav_center-buscar_boton{
+    border: none;
+    height: 40px;
+    width: 40px;
+    border-radius: 0 5px 5px 0;
+    background-color: var(--color-font-dos);
+    /* border-left: firebrick solid 1px; */
+    outline: none;
+    font-size: 20px;
+}
+
+.nav_superior{
+    width: 90%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+}
+.nav_left{
+    width: 31%;
+    height: 100%;
+    display: flex;
+    justify-content: left;
+}
+.nav_center{
+    width: 31%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav_right{
+    width: 31%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+.search_nav{
+    width: 100%;
+}
+
+.user_nav{
+    display: none;
+}
+.login_nav{
+    color: var(--color-font-dos);
+    background-color: chocolate;
+}
+.cart_nav, .favs_nav, .user_nav{
+    color: var(--color-font-dos);
+    font-size: 25px;
+    margin-right: 15px;
+}
+
+.nav_inferior{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #226E6C;
+}
+
+.nav_inferior .nav_especies {
+    color: var(--color-font-dos);
+}
+
+.nav_info{
+    width: 90%;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    color: var(--color-font-dos);
+}
+.nav_info-right{
+    display: flex;
+}
+
+.nav_info-items{
+    margin-right: 20px;
+}
+
+.navbar_responsive-item{
+    color: var(--color-font-dos);
+}
+
+.responsive_nav{
+    display: none;
+}
+.responsive_nav-left{
+    display: flex;
+    align-items: center;
+}
+.responsive_nav-icon{
+    color: var(--color-font-dos);
+    font-size: 38px;
+}
+
+/* Responsive design */
+
+
+
+@media(max-width: 700px){
+	.nav_inferior, .nav_superior{
+        display: none;
+    }
+    .nav_info{
+        font-size: 12px;
+    }
+    .responsive_nav{
+        width: 90%;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+}
