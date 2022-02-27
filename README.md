@@ -1,5 +1,5 @@
 # VeluShop
-Tienda oline de articulos para mascotas hecha como actividad dentro del Instituto Tecnico Ricaldone
+Tienda oline de articulos para mascotas hecha como actividad dentro del Instituto Tecnico Ricaldone.
 
 # Integrantes
 - Rodrigo Jose Portillo Hernandez
