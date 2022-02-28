@@ -1,0 +1,45 @@
+:root{
+    --color-principal: #1C474D;
+    --color-secundario: #33A638;
+    --color-font-uno: #0B0D17;
+    --color-font-dos: #f6f6f6;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Rubik', sans-serif;
+}
+
+body{
+    background-color: #f3f3f3;
+}
+
+.encabezado{
+    font-size: 40px;
+    font-weight: bold;
+    color: var(--color-font-uno);
+}
+.favs{
+    color: var(--color-font-uno);
+    font-size: 25px;
+}
+.card_button{
+    background-color: var(--color-secundario);
+    color: var(--color-font-dos);
+}
+
+.card_img{
+    height: 200px;
+    object-fit: scale-down;
+}
+
+.marcas_img{
+    width: 80%;
+    height: 150px;
+    object-fit: scale-down;
+    filter: saturate(0%);
+}
+.marcas_img:hover{
+    filter: saturate(100%);
+}
