@@ -43,7 +43,3 @@ body{
 .marcas_img:hover{
     filter: saturate(100%);
 }
-
-.card:hover{
-    box-shadow: var(--color-principal) 0 0 30px 1px;
-}
