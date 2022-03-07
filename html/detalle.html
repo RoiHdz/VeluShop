@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,10 +23,62 @@
     <link rel="stylesheet" href="../css/Navbar.css">
     <link rel="stylesheet" href="../css/Footer.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/detalle.css">
+    <link rel="stylesheet" href="../css/input.css">
+    <link rel="stylesheet" href="../css/lightslider.css" />
+    <style>
+        ul {
+            list-style: none outside none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .demo .item {
+            margin-bottom: 60px;
+        }
+
+        .content-slider li {
+            background-color: #ed3020;
+            text-align: center;
+            color: #FFF;
+        }
+
+        .content-slider h3 {
+            margin: 0;
+            padding: 70px 0;
+        }
+
+        .demo {
+            width: 800px;
+        }
+    </style>
     <!-- JavaScript -->
     <script src="../js/main.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="../js/lightslider.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#content-slider").lightSlider({
+                loop: true,
+                keyPress: true
+            });
+            $('#image-gallery').lightSlider({
+                gallery: true,
+                item: 1,
+                thumbItem: 9,
+                slideMargin: 0,
+                speed: 500,
+                auto: true,
+                loop: true,
+                onSliderLoad: function () {
+                    $('#image-gallery').removeClass('cS-hidden');
+                }
+            });
+        });
+    </script>
     <title>VeluShop - Inicio</title>
 </head>
+
 <body>
     <!-- Navbar normal y responsive -->
     <nav class="navbarshop navbar">
@@ -50,7 +103,7 @@
                 </form>
             </div>
             <div class="nav_right">
-                <a href="favs.html"><i class="fa-solid fa-heart favs_nav"></i></a>
+                <a href="../html/favs.html"><i class="fa-solid fa-heart favs_nav"></i></a>
                 <a href="#"><i class="fa-solid fa-cart-shopping cart_nav"></i></a>
                 <a href="#"><i class="fa-solid fa-user user_nav"></i></a>
                 <form class="">
@@ -143,66 +196,145 @@
         </div>
     </nav>
     <main class="container">
-        <div class="row justify-content-between mt-3 mb-3">
-            <div class="col-12 col-md-6 a">
+        <!-- Breadcrumb -->
+        <div class="row mt-3 mb-3">
+            <div class="col-12 a">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="../index.html">Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="../index.html">Perros</a></li>
                     <li class="breadcrumb-item active">Lista de favoritos</li>
                 </ol>
             </div>
-            <div class="col-12 col-md-4">
-                <div class="row align-items-center">
-                    <div class="col-4">Ordenar por:</div>
-                    <div class="col-8">
-                        <select class="form-select col-6">
-                            <option selected>Por defecto</option>
-                            <option value="1">Fecha</option>
-                            <option value="2">Precio</option>
-                            <option value="3">Cantidad</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
+            <hr>
         </div>
-        <hr>
-        <section class="row favoritos mt-4 mb-5">
-            <h2 class="encabezado text-center mb-5">Lista de favoritos</h2>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="velucard">
-                    <a href=""><img src="../rsc/ejemplo2.jpg" class="velucard_img" alt=""></a>
-                    <div class="velucard_body">
-                        <div class="row">
-                            <div class="col-10">
-                                <h5 class="card-title">Titulo</h5>
-                            </div>
-                            <div class="col-2">
-                                <i class="fa-regular fa-heart favs" id="icon1" onclick="addFavs(this,icon12)"></i>
-                                <i class="fa-solid fa-heart favs inactive" id="icon12" onclick="removeFavs(this,icon1)"></i>
-                            </div>
-                        </div>
-                        <h6 class="card-subtitle mt-2 mb-2 text-muted">$15.00</h6>
+        <!-- Detalles -->
+        <section class="row">
+            <div class="col-12 col-md-6 mb-3">
+                <div class="item">
+                    <div class="clearfix" style="max-width:474px;">
+                        <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
+                            <li data-thumb="../rsc/detalle.jpg">
+                                <img src="../rsc/detalle.jpg" />
+                            </li>
+                            <li data-thumb="../rsc/detalle4.jpg">
+                                <img src="../rsc/detalle4.jpg" />
+                            </li>
+                            <li data-thumb="../rsc/detalle3.jpg">
+                                <img src="../rsc/detalle3.jpg" />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 detalle">
+                <h3 class="detalle_titulo">Tyrannosaurus Dental de Nylon para Perros Aliento Fresco - Nylabone® Dental
+                    Chew</h3>
+                <span class="pill-active mt-4">Disponible</span><span class="pill inactive mt-4">Agotado</span>
+                <h3 class="detalle_precio mt-3">$15.33</h3>
+                <p class="detalle_texto">Los huesos de carnaza son malos para la salud de tu perro por muchas razones,
+                    por eso te invitamos a que pruebes entretenerlos con juguetes hechos a base de Nylon. </p>
+                <div class="row align-items-center mb-5">
+                    <div class="col-4 number_background">
+                        <button class="number_button" id="decrement" onclick="stepper(this)"> - </button>
+                        <input class="number" type="number" min="1" max="50" step="1" value="1" id="my-input" readonly>
+                        <button class="number_button" id="increment" onclick="stepper(this)"> + </button>
+                    </div>
+                    <div class="col-4">
+                        <a class="btn card_button">Comprar ya</a>
+                    </div>
+                    <div class="col-4">
                         <a class="btn card_button">Agregar al carrito</a>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="velucard">
-                    <a href=""><img src="../rsc/ejemplo2.jpg" class="velucard_img" alt=""></a>
-                    <div class="velucard_body">
+        </section>
+        <!-- Tabs -->
+        <section class="row">
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
+                        type="button" role="tab" aria-controls="pills-home" aria-selected="true">Especificaciones</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile"
+                        type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Comentarios</button>
+                </li>
+            </ul>
+            <!-- Tabs -->
+            <div class="tab-content" id="pills-tabContent">
+                <!-- Tabla de especificaciones -->
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                    <table class="table">
+                        <thead class="table-dark text-center tabla_head">
+                            <th>Ficha de especificaciones</th>
+                        </thead>
+                        <tbody>
+                            <td>
+                                Dinosaurio de Nylon (Plástico Rígido) super resistente y durable especial para limpiar dientes y encías de tu perro gracias a su textura, no solo le encantara morderlo y jugar con el sino que le limpiara su dentadura de cualquier resto de comida o mugre dejándolo con un aliento fresco y además es super duradero.
+                                Algunos de los beneficios de este juguete para perros es que:
+                                <br>
+                                <br>
+                                <ul>
+                                    <li>Vas a evitar que tu perro muerda y destruya otras cosas.</li>
+                                    <li>Va a ayudar a que tu perro tenga dientes y encías limpias y sanas.</li>
+                                    <li>Promueve un aliento fresco.</li>
+                                    <li>Va a mantenerlo entretenido, lo cual también ayuda a controlar ese instinto destructivo.</li>
+                                    <li>Será un juguete muy duradero.</li>
+                                    <li>Mide 15 cm de largo.</li>
+                                    <li>deal para perros de hasta 23 kg.</li>
+                                </ul>
+                            </td>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Comentarios -->
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                    <div class="comentarios">
                         <div class="row">
-                            <div class="col-10">
-                                <h5 class="card-title">Titulo</h5>
+                            <div class="col-10 mb-2">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Rodrigo Hernandez</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h6 class="card-subtitle mb-2 text-muted">05/03/2022</h6>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-2">
-                                <i class="fa-regular fa-heart favs" id="icon1" onclick="addFavs(this,icon12)"></i>
-                                <i class="fa-solid fa-heart favs inactive" id="icon12" onclick="removeFavs(this,icon1)"></i>
+                            <div class="col-10 mb-2">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Rodrigo Hernandez</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h6 class="card-subtitle mb-2 text-muted">05/03/2022</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-10 mb-2">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Rodrigo Hernandez</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h6 class="card-subtitle mb-2 text-muted">05/03/2022</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-10 mb-2">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Rodrigo Hernandez</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <h6 class="card-subtitle mb-2 text-muted">05/03/2022</h6>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <h6 class="card-subtitle mt-2 mb-2 text-muted">$15.00</h6>
-                        <a class="btn card_button">Agregar al carrito</a>
                     </div>
                 </div>
             </div>
+        </section>
+        <!-- Recomendado -->
+        <section class="row favoritos mt-4 mb-4">
+            <h4 class="encabezado text-center mb-1">Articulos relacionados</h4>
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="velucard">
                     <a href=""><img src="../rsc/ejemplo2.jpg" class="velucard_img" alt=""></a>
@@ -310,6 +442,7 @@
             <p>©Roi VeluShop.com – Todos los derechos reservados 2022</p>
         </div>
     </footer>
+    <script src="../js/script.js"></script>
 </body>
 
 </html>

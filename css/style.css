@@ -1,0 +1,70 @@
+:root{
+    --color-principal: #1C474D;
+    --color-secundario: #33A638;
+    --color-font-uno: #0B0D17;
+    --color-font-dos: #f6f6f6;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Rubik', sans-serif;
+}
+
+body{
+    background-color: #f3f3f3;
+}
+/* recurrentes */
+.encabezado{
+    font-size: 40px;
+    font-weight: bold;
+    color: var(--color-font-uno);
+}
+.inactive{
+    display: none;
+}
+/* nuestras marcas */
+.marcas_img{
+    width: 80%;
+    height: 150px;
+    object-fit: scale-down;
+    filter: saturate(0%);
+}
+.marcas_img:hover{
+    filter: saturate(100%);
+}
+/* cards */
+.favs{
+    color: var(--color-font-uno);
+    font-size: 20px;
+    cursor: pointer;
+}
+.velucard{
+    margin-top: 20px;
+    width: 100%;
+    height: 350px;
+    border-radius: 40px;
+    background-color: #f8f8f8;
+    overflow: hidden;
+}
+.velucard:hover{
+    box-shadow: var(--color-font-uno) 0 0 20px 0px;
+}
+.velucard_img{
+    height: 50%;
+    width: 100%;
+    object-fit: cover;
+}
+.velucard_body{
+    height: 40%;
+    padding: 35px 20px 0 20px;
+}
+.card_button{
+    background-color: var(--color-secundario);
+    color: var(--color-font-dos);
+    width: 100%;
+}
+/* breadcrumbs */
+.a{
+    padding-top: 8px;
+}

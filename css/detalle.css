@@ -1,0 +1,110 @@
+:root{
+    --color-principal: #1C474D;
+    --color-secundario: #33A638;
+    --color-font-uno: #0B0D17;
+    --color-font-dos: #f6f6f6;
+}
+.detalle_titulo{
+    color: var(--color-font-uno);
+    font-size: 30px;
+}
+.pill-active{
+    color: var(--color-font-dos);
+    background-color: var(--color-secundario);
+    border-radius: 40px;
+    padding: 7px;
+}
+.pill{
+    color: var(--color-font-dos);
+    background-color: #DC3545;
+    border-radius: 40px;
+    padding: 7px;
+}
+.detalle_precio{
+    font-weight: normal;
+    font-size: 30px;
+}
+.detalle_texto{
+    font-size: 20px;
+    font-weight: lighter;
+}
+.tabla_head{
+    color: var(--color-font-dos);
+}
+.comentarios{
+    height: 350px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.carousel_container{
+    display: flex;
+}
+.carousel{
+    background-color: #0B0D17;
+    width: 100px;
+    height: 350px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.carousel_img{
+    margin-left: 10px;
+    width: 350px;
+    height: 350px;
+    background-color: #1C474D;
+}
+.carousel_item{
+    width: 100px;
+    height: 100px;
+    margin-bottom: 5px;
+    object-fit: contain;
+    display: flex;
+    /* background-color: #33A638; */
+    border: gray solid 1px;
+}
+
+/* Carousel */
+.carousel_container{
+    display: flex;
+    justify-content: center;
+    background-color: #DC3545;
+}
+.thumnail{
+    
+    display: flex;
+    flex-direction: column;
+    line-height: 0;
+}
+.thumnail li{
+    flex: auto;
+    list-style: none;
+}
+.thumnail li a{
+    display: block;
+}
+.thumnail img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    object-position: top;
+}
+.slides{
+    overflow: hidden;
+    width: 350px;
+    height: 350px;
+}
+.slides li{
+    width: 350px;
+    height: 350px;
+    /* position: absolute; */
+    z-index: 1;
+    list-style: none;
+}
+.slides img{
+    height: 350px;
+    object-fit: cover;
+    object-position: top;
+}
+.slides li:target{
+    z-index: 3;
+    /* -webkit-animation: slide 1s 1; */
+}

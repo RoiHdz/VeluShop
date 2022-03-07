@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,11 +19,11 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
     <!-- CSS propio -->
-    <link rel="stylesheet" href="css/Navbar.css">
-    <link rel="stylesheet" href="css/Footer.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/Navbar.css">
+    <link rel="stylesheet" href="../css/Footer.css">
+    <link rel="stylesheet" href="../css/style.css">
     <!-- JavaScript -->
-    <script src="js/main.js"></script>
+    <script src="../js/main.js"></script>
     <title>VeluShop - Inicio</title>
 </head>
 <body>
@@ -40,7 +40,7 @@
         </div>
         <div class="nav_superior">
             <div class="nav_left">
-                <a href="#"><img src="rsc/logo.png" class="img_nav"></a>
+                <a href="../index.html"><img src="../rsc/logo.png" class="img_nav"></a>
             </div>
             <div class="nav_center">
                 <form class="search_nav d-flex">
@@ -50,7 +50,7 @@
                 </form>
             </div>
             <div class="nav_right">
-                <a href="html/favs.html"><i class="fa-solid fa-heart favs_nav"></i></a>
+                <a href="../html/favs.html"><i class="fa-solid fa-heart favs_nav"></i></a>
                 <a href="#"><i class="fa-solid fa-cart-shopping cart_nav"></i></a>
                 <a href="#"><i class="fa-solid fa-user user_nav"></i></a>
                 <form class="">
@@ -66,14 +66,14 @@
                         Especie
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item nav_categorias" href="html/categoria.html">Categoria</a></li>
+                        <li><a class="dropdown-item nav_categorias" href="categoria.html">Categoria</a></li>
                     </ul>
                 </li>
             </ul>
         </div>
         <div class="responsive_nav">
-            <a class="navbar-brand" href="#">
-                <img src="rsc/logo.png" alt="" width="140" height="65">
+            <a class="navbar-brand" href="../index.html">
+                <img src="../rsc/logo.png" alt="" width="140" height="65">
             </a>
             <div class="responsive_nav-left">
                 <form class="">
@@ -89,7 +89,8 @@
             <div class="collapse navbar-collapse" id="navbar_responsive">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active navbar_responsive-item" aria-current="page" href="html/favs.html">Lista de
+                        <a class="nav-link active navbar_responsive-item" aria-current="page"
+                            href="html/favs.html">Lista de
                             favoritos</a>
                     </li>
                     <li class="nav-item">
@@ -102,7 +103,7 @@
                             Especie
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbar_especie">
-                            <li><a class="dropdown-item" href="html/categoria.html">Categoria</a></li>
+                            <li><a class="dropdown-item" href="#">Categoria</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -142,33 +143,43 @@
         </div>
     </nav>
     <main class="container">
-        <!-- Carousel (header) -->
-        <header class="row">
-            <div id="ads" class="carousel slide mt-4 mb-4 ads" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item ">
-                        <img src="rsc/promo2.jpg" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item active">
-                        <img src="rsc/promo1.jpg" class="d-block w-100" alt="...">
+        <div class="row justify-content-between mt-3 mb-3">
+            <div class="col-12 a">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="../index.html">Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="../index.html">Perros</a></li>
+                    <li class="breadcrumb-item active">Lista de favoritos</li>
+                </ol>
+            </div>
+            <div class="col-12 col-md-6">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="row align-items-center">
+                    <div class="col-4">Ordenar por:</div>
+                    <div class="col-8">
+                        <select class="form-select col-6">
+                            <option selected>Por defecto</option>
+                            <option value="1">Fecha</option>
+                            <option value="2">Precio</option>
+                            <option value="3">Cantidad</option>
+                        </select>
                     </div>
                 </div>
-                <a class="carousel-control-prev" type="button" data-bs-target="#ads" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Anterior</span>
-                </a>
-                <a class="carousel-control-next" type="button" data-bs-target="#ads" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Siguiente</span>
-                </a>
             </div>
-        </header>
-        <!-- Productos recientes -->
-        <section class="row reciente mb-5">
-            <h2 class="encabezado text-center mt-5 mb-5">Lo mas reciente</h2>
+        </div>
+        <hr>
+        <section class="row favoritos mt-4 mb-5">
+            <h2 class="encabezado text-center mb-5">Accesorio de perros</h2>
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="velucard">
-                    <a href="html/detalle.html"><img src="rsc/ejemplo2.jpg" class="velucard_img" alt=""></a>
+                    <a href=""><img src="../rsc/ejemplo2.jpg" class="velucard_img" alt=""></a>
                     <div class="velucard_body">
                         <div class="row">
                             <div class="col-10">
@@ -186,162 +197,7 @@
             </div>
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="velucard">
-                    <a href=""><img src="rsc/ejemplo2.jpg" class="velucard_img" alt=""></a>
-                    <div class="velucard_body">
-                        <div class="row">
-                            <div class="col-10">
-                                <h5 class="card-title">Titulo</h5>
-                            </div>
-                            <div class="col-2">
-                                <i class="fa-regular fa-heart favs" id="icon2" onclick="addFavs(this,icon22)"></i>
-                                <i class="fa-solid fa-heart favs inactive" id="icon22" onclick="removeFavs(this,icon2)"></i>
-                            </div>
-                        </div>
-                        <h6 class="card-subtitle mt-2 mb-2 text-muted">$15.00</h6>
-                        <a class="btn card_button">Agregar al carrito</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="velucard">
-                    <a href=""><img src="rsc/ejemplo2.jpg" class="velucard_img" alt=""></a>
-                    <div class="velucard_body">
-                        <div class="row">
-                            <div class="col-10">
-                                <h5 class="card-title">Titulo</h5>
-                            </div>
-                            <div class="col-2">
-                                <i class="fa-regular fa-heart favs" id="icon3" onclick="addFavs(this,icon32)"></i>
-                                <i class="fa-solid fa-heart favs inactive icon2" id="icon32" onclick="removeFavs(this,icon3)"></i>
-                            </div>
-                        </div>
-                        <h6 class="card-subtitle mt-2 mb-2 text-muted">$15.00</h6>
-                        <a class="btn card_button">Agregar al carrito</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="velucard">
-                    <a href=""><img src="rsc/ejemplo2.jpg" class="velucard_img" alt=""></a>
-                    <div class="velucard_body">
-                        <div class="row">
-                            <div class="col-10">
-                                <h5 class="card-title">Titulo</h5>
-                            </div>
-                            <div class="col-2">
-                                <i class="fa-regular fa-heart favs" id="icon4" onclick="addFavs(this,icon42)"></i>
-                                <i class="fa-solid fa-heart favs inactive icon2" id="icon42" onclick="removeFavs(this,icon4)"></i>
-                            </div>
-                        </div>
-                        <h6 class="card-subtitle mt-2 mb-2 text-muted">$15.00</h6>
-                        <a class="btn card_button">Agregar al carrito</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="velucard">
-                    <a href=""><img src="rsc/ejemplo2.jpg" class="velucard_img" alt=""></a>
-                    <div class="velucard_body">
-                        <div class="row">
-                            <div class="col-10">
-                                <h5 class="card-title">Titulo</h5>
-                            </div>
-                            <div class="col-2">
-                                <i class="fa-regular fa-heart favs" id="icon5" onclick="addFavs(this,icon52)"></i>
-                                <i class="fa-solid fa-heart favs inactive icon2" id="icon52" onclick="removeFavs(this,icon5)"></i>
-                            </div>
-                        </div>
-                        <h6 class="card-subtitle mt-2 mb-2 text-muted">$15.00</h6>
-                        <a class="btn card_button">Agregar al carrito</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="velucard">
-                    <a href=""><img src="rsc/ejemplo2.jpg" class="velucard_img" alt=""></a>
-                    <div class="velucard_body">
-                        <div class="row">
-                            <div class="col-10">
-                                <h5 class="card-title">Titulo</h5>
-                            </div>
-                            <div class="col-2">
-                                <i class="fa-regular fa-heart favs" id="icon6" onclick="addFavs(this,icon62)"></i>
-                                <i class="fa-solid fa-heart favs inactive" id="icon62" onclick="removeFavs(this,icon6)"></i>
-                            </div>
-                        </div>
-                        <h6 class="card-subtitle mt-2 mb-2 text-muted">$15.00</h6>
-                        <a class="btn card_button">Agregar al carrito</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="velucard">
-                    <a href=""><img src="rsc/ejemplo2.jpg" class="velucard_img" alt=""></a>
-                    <div class="velucard_body">
-                        <div class="row">
-                            <div class="col-10">
-                                <h5 class="card-title">Titulo</h5>
-                            </div>
-                            <div class="col-2">
-                                <i class="fa-regular fa-heart favs" id="icon7" onclick="addFavs(this,icon72)"></i>
-                                <i class="fa-solid fa-heart favs inactive" id="icon72" onclick="removeFavs(this,icon7)"></i>
-                            </div>
-                        </div>
-                        <h6 class="card-subtitle mt-2 mb-2 text-muted">$15.00</h6>
-                        <a class="btn card_button">Agregar al carrito</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="velucard">
-                    <a href=""><img src="rsc/ejemplo2.jpg" class="velucard_img" alt=""></a>
-                    <div class="velucard_body">
-                        <div class="row">
-                            <div class="col-10">
-                                <h5 class="card-title">Titulo</h5>
-                            </div>
-                            <div class="col-2">
-                                <i class="fa-regular fa-heart favs" id="icon8" onclick="addFavs(this,icon82)"></i>
-                                <i class="fa-solid fa-heart favs inactive" id="icon82" onclick="removeFavs(this,icon8)"></i>
-                            </div>
-                        </div>
-                        <h6 class="card-subtitle mt-2 mb-2 text-muted">$15.00</h6>
-                        <a class="btn card_button">Agregar al carrito</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Nuestras marcas -->
-        <section class="row justify-content-center marcas mb-5">
-            <h2 class="encabezado text-center mt-5 mb-5">Nuestras marcas</h2>
-            <div class="col-6 col-sm-6 col-md-4 col-lg-3 mt-4 text-center">
-                <img src="rsc/marca1.png" alt="" class="marcas_img">
-            </div>
-            <div class="col-6 col-sm-6 col-md-4 col-lg-3 mt-4 text-center">
-                <img src="rsc/marca2.png" alt="" class="marcas_img">
-            </div>
-            <div class="col-6 col-sm-6 col-md-4 col-lg-3 mt-4 text-center">
-                <img src="rsc/marca3.png" alt="" class="marcas_img">
-            </div>
-            <div class="col-6 col-sm-6 col-md-4 col-lg-3 mt-4 text-center">
-                <img src="rsc/marca4.png" alt="" class="marcas_img">
-            </div>
-            <div class="col-6 col-sm-6 col-md-4 col-lg-3 mt-4 text-center">
-                <img src="rsc/marca5.png" alt="" class="marcas_img">
-            </div>
-            <div class="col-6 col-sm-6 col-md-4 col-lg-3 mt-4 text-center">
-                <img src="rsc/marca6.png" alt="" class="marcas_img">
-            </div>
-            <div class="col-6 col-sm-6 col-md-4 col-lg-3 mt-4 text-center">
-                <img src="rsc/marca7.png" alt="" class="marcas_img">
-            </div>
-        </section>
-        <!-- Productos Populares -->
-        <section class="row populares mb-5">
-            <h2 class="encabezado text-center mt-5 mb-5">Lo mas popular</h2>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="velucard">
-                    <a href=""><img src="rsc/ejemplo2.jpg" class="velucard_img" alt=""></a>
+                    <a href=""><img src="../rsc/ejemplo2.jpg" class="velucard_img" alt=""></a>
                     <div class="velucard_body">
                         <div class="row">
                             <div class="col-10">
@@ -359,15 +215,15 @@
             </div>
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="velucard">
-                    <a href=""><img src="rsc/ejemplo2.jpg" class="velucard_img" alt=""></a>
+                    <a href=""><img src="../rsc/ejemplo2.jpg" class="velucard_img" alt=""></a>
                     <div class="velucard_body">
                         <div class="row">
                             <div class="col-10">
                                 <h5 class="card-title">Titulo</h5>
                             </div>
                             <div class="col-2">
-                                <i class="fa-regular fa-heart favs" id="icon2" onclick="addFavs(this,icon22)"></i>
-                                <i class="fa-solid fa-heart favs inactive" id="icon22" onclick="removeFavs(this,icon2)"></i>
+                                <i class="fa-regular fa-heart favs" id="icon1" onclick="addFavs(this,icon12)"></i>
+                                <i class="fa-solid fa-heart favs inactive" id="icon12" onclick="removeFavs(this,icon1)"></i>
                             </div>
                         </div>
                         <h6 class="card-subtitle mt-2 mb-2 text-muted">$15.00</h6>
@@ -377,15 +233,15 @@
             </div>
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="velucard">
-                    <a href=""><img src="rsc/ejemplo2.jpg" class="velucard_img" alt=""></a>
+                    <a href=""><img src="../rsc/ejemplo2.jpg" class="velucard_img" alt=""></a>
                     <div class="velucard_body">
                         <div class="row">
                             <div class="col-10">
                                 <h5 class="card-title">Titulo</h5>
                             </div>
                             <div class="col-2">
-                                <i class="fa-regular fa-heart favs" id="icon3" onclick="addFavs(this,icon32)"></i>
-                                <i class="fa-solid fa-heart favs inactive icon2" id="icon32" onclick="removeFavs(this,icon3)"></i>
+                                <i class="fa-regular fa-heart favs" id="icon1" onclick="addFavs(this,icon12)"></i>
+                                <i class="fa-solid fa-heart favs inactive" id="icon12" onclick="removeFavs(this,icon1)"></i>
                             </div>
                         </div>
                         <h6 class="card-subtitle mt-2 mb-2 text-muted">$15.00</h6>
@@ -395,15 +251,15 @@
             </div>
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="velucard">
-                    <a href=""><img src="rsc/ejemplo2.jpg" class="velucard_img" alt=""></a>
+                    <a href=""><img src="../rsc/ejemplo2.jpg" class="velucard_img" alt=""></a>
                     <div class="velucard_body">
                         <div class="row">
                             <div class="col-10">
                                 <h5 class="card-title">Titulo</h5>
                             </div>
                             <div class="col-2">
-                                <i class="fa-regular fa-heart favs" id="icon4" onclick="addFavs(this,icon42)"></i>
-                                <i class="fa-solid fa-heart favs inactive icon2" id="icon42" onclick="removeFavs(this,icon4)"></i>
+                                <i class="fa-regular fa-heart favs" id="icon1" onclick="addFavs(this,icon12)"></i>
+                                <i class="fa-solid fa-heart favs inactive" id="icon12" onclick="removeFavs(this,icon1)"></i>
                             </div>
                         </div>
                         <h6 class="card-subtitle mt-2 mb-2 text-muted">$15.00</h6>
@@ -413,15 +269,15 @@
             </div>
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="velucard">
-                    <a href=""><img src="rsc/ejemplo2.jpg" class="velucard_img" alt=""></a>
+                    <a href=""><img src="../rsc/ejemplo2.jpg" class="velucard_img" alt=""></a>
                     <div class="velucard_body">
                         <div class="row">
                             <div class="col-10">
                                 <h5 class="card-title">Titulo</h5>
                             </div>
                             <div class="col-2">
-                                <i class="fa-regular fa-heart favs" id="icon5" onclick="addFavs(this,icon52)"></i>
-                                <i class="fa-solid fa-heart favs inactive icon2" id="icon52" onclick="removeFavs(this,icon5)"></i>
+                                <i class="fa-regular fa-heart favs" id="icon1" onclick="addFavs(this,icon12)"></i>
+                                <i class="fa-solid fa-heart favs inactive" id="icon12" onclick="removeFavs(this,icon1)"></i>
                             </div>
                         </div>
                         <h6 class="card-subtitle mt-2 mb-2 text-muted">$15.00</h6>
@@ -431,15 +287,15 @@
             </div>
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="velucard">
-                    <a href=""><img src="rsc/ejemplo2.jpg" class="velucard_img" alt=""></a>
+                    <a href=""><img src="../rsc/ejemplo2.jpg" class="velucard_img" alt=""></a>
                     <div class="velucard_body">
                         <div class="row">
                             <div class="col-10">
                                 <h5 class="card-title">Titulo</h5>
                             </div>
                             <div class="col-2">
-                                <i class="fa-regular fa-heart favs" id="icon6" onclick="addFavs(this,icon62)"></i>
-                                <i class="fa-solid fa-heart favs inactive" id="icon62" onclick="removeFavs(this,icon6)"></i>
+                                <i class="fa-regular fa-heart favs" id="icon1" onclick="addFavs(this,icon12)"></i>
+                                <i class="fa-solid fa-heart favs inactive" id="icon12" onclick="removeFavs(this,icon1)"></i>
                             </div>
                         </div>
                         <h6 class="card-subtitle mt-2 mb-2 text-muted">$15.00</h6>
@@ -449,15 +305,15 @@
             </div>
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="velucard">
-                    <a href=""><img src="rsc/ejemplo2.jpg" class="velucard_img" alt=""></a>
+                    <a href=""><img src="../rsc/ejemplo2.jpg" class="velucard_img" alt=""></a>
                     <div class="velucard_body">
                         <div class="row">
                             <div class="col-10">
                                 <h5 class="card-title">Titulo</h5>
                             </div>
                             <div class="col-2">
-                                <i class="fa-regular fa-heart favs" id="icon7" onclick="addFavs(this,icon72)"></i>
-                                <i class="fa-solid fa-heart favs inactive" id="icon72" onclick="removeFavs(this,icon7)"></i>
+                                <i class="fa-regular fa-heart favs" id="icon1" onclick="addFavs(this,icon12)"></i>
+                                <i class="fa-solid fa-heart favs inactive" id="icon12" onclick="removeFavs(this,icon1)"></i>
                             </div>
                         </div>
                         <h6 class="card-subtitle mt-2 mb-2 text-muted">$15.00</h6>
@@ -467,15 +323,69 @@
             </div>
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="velucard">
-                    <a href=""><img src="rsc/ejemplo2.jpg" class="velucard_img" alt=""></a>
+                    <a href=""><img src="../rsc/ejemplo2.jpg" class="velucard_img" alt=""></a>
                     <div class="velucard_body">
                         <div class="row">
                             <div class="col-10">
                                 <h5 class="card-title">Titulo</h5>
                             </div>
                             <div class="col-2">
-                                <i class="fa-regular fa-heart favs" id="icon8" onclick="addFavs(this,icon82)"></i>
-                                <i class="fa-solid fa-heart favs inactive" id="icon82" onclick="removeFavs(this,icon8)"></i>
+                                <i class="fa-regular fa-heart favs" id="icon1" onclick="addFavs(this,icon12)"></i>
+                                <i class="fa-solid fa-heart favs inactive" id="icon12" onclick="removeFavs(this,icon1)"></i>
+                            </div>
+                        </div>
+                        <h6 class="card-subtitle mt-2 mb-2 text-muted">$15.00</h6>
+                        <a class="btn card_button">Agregar al carrito</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="velucard">
+                    <a href=""><img src="../rsc/ejemplo2.jpg" class="velucard_img" alt=""></a>
+                    <div class="velucard_body">
+                        <div class="row">
+                            <div class="col-10">
+                                <h5 class="card-title">Titulo</h5>
+                            </div>
+                            <div class="col-2">
+                                <i class="fa-regular fa-heart favs" id="icon1" onclick="addFavs(this,icon12)"></i>
+                                <i class="fa-solid fa-heart favs inactive" id="icon12" onclick="removeFavs(this,icon1)"></i>
+                            </div>
+                        </div>
+                        <h6 class="card-subtitle mt-2 mb-2 text-muted">$15.00</h6>
+                        <a class="btn card_button">Agregar al carrito</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="velucard">
+                    <a href=""><img src="../rsc/ejemplo2.jpg" class="velucard_img" alt=""></a>
+                    <div class="velucard_body">
+                        <div class="row">
+                            <div class="col-10">
+                                <h5 class="card-title">Titulo</h5>
+                            </div>
+                            <div class="col-2">
+                                <i class="fa-regular fa-heart favs" id="icon1" onclick="addFavs(this,icon12)"></i>
+                                <i class="fa-solid fa-heart favs inactive" id="icon12" onclick="removeFavs(this,icon1)"></i>
+                            </div>
+                        </div>
+                        <h6 class="card-subtitle mt-2 mb-2 text-muted">$15.00</h6>
+                        <a class="btn card_button">Agregar al carrito</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="velucard">
+                    <a href=""><img src="../rsc/ejemplo2.jpg" class="velucard_img" alt=""></a>
+                    <div class="velucard_body">
+                        <div class="row">
+                            <div class="col-10">
+                                <h5 class="card-title">Titulo</h5>
+                            </div>
+                            <div class="col-2">
+                                <i class="fa-regular fa-heart favs" id="icon1" onclick="addFavs(this,icon12)"></i>
+                                <i class="fa-solid fa-heart favs inactive" id="icon12" onclick="removeFavs(this,icon1)"></i>
                             </div>
                         </div>
                         <h6 class="card-subtitle mt-2 mb-2 text-muted">$15.00</h6>
@@ -519,5 +429,4 @@
         </div>
     </footer>
 </body>
-
 </html>

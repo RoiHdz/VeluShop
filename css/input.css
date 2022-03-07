@@ -1,0 +1,39 @@
+:root{
+    --color-principal: #1C474D;
+    --color-secundario: #33A638;
+    --color-font-uno: #0B0D17;
+    --color-font-dos: #f6f6f6;
+}
+.number_background{
+    display: flex;
+}
+.number{
+    font-size: 20px;
+    text-align: center;
+    border: none;
+    background-color: #f8f8f8;
+    color: var(--color-font-uno);
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+.number_button{
+    color: var(--color-secundario);
+    background-color: #f8f8f8;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+#decrement{
+    padding: 15px 5px 15px 25px;
+    border-radius: 45px 0 0 45px;
+    font-weight: bold;
+}
+#increment{
+    padding: 15px 25px 15px 5px;
+    border-radius: 0 45px 45px 0;
+    font-weight: bold;
+}
