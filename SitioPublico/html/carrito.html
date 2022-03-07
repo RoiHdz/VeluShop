@@ -16,11 +16,19 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
         <!-- CSS propio -->
-        <link rel="stylesheet" href="../css/Navbar.css">
-        <link rel="stylesheet" href="../css/Footer.css">
-        <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/Navbar.css">
+    <link rel="stylesheet" href="../css/Footer.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/detalle.css">
+    <link rel="stylesheet" href="../css/input.css">
+    <link rel="stylesheet" href="../css/carrito.css">
+    <link rel="stylesheet" href="../css/lightslider.css" />
         <!-- JavaScript -->
         <script src="../js/main.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="../js/lightslider.js"></script>
+        <script>
+        </script>
         <title>VeluShop - Inicio</title>
     </head>
 <body>
@@ -47,7 +55,7 @@
             </div>
             <div class="nav_right">
                 <a href="favs.html"><i class="fa-solid fa-heart favs_nav"></i></a>
-                <a href="#"><i class="fa-solid fa-cart-shopping cart_nav"></i></a>
+                <a href="../html/carrito.html"><i class="fa-solid fa-cart-shopping cart_nav"></i></a>
                 <a href="#"><i class="fa-solid fa-user user_nav"></i></a>
                 <form class="">
                     <a class="btn login_nav" type="button" data-bs-toggle="modal" data-bs-target="#login">Login</a>
@@ -140,7 +148,106 @@
     </nav>
     <main class="container">
         <section class="row">
-            
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Productos</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Acción</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Tyrannosaurus Dental de Nylon para Perros Aliento Fresco - Nylabone® Dental
+                        Chew</th>
+                    <td> <div class="col-4 number_background">
+                        <button class="number_button" id="decrement" onclick="stepper(this)"> - </button>
+                        <input class="number" type="number" min="1" max="50" step="1" value="1" id="my-input" readonly>
+                        <button class="number_button" id="increment" onclick="stepper(this)"> + </button>
+                    </div></td>
+                    <td>$15.00</td>
+                    <td><a href=""><i class="fa-solid fa-trash-can"></i></a></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Tyrannosaurus Dental de Nylon para Perros Aliento Fresco - Nylabone® Dental
+                        Chew</th>
+                    <td> <div class="col-4 number_background">
+                        <button class="number_button" id="decrement" onclick="stepper(this)"> - </button>
+                        <input class="number" type="number" min="1" max="50" step="1" value="1" id="my-input" readonly>
+                        <button class="number_button" id="increment" onclick="stepper(this)"> + </button>
+                    </div></td>
+                    <td>$15.00</td>
+                    <td><a href=""><i class="fa-solid fa-trash-can"></i></a></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Tyrannosaurus Dental de Nylon para Perros Aliento Fresco - Nylabone® Dental
+                        Chew</th>
+                    <td> <div class="col-4 number_background">
+                        <button class="number_button" id="decrement" onclick="stepper(this)"> - </button>
+                        <input class="number" type="number" min="1" max="50" step="1" value="1" id="my-input" readonly>
+                        <button class="number_button" id="increment" onclick="stepper(this)"> + </button>
+                    </div></td>
+                    <td>$15.00</td>
+                    <td><a href=""><i class="fa-solid fa-trash-can"></i></a></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Tyrannosaurus Dental de Nylon para Perros Aliento Fresco - Nylabone® Dental
+                        Chew</th>
+                    <td> <div class="col-4 number_background">
+                        <button class="number_button" id="decrement" onclick="stepper(this)"> - </button>
+                        <input class="number" type="number" min="1" max="50" step="1" value="1" id="my-input" readonly>
+                        <button class="number_button" id="increment" onclick="stepper(this)"> + </button>
+                    </div></td>
+                    <td>$15.00</td>
+                    <td><a href=""><i class="fa-solid fa-trash-can"></i></a></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Tyrannosaurus Dental de Nylon para Perros Aliento Fresco - Nylabone® Dental
+                        Chew</th>
+                    <td> <div class="col-4 number_background">
+                        <button class="number_button" id="decrement" onclick="stepper(this)"> - </button>
+                        <input class="number" type="number" min="1" max="50" step="1" value="1" id="my-input" readonly>
+                        <button class="number_button" id="increment" onclick="stepper(this)"> + </button>
+                    </div></td>
+                    <td>$15.00</td>
+                    <td><a href=""><i class="fa-solid fa-trash-can"></i></a></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Tyrannosaurus Dental de Nylon para Perros Aliento Fresco - Nylabone® Dental
+                        Chew</th>
+                    <td> <div class="col-4 number_background">
+                        <button class="number_button" id="decrement" onclick="stepper(this)"> - </button>
+                        <input class="number" type="number" min="1" max="50" step="1" value="1" id="my-input" readonly>
+                        <button class="number_button" id="increment" onclick="stepper(this)"> + </button>
+                    </div></td>
+                    <td>$15.00</td>
+                    <td><a href=""><i class="fa-solid fa-trash-can"></i></a></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Tyrannosaurus Dental de Nylon para Perros Aliento Fresco - Nylabone® Dental
+                        Chew</th>
+                    <td> <div class="col-4 number_background">
+                        <button class="number_button" id="decrement" onclick="stepper(this)"> - </button>
+                        <input class="number" type="number" min="1" max="50" step="1" value="1" id="my-input" readonly>
+                        <button class="number_button" id="increment" onclick="stepper(this)"> + </button>
+                    </div></td>
+                    <td>$15.00</td>
+                    <td><a href=""><i class="fa-solid fa-trash-can"></i></a></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="container">
+                <div class="row">
+                  <div class="col order-last">
+                    First in DOM, ordered last
+                  </div>
+                  <div class="col">
+                    Second in DOM, unordered
+                  </div>
+
+                </div>
+              </div>
         </section>
     </main>
     <footer class="footershop">
