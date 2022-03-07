@@ -1,0 +1,10 @@
+:root{
+    --color-principal: #1C474D;
+    --color-secundario: #33A638;
+    --color-font-uno: #0B0D17;
+    --color-font-dos: #f6f6f6;
+}
+.detalle_titulo{
+    color: var(--color-font-uno);
+    font-size: 30px;
+}
