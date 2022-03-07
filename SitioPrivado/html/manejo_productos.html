@@ -19,6 +19,7 @@
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"></script>
         <!-- CSS propio -->
+        <link rel="stylesheet" href="../css/index.css">
         <link rel="stylesheet" href="../css/manejo_productos.css">
         <!-- JavaScript -->
         <title>VeluShop - Inicio</title>
@@ -26,23 +27,21 @@
 <body>
     <nav></nav>
     <main class="container">
-        <h1 class="text-center">Manejo de productos</h1>
-        <section class="row">
+        <h1 class="text-center mt-3">Manejo de productos</h1>
+        <section class="row mt-5">
             <div class="col-12">
-                <div class="row">
-                    <div class="col-8">
-                        <div class="forms align-items-center">
-                            <div>Ordenar por:</div>
-                            <div class="select">
-                                <select class="form-select col-6" style="width: 175px;">
-                                    <option selected>Por defecto</option>
-                                    <option value="1">Fecha</option>
-                                    <option value="2">Precio</option>
-                                    <option value="3">Cantidad</option>
-                                </select>
-                            </div>
+                <div class="row justify-content-between">
+                    <div class="col-8 line_forms">
+                        <div class="forms align-items-center line_forms-div">
+                            <div>Buscar:</div>
+                            <form class="search_nav d-flex">
+                                <input class="nav_center-buscar border" type="search" placeholder="Buscar">
+                                <button class="nav_center-buscar_boton border" type="submit">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </button>
+                            </form>
                         </div>
-                        <div class="forms align-items-center">
+                        <div class="forms align-items-center line_forms-div">
                             <div>Ordenar por:</div>
                             <div class="select">
                                 <select class="form-select col-6" style="width: 175px;">
@@ -54,10 +53,94 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-4">
-
+                    <div class="col-3 space">
+                        <button type="button" class="btn btn-primary">
+                            <i class="fa-solid fa-plus"></i> Agregar producto
+                        </button>
                     </div>
                 </div>
+            </div>
+            <div class="col-12 mt-4">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th style="width: 5%;">ID</th>
+                        <td style="width: 40%;">Nombre producto</td>
+                        <td>Disponible</td>
+                        <td>Precio</td>
+                        <td>Activo</td>
+                        <td class="text-center" style="width: 10%;">Accion</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>1</th>
+                        <td>Rodrigo Jose Portillo Hernandez</td>
+                        <td>Disponible</td>
+                        <td>$15.00</td>
+                        <td>Activo</td>
+                        <td class="text-center">
+                            <a href="#"><i class="fa-solid fa-pencil table_icon"></i></a>
+                            <a href="#"><i class="fa-solid fa-eye table_icon"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>1</th>
+                        <td>Rodrigo Jose Portillo Hernandez</td>
+                        <td>Disponible</td>
+                        <td>$15.00</td>
+                        <td>Activo</td>
+                        <td class="text-center">
+                            <a href="#"><i class="fa-solid fa-pencil table_icon"></i></a>
+                            <a href="#"><i class="fa-solid fa-eye table_icon"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>1</th>
+                        <td>Rodrigo Jose Portillo Hernandez</td>
+                        <td>Disponible</td>
+                        <td>$15.00</td>
+                        <td>Activo</td>
+                        <td class="text-center">
+                            <a href="#"><i class="fa-solid fa-pencil table_icon"></i></a>
+                            <a href="#"><i class="fa-solid fa-eye table_icon"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>1</th>
+                        <td>Rodrigo Jose Portillo Hernandez</td>
+                        <td>Disponible</td>
+                        <td>$15.00</td>
+                        <td>Activo</td>
+                        <td class="text-center">
+                            <a href="#"><i class="fa-solid fa-pencil table_icon"></i></a>
+                            <a href="#"><i class="fa-solid fa-eye table_icon"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>1</th>
+                        <td>Rodrigo Jose Portillo Hernandez</td>
+                        <td>Disponible</td>
+                        <td>$15.00</td>
+                        <td>Activo</td>
+                        <td class="text-center">
+                            <a href="#"><i class="fa-solid fa-pencil table_icon"></i></a>
+                            <a href="#"><i class="fa-solid fa-eye table_icon"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>1</th>
+                        <td>Rodrigo Jose Portillo Hernandez</td>
+                        <td>Disponible</td>
+                        <td>$15.00</td>
+                        <td>Activo</td>
+                        <td class="text-center">
+                            <a href="#"><i class="fa-solid fa-pencil table_icon"></i></a>
+                            <a href="#"><i class="fa-solid fa-eye table_icon"></i></a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
             </div>
         </section>
     </main>
