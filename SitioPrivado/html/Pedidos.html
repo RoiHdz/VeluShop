@@ -58,8 +58,78 @@
                         </div>
                     </div>
                     <div class="col-3 space">
+                        <p>
+                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseWidthExample" aria-expanded="false"
+                                aria-controls="collapseWidthExample">
+                                Agregar Pedido
+                            </button>
+                        </p>
+                    </div>
+                    <div style="min-height: 20px;">
+                        <div class="collapse collapse-horizontal" id="collapseWidthExample">
+                            <div class="card card-body" style="width: 1000px;">
+                                <form class="row g-3 needs-validation" novalidate>
+                                    <div class="col-md-4">
+                                        <label for="validationCustom01" class="form-label">Nombre</label>
+                                        <input type="text" class="form-control" id="validationCustom01" value=""
+                                            required>
+                                        <div class="valid-feedback">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="validationCustom02" class="form-label">Apellido</label>
+                                        <input type="text" class="form-control" id="validationCustom02" value=""
+                                            required>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="validationCustom03" class="form-label">Sub total</label>
+                                        <input type="text" class="form-control" id="validationCustom03" required>
+                                        <div class="invalid-feedback">
+                                            ingrese cantidad
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="validationCustom03" class="form-label">total</label>
+                                        <input type="text" class="form-control" id="validationCustom03" required>
+                                        <div class="invalid-feedback">
+                                           Ingrese cantidad
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="validationCustom04" class="form-label">Metodo de pago</label>
+                                        <select class="form-select" id="validationCustom04" required>
+                                            <option selected disabled value="">opciones</option>
+                                            <option>tarjeta de credito</option>
+                                            <option>Contra entrega</option>
+                                            <option>Chivo Wallet</option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                            Please select a valid state.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="validationCustom05" class="form-label">Estado</label>
+                                        <select class="form-select" id="validationCustom04" required>
+                                            <option selected disabled value="">opciones</option>
+                                            <option>Cancelado</option>
+                                            <option>Entregado</option>
+                                            <option>En camino</option>
+                                            <option>Pendiente</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-primary" type="submit">Submit form</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </div>
             </div>
             <div class="col-12 mt-4">
                 <table class="table">
