@@ -58,28 +58,99 @@
                         </div>
                     </div>
                     <div class="col-3 space">
-                        <button type="button" class="btn btn-primary">
-                            <i class="fa-solid fa-plus"></i> Agregar producto
-                        </button>
+                        <p class="col-12 mt-4">
+                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseWidthExample" aria-expanded="false"
+                                aria-controls="collapseWidthExample">
+                                Agregar Cliente
+                            </button>
+                        </p>
+                    </div>
+                    <div style="min-height: 20px;">
+                        <div class="collapse collapse-horizontal" id="collapseWidthExample">
+                            <form class="row g-3">
+                                <div class="col-md-4">
+                                    <label for="validationServer01" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" id="validationServer01">
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="validationServer02" class="form-label">Apellido</label>
+                                    <input type="text" class="form-control " id="validationServer02">
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="validationServerUsername" class="form-label">Username</label>
+                                    <div class="input-group has-validation">
+                                        <span class="input-group-text" id="inputGroupPrepend3">@</span>
+                                        <input type="text" class="form-control is-invalid" id="validationServerUsername"
+                                            aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback"
+                                            required>
+                                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                                            Por favor pon tu username.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="validationServer03" class="form-label">E-mail</label>
+                                    <input type="text" class="form-control is-invalid" id="validationServer03"
+                                        aria-describedby="validationServer03Feedback" required>
+                                    <div id="validationServer03Feedback" class="invalid-feedback">
+                                        Ingresa un E-mail válido.
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="validationServer04" class="form-label">Municipio</label>
+                                    <select class="form-select is-invalid" id="validationServer04"
+                                        aria-describedby="validationServer04Feedback" required>
+                                        <option selected disabled value="">Elige</option>
+                                        <option>Mejicanos</option>
+                                        <option>Ayutuxtepeque</option>
+                                        <option>Olocuilta</option>
+                                        <option>San Salvador</option>
+                                        <option>Cuscatacingo</option>
+                                    </select>
+                                    <div id="validationServer04Feedback" class="invalid-feedback">
+                                       Por favor elige un municipio.
+                                    </div>
+                                </div>                           
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input is-invalid" type="checkbox" value=""
+                                            id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
+                                        <label class="form-check-label" for="invalidCheck3">
+                                            Acepta todos los términos y conciones
+                                        </label>
+                                        <div id="invalidCheck3Feedback" class="invalid-feedback">
+                                            Debes aceptar los términos y condiciones
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary" type="submit">Submit form</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
+
             </div>
             <div class="col-12 mt-4">
                 <table class="table">
                     <thead>
                         <tr>
                             <th style="width: 5%;">ID</th>
-                            <td style="width: 40%;">Nombre</td>
+                            <td style="width: 20%;">Nombre</td>
+                            <td>Apellido</td>
                             <td>E-mail</td>
                             <td>Municipio</td>
                             <td>Activo</td>
                             <td class="text-center" style="width: 10%;">Accion</td>
                         </tr>
-                    </thead>    
+                    </thead>
                     <tbody>
                         <tr>
                             <th>1</th>
-                            <td>Rodrigo Jose Portillo Hernandez</td>
+                            <td>Rodrigo Jose</td>
+                            <td>Portillo Hernandez</td>
                             <td>20200122@ricaldone.edu.sv</td>
                             <td>Ayutuxtepeque</td>
                             <td>Activo</td>
@@ -90,7 +161,8 @@
                         </tr>
                         <tr>
                             <th>2</th>
-                            <td>Adrián Siu Abarca</td>
+                            <td>Adrián Augusto</td>
+                            <td>Siu Abarca</td>
                             <td>20200362@ricaldone.edu.sv</td>
                             <td>Mejicanos</td>
                             <td>Inactivo</td>
@@ -101,7 +173,8 @@
                         </tr>
                         <tr>
                             <th>3</th>
-                            <td>Johan Amilcar Miranda</td>
+                            <td>Johan Amilcar</td>
+                            <td>Miranda Mercado</td>
                             <td>20200439@ricaldone.edu.sv</td>
                             <td>Ayutuxtepeque</td>
                             <td>Activo</td>
@@ -112,7 +185,8 @@
                         </tr>
                         <tr>
                             <th>4</th>
-                            <td>Diego Beltran González</td>
+                            <td>Diego Alejandro</td>
+                            <td>Beltran González</td>
                             <td>20200107@ricaldone.edu.sv</td>
                             <td>Olocuilta</td>
                             <td>Activo</td>
@@ -123,7 +197,8 @@
                         </tr>
                         <tr>
                             <th>5</th>
-                            <td>Herbert Cornejo</td>
+                            <td>Herbert</td>
+                            <td>Cornejo</td>
                             <td>herbert_cornejo2@ricaldone.edu.sv</td>
                             <td>San Marcos</td>
                             <td>Activo</td>
@@ -134,7 +209,8 @@
                         </tr>
                         <tr>
                             <th>6</th>
-                            <td>Daniel Carranza</td>
+                            <td>Daniel</td>
+                            <td>Carranza</td>
                             <td>daniel_carranza@ricaldone.edu.sv</td>
                             <td>San Salvador</td>
                             <td>Inactivo</td>
@@ -172,9 +248,83 @@
                         </div>
                     </div>
                     <div class="col-3 space">
-                        <button type="button" class="btn btn-primary">
-                            <i class="fa-solid fa-plus"></i> Agregar producto
-                        </button>   
+                        <p class="col-12 mt-4">
+                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseWidthExample" aria-expanded="false"
+                                aria-controls="collapseWidthExample">
+                                Agregar Usuario
+                            </button>
+                        </p>
+                    </div>
+                    <div style="min-height: 20px;">
+                        <div class="collapse collapse-horizontal" id="collapseWidthExample">
+                            <form class="row g-3">
+                                <div class="col-md-4">
+                                    <label for="validationServer01" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control " id="validationServer01"
+                                        >
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="validationServer02" class="form-label">Apellido</label>
+                                    <input type="text" class="form-control " id="validationServer02"
+                                       >
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="validationServerUsername" class="form-label">Username</label>
+                                    <div class="input-group has-validation">
+                                        <span class="input-group-text" id="inputGroupPrepend3">@</span>
+                                        <input type="text" class="form-control is-invalid" id="validationServerUsername"
+                                            aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback"
+                                            required>
+                                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                                            Please choose a username.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="validationServer03" class="form-label">Email</label>
+                                    <input type="text" class="form-control is-invalid" id="validationServer03"
+                                        aria-describedby="validationServer03Feedback" required>
+                                    <div id="validationServer03Feedback" class="invalid-feedback">
+                                        Please provide a valid city.
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="validationServer04" class="form-label">Rol</label>
+                                    <select class="form-select is-invalid" id="validationServer04"
+                                        aria-describedby="validationServer04Feedback" required>
+                                        <option selected disabled value="">Elige...</option>
+                                        <option>Administrador</option>
+                                        <option>Cajero</option>
+                                        <option>Repartidor</option>
+                                    </select>
+                                    <div id="validationServer04Feedback" class="invalid-feedback">
+                                        Please select a valid state.
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input is-invalid" type="checkbox" value=""
+                                            id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
+                                        <label class="form-check-label" for="invalidCheck3">
+                                            Agree to terms and conditions
+                                        </label>
+                                        <div id="invalidCheck3Feedback" class="invalid-feedback">
+                                            You must agree before submitting.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary" type="submit">Submit form</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -183,17 +333,19 @@
                     <thead>
                         <tr>
                             <th style="width: 5%;">ID</th>
-                            <td style="width: 40%;">Nombre</td>
+                            <td style="width: 20%;">Nombre</td>
+                            <td>Apellido</td>
                             <td>Username</td>
                             <td>Rol</td>
                             <td>Activo</td>
                             <td class="text-center" style="width: 10%;">Accion</td>
                         </tr>
-                    </thead>    
+                    </thead>
                     <tbody>
                         <tr>
                             <th>1</th>
-                            <td>Rodrigo Jose Portillo Hernandez</td>
+                            <td>Rodrigo Jose </td>
+                            <td>Portillo Hernandez</td>
                             <td>Roi</td>
                             <td>Administrador</td>
                             <td>Activo</td>
@@ -204,7 +356,8 @@
                         </tr>
                         <tr>
                             <th>2</th>
-                            <td>Adrián Siu Abarca</td>
+                            <td>Adrián Augusto </td>
+                            <td>Siu Abarca</td>
                             <td>TheNoobBv</td>
                             <td>Administrador</td>
                             <td>Inactivo</td>
@@ -215,7 +368,8 @@
                         </tr>
                         <tr>
                             <th>3</th>
-                            <td>Johan Amilcar Miranda</td>
+                            <td>Johan Amilcar</td>
+                            <td> Miranda Mercado</td>
                             <td>Johxn.mr</td>
                             <td>Administrador</td>
                             <td>Activo</td>
@@ -226,7 +380,8 @@
                         </tr>
                         <tr>
                             <th>4</th>
-                            <td>Diego Beltran González</td>
+                            <td>Diego Alejandro </td>
+                            <td>Beltran González</td>
                             <td>Beltraaaaaan_</td>
                             <td>Administrador</td>
                             <td>Activo</td>
@@ -237,7 +392,8 @@
                         </tr>
                         <tr>
                             <th>5</th>
-                            <td>Herbert Cornejo</td>
+                            <td>Herbert </td>
+                            <td>Cornejo</td>
                             <td>sjshdjsos</td>
                             <td>Cajero</td>
                             <td>Activo</td>
@@ -248,7 +404,8 @@
                         </tr>
                         <tr>
                             <th>6</th>
-                            <td>Daniel Carranza</td>
+                            <td>Daniel </td>
+                            <td>Carranza</td>
                             <td>danielito777</td>
                             <td>Repartidor</td>
                             <td>Inactivo</td>
