@@ -22,11 +22,28 @@
     <!-- CSS propio -->
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/manejo_productos.css">
+    <link rel="stylesheet" href="../css/slide.css">
     <!-- JavaScript -->
     <title>VeluShop - Inicio</title>
 </head>
 
 <body>
+    <nav class="slidebar">
+        <div class="row ">
+            <div class="col-11 d-flex justify-content-center">
+                <img src="../rsc/logo.png" alt="brand" class="brand_img">
+            </div>
+            <hr style="height: 2px; color: #f6f6f6;">
+            <div class="col-12 btn_list">
+                <a href="../html/" class="nav_btn"><i class="nav_icon fa-solid fa-house"></i>Dashboard</a>
+                <a href="../html/manejo_productos.html" class="nav_btn"><i class="nav_icon fa-solid fa-box"></i>Producto</a>
+                <a href="../html/Pedidos.html" class="nav_btn"><i class="nav_icon fa-solid fa-truck"></i>Pedido</a>
+                <a href="../html/cliente.html" class="nav_btn"><i class="nav_icon fa-solid fa-user"></i>Usuario</a>
+                <a href="../html/administracion.html" class="nav_btn"><i class="nav_icon fa-solid fa-user-tie"></i>Administracion</a>
+                <a href="#" class="nav_btn"><i class="nav_icon fa-solid fa-arrow-right-from-bracket"></i>Cerrar sesion</a>
+            </div>
+        </div>
+    </nav>
     <nav class="slide_menu">
         <!-- <img src="../rsc/logo.png"> -->
     </nav>
@@ -60,14 +77,14 @@
                     <div class="col-3 space">
                         <p>
                             <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseWidthExample" aria-expanded="false"
+                                data-bs-target="#Form1" aria-expanded="false"
                                 aria-controls="collapseWidthExample">
                                 Agregar Pedido
                             </button>
                         </p>
                     </div>
                     <div style="min-height: 20px;">
-                        <div class="collapse collapse-horizontal" id="collapseWidthExample">
+                        <div class="collapse collapse-horizontal" id="Form1">
                             <div class="card card-body" style="width: 1000px;">
                                 <form class="row g-3 needs-validation" novalidate>
                                     <div class="col-md-4">
