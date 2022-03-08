@@ -1,0 +1,21 @@
+:root{
+    --color-principal: #1C474D;
+    --color-secundario: #33A638;
+    --color-font-uno: #0B0D17;
+    --color-font-dos: #f6f6f6;
+}
+.qr{
+    width: 100px;
+    height: auto;
+    object-fit: scale-down;
+}
+.visa, .master{
+    width: 60px;
+    height: auto;
+    object-fit: scale-down;
+}
+.enviar{
+    width: 100%;
+    background-color: var(--color-secundario);
+    color: var(--color-font-dos);
+}

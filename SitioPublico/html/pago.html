@@ -23,13 +23,11 @@
     <link rel="stylesheet" href="../css/Navbar.css">
     <link rel="stylesheet" href="../css/Footer.css">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/detalle.css">
-    <link rel="stylesheet" href="../css/input.css">
     <link rel="stylesheet" href="../css/carrito.css">
     <link rel="stylesheet" href="../css/lightslider.css" />
+    <link rel="stylesheet" href="../css/pago.css">
     <!-- JavaScript -->
     <script src="../js/main.js"></script>
-    
     <title>VeluShop - Inicio</title>
 </head>
 
@@ -153,96 +151,163 @@
             </div>
         </div>
     </nav>
-    <main class="container mb-5">
-        <section class="row">
-            <div class="col-8" style="padding: 0;">
-                <table class="table mt-4 table-bordered ficha">
-                    <thead class="table_head">
-                        <tr>
-                            <th style="width: 60%;">Producto</th>
-                            <th>Cantidad</th>
-                            <th>Precio</th>
-                            <th>Accion</th>
-                        </tr>
-                    </thead>
-                    <tbody class="">
-                        <tr class="aling-content-center">
-                            <td class="align-middle"> Tyrannosaurus Dental de Nylon para Perros Aliento Fresco - Nylabone® Dental Chew</td>
-                            <td>
-                                <div class="col-4 number_background">
-                                    <button class="number_button decrement" id="decrement" onclick="stepper(this)"> - </button>
-                                    <input class="number" type="number" min="1" max="50" step="1" value="1" id="my-input" readonly>
-                                    <button class="number_button increment" id="increment" onclick="stepper(this)"> + </button>
-                                </div>
-                            </td>
-                            <td class="align-middle">$15.00</td>
-                            <td class="text-center align-middle" >
-                                <a href="#"><i class="fa-solid fa-trash table_icon"></i></a>
-                            </td>
-                        </tr>
-                        <tr class="aling-content-center">
-                            <td class="align-middle">Pelota hule para perros</td>
-                            <td>
-                                <div class="col-4 number_background">
-                                    <button class="number_button decrement" id="decrement" onclick="stepper(this)"> - </button>
-                                    <input class="number" type="number" min="1" max="50" step="1" value="2" id="my-input" readonly>
-                                    <button class="number_button increment" id="increment" onclick="stepper(this)"> + </button>
-                                </div>
-                            </td>
-                            <td class="align-middle">$6.00</td>
-                            <td class="text-center align-middle" >
-                                <a href="#"><i class="fa-solid fa-trash table_icon"></i></a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="col-4 mt-4">
-                <div class="resumen">
-                    <h5>Resumen del pedido</h5>
-                    <div class="row justify-content-between text-muted">
-                        <div class="col-9 mt-2">
-                            Subtotal:
-                        </div>
-                        <div class="col-3 text-end mt-2">
-                            $27.00
-                        </div>
-                        <div class="col-9 mt-2">
-                            Descuento:
-                        </div>
-                        <div class="col-3 text-end mt-2">
-                            $0
-                        </div>
-                        <div class="col-9 mt-2">
-                            Envio:
-                        </div>
-                        <div class="col-3 text-end mt-2">
-                            $0
-                        </div>
-                        <hr class="mt-3">
-                        <div class="col-9 mt-2">
-                            <h6>Total:</h6>
-                        </div>
-                        <div class="col-3 text-end mt-2">
-                            $27.00
-                        </div>
-                    </div>
-                    <a class="btn enviar mt-3" href="pago.html">Finalizar compra</a>
-                </div>
-            </div>
+    <main class="container">
+        <div class="row">
             <div class="col-8">
-                <div class="row border rounded ficha">
-                    <div class="col-6 mt-3">
-                        <h5 class="text-center">Metodo de pago</h5>
-                        <img src="../rsc/metodo_pago.PNG" class="metodo_pago">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card mt-4">
+                            <div class="card-body">
+                                <h4>Informacion de entrega</h4>
+                                <h5 class="text-muted">Rodrigo Hernandez</h5>
+                                <p>Col. Santisima Trinidad, 2da etapa <br>
+                                    pasaje 9, block E poniente, casa #2 <br>
+                                    Ayutuxtepeque, San Salvador, El Salvador, 1121
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-6">
-                        <h5 class="text-center mt-3">Compra segura</h5>
-                        <p class="text-center align-content-center mt-5">Recibe un reembolso de tu dinero si el artículo no llega o es diferente al de la descripción.</p>
+                    <div class="col-12">
+                        <div class="card mt-2 mb-4">
+                            <div class="card-body">
+                                <h4>Resumen del pedido</h4>
+                                <h6 class="text-muted">ID: 2022020001</h6>
+                                <div class="row">
+                                    <div class="col-10">
+                                        <h6>Producto</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-end">Subtotal</h6>
+                                    </div>
+                                </div>
+                                <div class="row mt-1 text-muted">
+                                    <div class="col-10">
+                                        <h6>Tyrannosaurus Dental de Nylon para Perros Aliento Fresco - Nylabone® Dental Chew	
+                                        </h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-end">$15.00</h6>
+                                    </div>
+                                    <div class="col-10">
+                                        <h6>Pelota hule para perros</h6>                                        </h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-end">$12.00</h6>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-10">
+                                        <h6>Sub total:</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-end">$27.00</h6>
+                                    </div>
+                                    <div class="col-10">
+                                        <h6>Descuento:</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-end">$0</h6>
+                                    </div>
+                                    <div class="col-10">
+                                        <h6>Total:</h6>
+                                    </div>
+                                    <div class="col-2">
+                                        <h6 class="text-end">$27.00</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+            <div class="col-4">
+                <div class="card mt-4 rounded-3">
+                    <div class="card-body">
+                        <h4 style="margin-left: 10px;">Metodo de pago</h4>
+                        <div class="accordion accordion-flush" id="accordionFlushExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-headingOne">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                        aria-controls="flush-collapseOne">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                Contra entrega
+                                            </label>
+                                        </div>
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                    aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body">Se entrega el pago en efectivo en el momento de entrega del producto</div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                        aria-controls="flush-collapseTwo">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                Chivo wallet
+                                            </label>
+                                        </div>
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                                    aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body">
+                                        <img src="../rsc/qr.png" alt="codigo_qr" class="qr">
+                                        <p>escanea el codigo QR para realizar tu pago</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-headingThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                        aria-controls="flush-collapseThree">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                Tarjeta de credito/debito
+                                            </label>
+                                        </div>
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseThree" class="accordion-collapse collapse"
+                                    aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body">
+                                        Pague de forma segura con su tarjeta de credito/debito
+                                        <br>
+                                        <img src="../rsc/visa.png" class="visa">
+                                        <img src="../rsc/master.png" class="master">
+                                        <br>
+                                        <form>
+                                            <div class="mb-2">
+                                                <label for="exampleInputEmail1" class="form-label">Numero de tarjeta</label>
+                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="exampleInputPassword1" class="form-label">Caducidad</label>
+                                                <input type="password" class="form-control" id="exampleInputPassword01">
+                                                <label for="exampleInputPassword1" class="form-label">CVV</label>
+                                                <input type="password" class="form-control" id="exampleInputPassword01">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a type="submit" class="btn enviar mt-2" href="lista_pedidos.html">Finalizar compra</a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
     </main>
     <footer class="footershop">
         <div class="footershop_container">
@@ -281,7 +346,6 @@
             <p>©Roi VeluShop.com – Todos los derechos reservados 2022</p>
         </div>
     </footer>
-    <script src="../js/script.js"></script>
 </body>
 
 </html>

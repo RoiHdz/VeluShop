@@ -1,0 +1,27 @@
+:root{
+    --color-principal: #1C474D;
+    --color-secundario: #33A638;
+    --color-font-uno: #0B0D17;
+    --color-font-dos: #f6f6f6;
+}
+.form_line{
+    display: flex;
+    justify-content: space-between;
+}
+.forms{
+    display: flex;
+}
+.select{
+    margin-left: 10px;
+    background-color: #ffffff;
+}
+.line_forms{
+    display:  flex;
+}
+.line_forms-div{
+    margin-right: 20px;
+}
+.table_info{
+    background-color: var(--color-principal) !important;
+    color: var(--color-font-dos);
+}

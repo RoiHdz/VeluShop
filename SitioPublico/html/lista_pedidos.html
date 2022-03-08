@@ -23,13 +23,11 @@
     <link rel="stylesheet" href="../css/Navbar.css">
     <link rel="stylesheet" href="../css/Footer.css">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/detalle.css">
-    <link rel="stylesheet" href="../css/input.css">
     <link rel="stylesheet" href="../css/carrito.css">
     <link rel="stylesheet" href="../css/lightslider.css" />
+    <link rel="stylesheet" href="../css/lista_pedidos.css">
     <!-- JavaScript -->
     <script src="../js/main.js"></script>
-    
     <title>VeluShop - Inicio</title>
 </head>
 
@@ -153,96 +151,95 @@
             </div>
         </div>
     </nav>
-    <main class="container mb-5">
-        <section class="row">
-            <div class="col-8" style="padding: 0;">
-                <table class="table mt-4 table-bordered ficha">
-                    <thead class="table_head">
-                        <tr>
-                            <th style="width: 60%;">Producto</th>
-                            <th>Cantidad</th>
-                            <th>Precio</th>
-                            <th>Accion</th>
+    <main class="container">
+        <div class="row">
+            <div class="col-12 mt-4 mb-3 form_line">
+                <div class="forms align-items-center line_forms-div">
+                    <div>ID:</div>
+                    <form class="search_nav d-flex">
+                        <input class="nav_center-buscar border" type="search" placeholder="Buscar">
+                        <button class="nav_center-buscar_boton border" type="submit">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </form>
+                </div>
+                <div class="forms align-items-center line_forms-div">
+                    <div>Ordenar por:</div>
+                    <div class="select">
+                        <select class="form-select col-6" style="width: 175px;">
+                            <option selected>Por defecto</option>
+                            <option value="1">Fecha</option>
+                            <option value="2">Precio</option>
+                            <option value="3">Cantidad</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <h2 class="encabezado text-center mt-2">Lista de pedidos</h2>
+            <div class="col-12 mb-4">
+                <table class="table border table-bordered">
+                    <thead>
+                        <tr class="text-center">
+                            <th style="width: 50%;">Producto</th>
+                            <th style="width: 10%;">Cantidad</th>
+                            <th style="width: 10%;">Estado</th>
+                            <th style="width: 10%;">Precio</th>
+                            <th style="width: 10%;">Descuento</th>
+                            <th style="width: 10%;">Total</th>
                         </tr>
                     </thead>
-                    <tbody class="">
-                        <tr class="aling-content-center">
-                            <td class="align-middle"> Tyrannosaurus Dental de Nylon para Perros Aliento Fresco - Nylabone® Dental Chew</td>
-                            <td>
-                                <div class="col-4 number_background">
-                                    <button class="number_button decrement" id="decrement" onclick="stepper(this)"> - </button>
-                                    <input class="number" type="number" min="1" max="50" step="1" value="1" id="my-input" readonly>
-                                    <button class="number_button increment" id="increment" onclick="stepper(this)"> + </button>
-                                </div>
-                            </td>
-                            <td class="align-middle">$15.00</td>
-                            <td class="text-center align-middle" >
-                                <a href="#"><i class="fa-solid fa-trash table_icon"></i></a>
+                    <tbody>
+                        <tr>
+                            <td colspan="6" class="table_info">
+                                <span style="margin-right: 30px;">ID pedido: 2020020002</span>
+                                <span style="margin-right: 30px;">Fecha y hora del pedido: 17/02/2022</span>
+                                <span style="margin-right: 30px;">Importe total: $25.00</span>
+                                <a href="#" class="link-success">Ver detalles</a>
                             </td>
                         </tr>
-                        <tr class="aling-content-center">
-                            <td class="align-middle">Pelota hule para perros</td>
-                            <td>
-                                <div class="col-4 number_background">
-                                    <button class="number_button decrement" id="decrement" onclick="stepper(this)"> - </button>
-                                    <input class="number" type="number" min="1" max="50" step="1" value="2" id="my-input" readonly>
-                                    <button class="number_button increment" id="increment" onclick="stepper(this)"> + </button>
-                                </div>
+                        <tr>
+                            <th>Tyrannosaurus Dental de Nylon para Perros Aliento Fresco - Nylabone® Dental Chew</th>
+                            <td class="text-center">1</td>
+                            <td class="text-center" rowspan="2">Pendiente de entrega</td>
+                            <td class="text-center">$15.00</td>
+                            <td class="text-center">0%</td>
+                            <td class="text-center">$15.00</td>
+                        </tr>
+                        <tr>
+                            <th> PURINA DOG CHOW PERRO ADULTO +7 LONGEVIDAD 3.75 KG (8.3LB)</th>
+                            <td class="text-center">2</td>
+                            <td class="text-center">$5.00</td>
+                            <td class="text-center">0%</td>
+                            <td class="text-center">$10.00</td>
+                        </tr>
+                        <tr>
+                            <td colspan="6" class="table_info">
+                                <span style="margin-right: 30px;">ID pedido: 2020020003</span>
+                                <span style="margin-right: 30px;">Fecha y hora del pedido: 17/02/2022</span>
+                                <span style="margin-right: 30px;">Importe total: $12.00</span>
+                                <a href="#" class="link-success">Ver detalles</a>
                             </td>
-                            <td class="align-middle">$6.00</td>
-                            <td class="text-center align-middle" >
-                                <a href="#"><i class="fa-solid fa-trash table_icon"></i></a>
-                            </td>
+                        </tr>
+                        <tr>
+                            <th>Juguete para perro - hueso comestible</th>
+                            <td class="text-center">1</td>
+                            <td class="text-center" rowspan="2">Entregado</td>
+                            <td class="text-center">$6.00</td>
+                            <td class="text-center">0%</td>
+                            <td class="text-center">$6.00</td>
+                        </tr>
+                        <tr>
+                            <th>Dogshow para perros cachorros - 30kg </th>
+                            <td class="text-center">1</td>
+                            <td class="text-center">$6.00</td>
+                            <td class="text-center">0%</td>
+                            <td class="text-center">$6.00</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <div class="col-4 mt-4">
-                <div class="resumen">
-                    <h5>Resumen del pedido</h5>
-                    <div class="row justify-content-between text-muted">
-                        <div class="col-9 mt-2">
-                            Subtotal:
-                        </div>
-                        <div class="col-3 text-end mt-2">
-                            $27.00
-                        </div>
-                        <div class="col-9 mt-2">
-                            Descuento:
-                        </div>
-                        <div class="col-3 text-end mt-2">
-                            $0
-                        </div>
-                        <div class="col-9 mt-2">
-                            Envio:
-                        </div>
-                        <div class="col-3 text-end mt-2">
-                            $0
-                        </div>
-                        <hr class="mt-3">
-                        <div class="col-9 mt-2">
-                            <h6>Total:</h6>
-                        </div>
-                        <div class="col-3 text-end mt-2">
-                            $27.00
-                        </div>
-                    </div>
-                    <a class="btn enviar mt-3" href="pago.html">Finalizar compra</a>
-                </div>
-            </div>
-            <div class="col-8">
-                <div class="row border rounded ficha">
-                    <div class="col-6 mt-3">
-                        <h5 class="text-center">Metodo de pago</h5>
-                        <img src="../rsc/metodo_pago.PNG" class="metodo_pago">
-                    </div>
-                    <div class="col-6">
-                        <h5 class="text-center mt-3">Compra segura</h5>
-                        <p class="text-center align-content-center mt-5">Recibe un reembolso de tu dinero si el artículo no llega o es diferente al de la descripción.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </div>
     </main>
     <footer class="footershop">
         <div class="footershop_container">
@@ -281,7 +278,6 @@
             <p>©Roi VeluShop.com – Todos los derechos reservados 2022</p>
         </div>
     </footer>
-    <script src="../js/script.js"></script>
 </body>
 
 </html>

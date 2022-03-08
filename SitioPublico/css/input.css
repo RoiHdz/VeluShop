@@ -27,12 +27,12 @@ input::-webkit-inner-spin-button{
     cursor: pointer;
     font-weight: bold;
 }
-#decrement{
+.decrement{
     padding: 15px 5px 15px 25px;
     border-radius: 45px 0 0 45px;
     font-weight: bold;
 }
-#increment{
+.increment{
     padding: 15px 25px 15px 5px;
     border-radius: 0 45px 45px 0;
     font-weight: bold;

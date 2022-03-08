@@ -1,5 +1,36 @@
-td{
-    font-size: 20px;
-    text-align: center;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+:root{
+    --color-principal: #1C474D;
+    --color-secundario: #33A638;
+    --color-font-uno: #0B0D17;
+    --color-font-dos: #f6f6f6;
+}
+.table_head{
+    background-color: var(--color-principal);
+    color: var(--color-font-dos);
+}
+.table_icon{
+    font-size: 22px;
+    color: var(--color-font-uno);
+}
+.resumen{
+    width: 300px;
+    height: 280px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f8f8f8;
+}
+.ficha{
+    background-color: #f8f8f8;
+}
+.metodo_pago{
+    width: 100%;
+    object-fit: scale-down;
+}
+.user_nav{
+    display: block;
+}
+.enviar{
+    background-color: var(--color-secundario);
+    color: var(--color-font-dos);
+    width: 100%;
 }
