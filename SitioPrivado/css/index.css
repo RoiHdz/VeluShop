@@ -11,9 +11,6 @@
     font-family: 'Rubik', sans-serif;
 }
 
-body{
-    background-color: #f3f3f3;
-}
 .nav_center-buscar{
     margin-left: 10px;
     border-radius: 5px 0 0 5px;
@@ -43,3 +40,4 @@ body{
     font-size: 20px;
     margin-left: 10px;
 }
+
