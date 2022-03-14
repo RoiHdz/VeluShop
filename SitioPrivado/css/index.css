@@ -40,20 +40,3 @@
     font-size: 20px;
     margin-left: 10px;
 }
-.login{
-    height: 100vh;
-}
-.card{
-    height: 50vh;
-    background-color: #1C474D;
-    color: var(--color-font-dos);
-    border-radius: 20px;
-}
-.login_img{
-    width: 100%;
-    object-fit: scale-down;
-    height: 80px;
-}
-.login_btn{
-    width: 100%;
-}
