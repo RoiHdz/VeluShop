@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="../../resources/img/icono.png"/>
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <!-- FontAwesome *iconos* -->
+    <script src="https://kit.fontawesome.com/a478d5fd56.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <!-- CSS propio -->
+    <link rel="stylesheet" href="../../resources/css/private.css"/>
+    <!-- JavaScript -->
+    <title>Manejo de clientes</title>
+</head>
+
+<body>
+    <nav class="navegacion">
+        <ul>
+            <li>
+                <a href="#">
+                    <span class="navegacion-icon"><img src="../../SitioPublico/rsc/icono.png" height="40"></span>
+                    <span class="navegacion-title">Velu Shop</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="navegacion-icon"><i class="fa-solid fa-house"></i></span>
+                    <span class="navegacion-title">Dasboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="productos.html">
+                    <span class="navegacion-icon"><i class="fa-solid fa-box"></i></span>
+                    <span class="navegacion-title">Producto</span>
+                </a>
+            </li>
+            <li>
+                <a href="Pedidos.html">
+                    <span class="navegacion-icon"><i class="fa-solid fa-truck"></i></span>
+                    <span class="navegacion-title">Pedido</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="navegacion-icon" data-bs-toggle="collapse" href="#collapseUsuario" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa-solid fa-user"></i></span>
+                    <span class="navegacion-title" data-bs-toggle="collapse" href="#collapseUsuario" role="button" aria-expanded="false" aria-controls="collapseExample">Usuario</span>
+                </a>
+                <div class="collapse" id="collapseUsuario">
+                    <div class="card card-body card_collapse">
+                        <button type="button" class="btn cb"><i class="fa-solid fa-angle-right"></i>Clientes</button>
+                        <button type="button" class="btn cb mt-1"><i class="fa-solid fa-angle-right"></i>Usuarios</button>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a href="#">
+                    <span alt="Admin" class="navegacion-icon" data-bs-toggle="collapse" href="#collapseAdmin" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa-solid fa-user-tie"></i></span>
+                    <span class="navegacion-title" data-bs-toggle="collapse" href="#collapseAdmin" role="button" aria-expanded="false" aria-controls="collapseExample">Admnistración</span>
+                </a>
+                <div class="collapse" id="collapseAdmin">
+                    <div class="card card-body card_collapse">
+                        <button type="button" class="btn cb"><i class="fa-solid fa-angle-right"></i>Categoria/Especie</button>
+                        <button type="button" class="btn cb mt-1"><i class="fa-solid fa-angle-right"></i>Asignacion</button>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <span class="navegacion-icon"><i class="fa-solid fa-right-from-bracket"></i></span>
+                    <span class="navegacion-title">Cerar sesión</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    
+    <main class="main_topbar">
+        <div class="topbar">
+            <div class="toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="search">
+                <h4>Manejo de clientes</h4>
+            </div>
+            <div class="user">
+
+            </div>
+        </div>
+        <div class="container">
+            <section class="row">
+                <div class="col-12 mt-4">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="forms align-items-center line_forms-div">
+                                <div class="forms_label">Buscar:</div>
+                                <form class="search_nav d-flex">
+                                    <input class="nav_center-buscar border" type="search" placeholder="Buscar">
+                                    <button class="nav_center-buscar_boton border" type="submit">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-8 colz">
+                            <div class="forms align-items-center line_forms-div">
+                                <div class="forms_label">Ordenar por:</div>
+                                <div class="select">
+                                    <select class="form-select col-6" style="width: 175px;">
+                                        <option selected>Por defecto</option>
+                                        <option value="1">Fecha</option>
+                                        <option value="2">Precio</option>
+                                        <option value="3">Cantidad</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mt-5">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="width: 10%;" class="text-center">ID</th>
+                                <th style="width: 20%;">Nombre</th>
+                                <th style="width: 12%;">Username</th>
+                                <th class="text-center">Departamento</th>
+                                <th class="text-center">Municipio</th>
+                                <th class="text-center">Estado</th>
+                                <th class="text-center" style="width: 10%;">Accion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th class="text-center align-middle">1</th>
+                                <td class="align-middle">Adrian Augustu</td>
+                                <td class="align-middle">yc_siuuu</td>
+                                <td class="align-middle text-center">San Salvador</td>
+                                <td class="align-middle text-center">Mejicanos</td>
+                                <td class="align-middle text-center">Activo</td>
+                                <td class="text-center align-middle">
+                                    <a href="#"><i class="fa-solid fa-eye table_icon"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="text-center align-middle">2</th>
+                                <td class="align-middle">Rodrigo Hernandez</td>
+                                <td class="align-middle">RoiHdzzz</td>
+                                <td class="align-middle text-center">San Salvador</td>
+                                <td class="align-middle text-center">Ayutuxtepeque</td>
+                                <td class="align-middle text-center">Activo</td>
+                                <td class="text-center align-middle">
+                                    <a href="#"><i class="fa-solid fa-eye table_icon"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="text-center align-middle">3</th>
+                                <td class="align-middle">Diego Beltran</td>
+                                <td class="align-middle">D_Beltrannn</td>
+                                <td class="align-middle text-center">San Salvador</td>
+                                <td class="align-middle text-center">Santiago Texacuango</td>
+                                <td class="align-middle text-center">Activo</td>
+                                <td class="text-center align-middle">
+                                    <a href="#"><i class="fa-solid fa-eye table_icon"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="text-center align-middle">4</th>
+                                <td class="align-middle">Johan Mercado</td>
+                                <td class="align-middle">johxn</td>
+                                <td class="align-middle text-center">San Salvador</td>
+                                <td class="align-middle text-center">Ayutuxtepeque</td>
+                                <td class="align-middle text-center">Activo</td>
+                                <td class="text-center align-middle">
+                                    <a href="#"><i class="fa-solid fa-eye table_icon"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="text-center align-middle">5</th>
+                                <td class="align-middle">Diego Lopez</td>
+                                <td class="align-middle">Dialejandro11</td>
+                                <td class="align-middle text-center">San Miguel</td>
+                                <td class="align-middle text-center">El transito</td>
+                                <td class="align-middle text-center">Activo</td>
+                                <td class="text-center align-middle">
+                                    <a href="#"><i class="fa-solid fa-eye table_icon"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>  
+        </div>
+        <!-- Extras -->
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Cerrar sesión</h5>
+                        <a type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></a>
+                    </div>
+                    <div class="modal-body">
+                        ¿Usted esta seguro que decea cerrar sesión? puede volver a ingresar las veces que quiera
+                    </div>
+                    <div class="modal-footer">
+                        <a class="btn btn-primary col-12" href="../index.html">Cerrar sesión</a>
+                        <a type="button" class="btn btn-secondary col-12" data-bs-dismiss="modal">Cancelar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- JavaScript -->
+    <script src="../../resources/js/slide.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>

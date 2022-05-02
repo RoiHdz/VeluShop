@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="../../resources/img/icono.png"/>
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <!-- FontAwesome *iconos* -->
+    <script src="https://kit.fontawesome.com/a478d5fd56.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <!-- CSS propio -->
+    <link rel="stylesheet" href="../../resources/css/private.css"/>
+    <!-- JavaScript -->
+    <title>Manejo de pedidos</title>
+</head>
+
+<body>
+    <nav class="navegacion">
+        <ul>
+            <li>
+                <a href="#">
+                    <span class="navegacion-icon"><img src="../../SitioPublico/rsc/icono.png" height="40"></span>
+                    <span class="navegacion-title">Velu Shop</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="navegacion-icon"><i class="fa-solid fa-house"></i></span>
+                    <span class="navegacion-title">Dasboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="productos.html">
+                    <span class="navegacion-icon"><i class="fa-solid fa-box"></i></span>
+                    <span class="navegacion-title">Producto</span>
+                </a>
+            </li>
+            <li>
+                <a href="Pedidos.html">
+                    <span class="navegacion-icon"><i class="fa-solid fa-truck"></i></span>
+                    <span class="navegacion-title">Pedido</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="navegacion-icon" data-bs-toggle="collapse" href="#collapseUsuario" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa-solid fa-user"></i></span>
+                    <span class="navegacion-title" data-bs-toggle="collapse" href="#collapseUsuario" role="button" aria-expanded="false" aria-controls="collapseExample">Usuario</span>
+                </a>
+                <div class="collapse" id="collapseUsuario">
+                    <div class="card card-body card_collapse">
+                        <button type="button" class="btn cb"><i class="fa-solid fa-angle-right"></i>Clientes</button>
+                        <button type="button" class="btn cb mt-1"><i class="fa-solid fa-angle-right"></i>Usuarios</button>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a href="#">
+                    <span alt="Admin" class="navegacion-icon" data-bs-toggle="collapse" href="#collapseAdmin" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa-solid fa-user-tie"></i></span>
+                    <span class="navegacion-title" data-bs-toggle="collapse" href="#collapseAdmin" role="button" aria-expanded="false" aria-controls="collapseExample">Admnistración</span>
+                </a>
+                <div class="collapse" id="collapseAdmin">
+                    <div class="card card-body card_collapse">
+                        <button type="button" class="btn cb"><i class="fa-solid fa-angle-right"></i>Categoria/Especie</button>
+                        <button type="button" class="btn cb mt-1"><i class="fa-solid fa-angle-right"></i>Asignacion</button>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="navegacion-icon"><i class="fa-solid fa-right-from-bracket"></i></span>
+                    <span class="navegacion-title">Cerar sesión</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <main class="main_topbar">
+        <div class="topbar">
+            <div class="toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="search">
+                <h4>Manejo de pedidos</h4>
+            </div>
+            <div class="user">
+
+            </div>
+        </div>
+        <div class="container">
+            <section class="row">
+                <div class="col-12 mt-4">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="forms align-items-center line_forms-div">
+                                <div class="forms_label">Buscar:</div>
+                                <form class="search_nav d-flex">
+                                    <input class="nav_center-buscar border" type="search" placeholder="Buscar">
+                                    <button class="nav_center-buscar_boton border" type="submit">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-8 colz">
+                            <div class="forms align-items-center line_forms-div">
+                                <div class="forms_label">Ordenar por:</div>
+                                <div class="select">
+                                    <select class="form-select col-6" style="width: 175px;">
+                                        <option selected>Por defecto</option>
+                                        <option value="1">Fecha</option>
+                                        <option value="2">Precio</option>
+                                        <option value="3">Cantidad</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mt-5">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="width: 10%;" class="text-center">ID</th>
+                                <th style="width: 14%;">Username</th>
+                                <th class="text-center">Metodo de pago</th>
+                                <th class="text-center">Pago</th>
+                                <th class="text-center">Estado</th>
+                                <th class="text-center">Subtotal</th>
+                                <th class="text-center">Total</th>
+                                <th class="text-center" style="width: 10%;">Accion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th class="text-center align-middle">20220200007</th>
+                                <td class="align-middle">Roi</td>
+                                <td class="align-middle text-center">Tarjeta de credito</td>
+                                <td class="align-middle text-center">Pagado</td>
+                                <td class="align-middle text-center">Pendiente</td>
+                                <td class="align-middle text-center">$50.00</td>
+                                <td class="align-middle text-center">$50.00</td>
+                                <td class="text-center align-middle">
+                                    <a href="#"><i class="fa-solid fa-pencil table_icon"></i></a>
+                                    <a href="#"><i class="fa-solid fa-eye table_icon"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="text-center align-middle">20220200006</th>
+                                <td class="align-middle">Roi</td>
+                                <td class="align-middle text-center">Chivo wallet</td>
+                                <td class="align-middle text-center">Pagado</td>
+                                <td class="align-middle text-center">Entregado</td>
+                                <td class="align-middle text-center">$17.50</td>
+                                <td class="align-middle text-center">$17.50</td>
+                                <td class="text-center align-middle">
+                                    <a href="#"><i class="fa-solid fa-pencil table_icon"></i></a>
+                                    <a href="#"><i class="fa-solid fa-eye table_icon"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="text-center align-middle">20220200005</th>
+                                <td class="align-middle">TheNoobMaster69</td>
+                                <td class="align-middle text-center">Tarjeta de credito</td>
+                                <td class="align-middle text-center">Pagado</td>
+                                <td class="align-middle text-center">Pendiente</td>
+                                <td class="align-middle text-center">$21.89</td>
+                                <td class="align-middle text-center">$21.89</td>
+                                <td class="text-center align-middle">
+                                    <a href="#"><i class="fa-solid fa-pencil table_icon"></i></a>
+                                    <a href="#"><i class="fa-solid fa-eye table_icon"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="text-center align-middle">20220200004</th>
+                                <td class="align-middle">yc_siuuu</td>
+                                <td class="align-middle text-center">Contra entrega</td>
+                                <td class="align-middle text-center">Pendiente</td>
+                                <td class="align-middle text-center">Cancelado</td>
+                                <td class="align-middle text-center">$5.00</td>
+                                <td class="align-middle text-center">$5.00</td>
+                                <td class="text-center align-middle">
+                                    <a href="#"><i class="fa-solid fa-pencil table_icon"></i></a>
+                                    <a href="#"><i class="fa-solid fa-eye table_icon"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="text-center align-middle">20220200003</th>
+                                <td class="align-middle">yc_siuuu</td>
+                                <td class="align-middle text-center">Contra entrega</td>
+                                <td class="align-middle text-center">Pagado</td>
+                                <td class="align-middle text-center">Entregado</td>
+                                <td class="align-middle text-center">$33.27</td>
+                                <td class="align-middle text-center">$33.27</td>
+                                <td class="text-center align-middle">
+                                    <a href="#"><i class="fa-solid fa-pencil table_icon"></i></a>
+                                    <a href="#"><i class="fa-solid fa-eye table_icon"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="text-center align-middle">20220200002</th>
+                                <td class="align-middle">ElioBlack</td>
+                                <td class="align-middle text-center">Chivo wallet</td>
+                                <td class="align-middle text-center">Pagado</td>
+                                <td class="align-middle text-center">Pendiente</td>
+                                <td class="align-middle text-center">$7.00</td>
+                                <td class="align-middle text-center">$7.00</td>
+                                <td class="text-center align-middle">
+                                    <a href="#"><i class="fa-solid fa-pencil table_icon"></i></a>
+                                    <a href="#"><i class="fa-solid fa-eye table_icon"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="text-center align-middle">20220200001</th>
+                                <td class="align-middle">Josesitoo44</td>
+                                <td class="align-middle text-center">Tarjeta de credito</td>
+                                <td class="align-middle text-center">Pendiente</td>
+                                <td class="align-middle text-center">Cancelado</td>
+                                <td class="align-middle text-center">$11.00</td>
+                                <td class="align-middle text-center">$11.00</td>
+                                <td class="text-center align-middle">
+                                    <a href="#"><i class="fa-solid fa-pencil table_icon"></i></a>
+                                    <a href="#"><i class="fa-solid fa-eye table_icon"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>  
+        </div>
+    </main>
+    <!-- JavaScript -->
+    <script src="../../resources/js/slide.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
