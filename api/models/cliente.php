@@ -104,23 +104,18 @@ class cliente extends Validator
     
     public function setDireccion_2($value)
     {
-        if ($value) {
-            if ($this->validateString($value, 1, 250)) {
-                $this->direccion_2 = $value;
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            $this->descripcion = null;
+        if ($this->validateAlphanumeric($value, 1, 50)) {
+            $this->direccion_2 = $value;
             return true;
+        } else {
+            return false;
         }
     }
 
-    public function setActivo($file)
+    public function setActivo($value)
     {
-        if ($this->validateBoolean($file, 500, 500)) {
-            $this->activo = $this->getFileName();
+        if ($this->validateBoolean($value)) {
+            $this->activo= $value;
             return true;
         } else {
             return false;
