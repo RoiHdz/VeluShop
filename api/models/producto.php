@@ -71,7 +71,7 @@ class producto extends Validator
         }
     }
 
-    public function setStock$value)
+    public function setStock ($value)
     {
         if ($this->validateAlphanumeric($value, 1, 50)) {
             $this->stock= $value;
