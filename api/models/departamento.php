@@ -3,7 +3,7 @@
 *	Clase para manejar la tabla categorias de la base de datos.
 *   Es clase hija de Validator.
 */
-class departamento extends Validator
+class Departamento extends Validator
 {
     // Declaración de atributos (propiedades).
     private $id_departamento = null;
@@ -24,7 +24,7 @@ class departamento extends Validator
 
     public function setDepartamento($value)
     {
-        if ($this->validateNaturalNumber($value)) {
+        if ($this->validateString($value,1 , 25)) {
             $this->departamento = $value;
             return true;
         } else {

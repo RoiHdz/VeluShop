@@ -3,7 +3,7 @@
 *	Clase para manejar la tabla categorias de la base de datos.
 *   Es clase hija de Validator.
 */
-class especie extends Validator
+class Especie extends Validator
 {
     // Declaración de atributos (propiedades).
     private $id_especie = null;
@@ -25,7 +25,7 @@ class especie extends Validator
 
     public function setEspecie($value)
     {
-        if ($this->validateNaturalNumber($value)) {
+        if ($this->validateString($value, 1, 50)) {
             $this->especie = $value;
             return true;
         } else {
@@ -33,10 +33,10 @@ class especie extends Validator
         }
     }
 
-    public function setActivo($file)
+    public function setActivo($value)
     {
-        if ($this->validateBoolean($file, 500, 500)) {
-            $this->activo = $this->getFileName();
+        if ($this->validateBoolean($value)) {
+            $this->activo = $value;
             return true;
         } else {
             return false;

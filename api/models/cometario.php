@@ -3,12 +3,13 @@
 *	Clase para manejar la tabla categorias de la base de datos.
 *   Es clase hija de Validator.
 */
-class comentario extends Validator
+class Comentario extends Validator
 {
     // Declaración de atributos (propiedades).
     private $id_comentario = null;
     private $id_cliente = null;
     private $id_producto = null;
+    private $comentario = null;
 
     /*
     *   Métodos para validar y asignar valores de los atributos.
@@ -43,6 +44,16 @@ class comentario extends Validator
         }
     }
 
+    public function setComentario($value)
+    {
+        if ($this->validateString($value, 1, 200)) {
+            $this->comentario = $value;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
     /*
     *   Métodos para obtener valores de los atributos.
@@ -60,5 +71,10 @@ class comentario extends Validator
     public function getId_producto()
     {
         return $this->id_producto;
+    }
+
+    public function getComentario()
+    {
+        return $this->comentario;
     }
 }

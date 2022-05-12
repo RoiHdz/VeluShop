@@ -165,3 +165,4 @@ class Database
         return self::$error;
     }
 }
+?>

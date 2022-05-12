@@ -122,7 +122,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <button type="button" class="btn btn-primary"><i class="fa-solid fa-plus forms_label"></i>Agregar Asignacion</button>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCE"><i class="fa-solid fa-plus forms_label"></i>Agregar Asignacion</button>
                         </div>
                     </div>
                 </div>
@@ -170,20 +170,18 @@
                 </div>
             </section>
             <h4 class="text-center mt-5 mb-3">Promocionales</h4>
-            <section class="row mb-5">
+            <section class="row">
                 <div class="col-12 mt-4">
-                    <div class="card choose_card border">
-                        <div class="choose_card-upload">
-                            <input class="choose_card-input" type="file" name="myFile" id="myFile" multiple accept="image/*">
-                            <button class="choose_card-button" type="button">Elegir archivos</button>
-                            <span>Ningun archivo seleccionado</span>
-                        </div>
-                    </div>
+                    <label class="form-check-label" for="foto">Foto para los promocionales:</label>
+                    <input type="file" class="form-control" id="foto" name="foto" accept="image/png, image/jpeg" multiple>
+                </div>
+                <div class="col-12 mt-2 mb-5 d-flex justify-content-end">
+                    <button type="button" class="btn btn-primary">Guardar</button>
                 </div>
             </section>   
         </div>
         <!-- Extras -->
-        <!-- Modal -->
+        <!-- Modal para cerrar sesion -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -197,6 +195,55 @@
                     <div class="modal-footer">
                         <a class="btn btn-primary col-12" href="../index.html">Cerrar sesión</a>
                         <a type="button" class="btn btn-secondary col-12" data-bs-dismiss="modal">Cancelar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal para abrir formulario categoria_especie -->
+        <div class="modal fade" id="addCE" data-bs-backdrop="static" tabindex="-1" aria-labelledby="addCE" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-body row">
+                        <div class="col-md-6 mt-2">
+                            <label for="nombre" class="form-label">Categoria:</label>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Selecciona una opcion</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mt-2 mb-3">
+                            <label for="nombre" class="form-label">Especie:</label>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Selecciona una opcion</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                        <div class="col-md-1 mt-2 mb-3">
+                            <label class="form-check-label" for="activo">Activo</label>
+                            <input class="form-check-input" type="checkbox" value="" id="activoEspecie" name="activoEspecie" checked>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#save">Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal para guardar categoria_especie -->
+        <div class="modal fade" id="save" tabindex="-1" aria-labelledby="save" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        ¿Esta seguro de guardar los cambios?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary col-12" data-bs-toggle="modal" data-bs-target="#addCE">Guardar</button>
+                        <a type="button" class="btn btn-secondary col-12" data-bs-toggle="modal" data-bs-target="#addCE">Cancelar</a>
                     </div>
                 </div>
             </div>

@@ -3,7 +3,7 @@
 *	Clase para manejar la tabla categorias de la base de datos.
 *   Es clase hija de Validator.
 */
-class cliente extends Validator
+class Cliente extends Validator
 {
     // Declaración de atributos (propiedades).
     private $id_cliente = null;
@@ -18,9 +18,9 @@ class cliente extends Validator
     private $activo = null;
 
 
-    /*
-    *   Métodos para validar y asignar valores de los atributos.
-    */
+    
+    //   Métodos para validar y asignar valores de los atributos.
+    
     public function setId_cliente($value)
     {
         if ($this->validateNaturalNumber($value)) {
@@ -53,7 +53,7 @@ class cliente extends Validator
 
     public function setUsername($value)
     {
-        if ($this->validateAlphanumeric($value, 1, 50)) {
+        if ($this->validateAlphanumeric($value, 1, 10)) {
             $this->username = $value;
             return true;
         } else {
@@ -63,7 +63,7 @@ class cliente extends Validator
 
     public function setPssword($value)
     {
-        if ($this->validateAlphanumeric($value, 1, 50)) {
+        if ($this->validatePassword($value)) {
             $this->pssword = $value;
             return true;
         } else {
@@ -73,7 +73,7 @@ class cliente extends Validator
 
     public function setEmail($value)
     {
-        if ($this->validateAlphanumeric($value, 1, 50)) {
+        if ($this->validateEmail($value)) {
             $this->email = $value;
             return true;
         } else {
@@ -93,7 +93,7 @@ class cliente extends Validator
 
     public function setDireccion_1($value)
     {
-        if ($this->validateAlphanumeric($value, 1, 50)) {
+        if ($this->validateString($value, 1, 100)) {
             $this->direccion_1 = $value;
             return true;
         } else {
@@ -104,7 +104,7 @@ class cliente extends Validator
     
     public function setDireccion_2($value)
     {
-        if ($this->validateAlphanumeric($value, 1, 50)) {
+        if ($this->validateString($value, 1, 100)) {
             $this->direccion_2 = $value;
             return true;
         } else {

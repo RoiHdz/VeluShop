@@ -3,11 +3,11 @@
 *	Clase para manejar la tabla categorias de la base de datos.
 *   Es clase hija de Validator.
 */
-class municipio extends Validator
+class Municipio extends Validator
 {
     // Declaración de atributos (propiedades).
-    private $id_municipio = null;
-    private $id_departamento = null;
+    private $id_municipio = null; //Llave Primaria
+    private $id_departamento = null; //Llave Foranea
     private $municipio = null;
 
     /*
@@ -35,7 +35,7 @@ class municipio extends Validator
 
     public function setMunicipio($value)
     {
-        if ($this->validateNaturalNumber($value)) {
+        if ($this->validateString($value,1 , 25)) {
             $this->municipio = $value;
             return true;
         } else {

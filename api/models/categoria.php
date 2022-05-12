@@ -1,21 +1,19 @@
 <?php
 /*
 *	Clase para manejar la tabla categorias de la base de datos.
-*   Es clase hija de Validator.
 */
-class categoria extends Validator
+class Categoria extends Validator
 {
-    // Declaración de atributos (propiedades).
-    private $id = null;
-    private $nombre = null;
-    private $imagen = null;
+    // Declaración de atributos.
+    private $id_categoria = null;
+    private $categoria = null;
     private $descripcion = null;
     private $activo = null;
 
 
-    /*
-    *   Métodos para validar y asignar valores de los atributos.
-    */
+    
+    //   Métodos para validar y asignar valores de los atributos.
+    
     public function setId_categoria($value)
     {
         if ($this->validateNaturalNumber($value)) {
@@ -28,18 +26,8 @@ class categoria extends Validator
 
     public function setCategoria($value)
     {
-        if ($this->validateAlphanumeric($value, 1, 50)) {
+        if ($this->validateString($value, 1, 25)) {
             $this->categoria = $value;
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public function setActivo($file)
-    {
-        if ($this->validateBoolean($file, 500, 500)) {
-            $this->activo = $this->getFileName();
             return true;
         } else {
             return false;
@@ -61,12 +49,23 @@ class categoria extends Validator
         }
     }
 
-    /*
-    *   Métodos para obtener valores de los atributos.
-    */
+    public function setActivo($value)
+    {
+        if ($this->validateBoolean($value)) {
+            $this->activo = $value;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    
+    //   Métodos para obtener valores de los atributos.
+    
+
     public function getId_categoria()
     {
-        return $this->id;
+        return $this->id_categoria;
     }
 
     public function getCategoria()
@@ -74,13 +73,13 @@ class categoria extends Validator
         return $this->categoria;
     }
 
-    public function getActivo()
-    {
-        return $this->activo;
-    }
-
     public function getDescripcion()
     {
         return $this->descripcion;
+    }
+
+    public function getActivo()
+    {
+        return $this->activo;
     }
 }

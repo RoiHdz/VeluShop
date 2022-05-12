@@ -122,7 +122,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <button type="button" class="btn btn-primary"><i class="fa-solid fa-plus forms_label"></i>Agregar cartegoria</button>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCategoria"><i class="fa-solid fa-plus forms_label"></i>Agregar cartegoria</button>
                         </div>
                     </div>
                 </div>
@@ -196,7 +196,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <button type="button" class="btn btn-primary"><i class="fa-solid fa-plus forms_label"></i>Agregar especie</button>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addEspecie"><i class="fa-solid fa-plus forms_label"></i>Agregar especie</button>
                         </div>
                     </div>
                 </div>
@@ -241,7 +241,7 @@
             </section>   
         </div>
         <!-- Extras -->
-        <!-- Modal -->
+        <!-- Modal para cerrar sesion -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -255,6 +255,83 @@
                     <div class="modal-footer">
                         <a class="btn btn-primary col-12" href="../index.html">Cerrar sesión</a>
                         <a type="button" class="btn btn-secondary col-12" data-bs-dismiss="modal">Cancelar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal para abrir formulario categoria -->
+        <div class="modal fade" id="addCategoria" data-bs-backdrop="static" tabindex="-1" aria-labelledby="addCategoria" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-body row">
+                        <div class="col-md-12 mt-2">
+                            <label for="nombre" class="form-label">Nombre:</label>
+                            <input type="text" class="form-control" id="nombre" name="nombreCategoria" required
+                            placeholder="Nombre de la categoria">
+                        </div>
+                        <div class="col-md-12 mt-2">
+                            <label for="apellido" class="form-label">Descricion:</label>
+                            <textarea class="form-control" id="descripcion" name="descripcionCategoria" maxlength="250"
+                                placeholder="Escribe una breve descripcion del producto" required></textarea>
+                        </div>
+                        <div class="col-md-1 mt-2 mb-3">
+                            <label class="form-check-label" for="activo">Activo</label>
+                            <input class="form-check-input" type="checkbox" value="" id="activoCategoria" name="activoCategoria" checked>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#saveCategoria">Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal para abrir formulario especie -->
+        <div class="modal fade" id="addEspecie" data-bs-backdrop="static" tabindex="-1" aria-labelledby="addEspecie" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-body row">
+                        <div class="col-md-12 mt-2">
+                            <label for="nombre" class="form-label">Nombre:</label>
+                            <input type="text" class="form-control" id="nombre" name="nombreEspecie" required
+                            placeholder="Nombre de la especie">
+                        </div>
+                        <div class="col-md-1 mt-2 mb-3">
+                            <label class="form-check-label" for="activo">Activo</label>
+                            <input class="form-check-input" type="checkbox" value="" id="activoEspecie" name="activoEspecie" checked>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#saveEspecie">Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal para guardar especie -->
+        <div class="modal fade" id="saveEspecie" tabindex="-1" aria-labelledby="saveEspecie" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        ¿Esta seguro de guardar los cambios?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary col-12" data-bs-toggle="modal" data-bs-target="#addEspecie">Guardar</button>
+                        <a type="button" class="btn btn-secondary col-12" data-bs-toggle="modal" data-bs-target="#addEspecie">Cancelar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal para guardar Categoria -->
+        <div class="modal fade" id="saveCategoria" tabindex="-1" aria-labelledby="saveCategoria" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        ¿Esta seguro de guardar los cambios?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary col-12" data-bs-toggle="modal" data-bs-target="#addCategoria">Guardar</button>
+                        <a type="button" class="btn btn-secondary col-12" data-bs-toggle="modal" data-bs-target="#addCategoria">Cancelar</a>
                     </div>
                 </div>
             </div>

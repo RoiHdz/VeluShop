@@ -17,3 +17,7 @@ function activeLinks() {
         this.classList.add('hovered');
 }
 list.forEach((item) => item.addEventListener('mouseover', activeLinks));
+
+var quill = new Quill('#editor', {
+    theme: 'snow'
+});

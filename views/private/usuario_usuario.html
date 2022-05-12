@@ -101,8 +101,8 @@
                         <div class="col-4">
                             <div class="forms align-items-center line_forms-div">
                                 <div class="forms_label">Buscar:</div>
-                                <form class="search_nav d-flex">
-                                    <input class="nav_center-buscar border" type="search" placeholder="Buscar">
+                                <form class="search_nav d-flex" id="search-form" method="post">
+                                    <input class="nav_center-buscar border" type="search" placeholder="Buscar" id="search">
                                     <button class="nav_center-buscar_boton border" type="submit">
                                         <i class="fa-solid fa-magnifying-glass"></i>
                                     </button>
@@ -137,40 +137,8 @@
                                 <th class="text-center" style="width: 10%;">Accion</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <th class="text-center align-middle">1</th>
-                                <td class="align-middle">Rodrigo Hernandez</td>
-                                <td class="align-middle">TheNoobMaster69</td>
-                                <td class="align-middle text-center">Administrador</td>
-                                <td class="align-middle text-center">Activo</td>
-                                <td class="text-center align-middle">
-                                    <a href="#"><i class="fa-solid fa-pencil table_icon"></i></a>
-                                    <a href="#"><i class="fa-solid fa-eye table_icon"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th class="text-center align-middle">2</th>
-                                <td class="align-middle">Daniel Carranza</td>
-                                <td class="align-middle">Daniel777</td>
-                                <td class="align-middle text-center">Repartidor</td>
-                                <td class="align-middle text-center">Activo</td>
-                                <td class="text-center align-middle">
-                                    <a href="#"><i class="fa-solid fa-pencil table_icon"></i></a>
-                                    <a href="#"><i class="fa-solid fa-eye table_icon"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th class="text-center align-middle">1</th>
-                                <td class="align-middle">Herbert Cornejo</td>
-                                <td class="align-middle">HCornej0_sv</td>
-                                <td class="align-middle text-center">Cajero</td>
-                                <td class="align-middle text-center">Activo</td>
-                                <td class="text-center align-middle">
-                                    <a href="#"><i class="fa-solid fa-pencil table_icon"></i></a>
-                                    <a href="#"><i class="fa-solid fa-eye table_icon"></i></a>
-                                </td>
-                            </tr>
+                        <tbody id="tbody-rows">
+                            
                         </tbody>
                     </table>
                 </div>
@@ -199,5 +167,8 @@
     <!-- JavaScript -->
     <script src="../../resources/js/slide.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="../../controller/components.js"></script>
+    <!-- <script src="../../controller/private/online.js"></script> -->
+    <script src="../../controller/private/usuarios.js"></script>
 </body>
 </html>
