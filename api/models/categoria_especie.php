@@ -85,8 +85,8 @@ class Categoria_especie extends Validator
                 FROM categoria_especie
                 INNER JOIN categoria c on categoria_especie.id_categoria = c.id_categoria
                 INNER JOIN especie e on e.id_especie = categoria_especie.id_especie 
-                WHERE e.id_especie = 1 ORDER BY id_categoria_especie';
-        $params = null;
+                WHERE e.id_especie = ? ORDER BY id_categoria_especie';
+        $params = array($this->id_especie);
         return Database::getRows($sql, $params);
     }
 

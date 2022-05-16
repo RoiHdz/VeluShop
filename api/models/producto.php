@@ -14,7 +14,7 @@ class Producto extends Validator
     private $stock = null;
     private $disponible = null;
     private $activo = null;
-    private $id_categoria_especie = 2;
+    private $id_categoria_especie = null;
 
 
     /*
@@ -52,7 +52,7 @@ class Producto extends Validator
 
     public function setEspecificacion($value)
     {
-        if ($this->validateString($value, 1, 200)) {
+        if ($this->validateHTML($value, 1, 200)) {
             $this->especificacion= $value;
             return true;
         } else {
@@ -103,7 +103,7 @@ class Producto extends Validator
     public function setId_categoria_especie($value)
     {
         if ($this->validateNaturalNumber($value)) {
-            $this->id_especie_categoria = $value;
+            $this->id_categoria_especie= $value;
             return true;
         } else {
             return false;

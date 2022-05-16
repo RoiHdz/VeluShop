@@ -16,7 +16,9 @@ if (isset($_GET['action'])) {
         // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
             case 'readSelect':
-                if ($result['dataset'] = $categoria->readSelect()) {
+                if (!$categoria->setId_especie($_GET['id_especie'])){
+                    $result['exception'] ='Especie incorrecta';
+                } elseif ($result['dataset'] = $categoria->readSelect()) {
                     $result['status'] = 1;
                 } elseif (Database::getException()) {
                     $result['exception'] = Database::getException();

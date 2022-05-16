@@ -44,7 +44,7 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Nombre incorrecto';
                 } elseif (!$producto->setDescripcion($_POST['descripcion'])) {
                     $result['exception'] = 'Descripción incorrecta';
-                }elseif (!$producto->setEspecificacion($_POST['descripcion'])) {
+                }elseif (!$producto->setEspecificacion($_POST['especificacion'])) {
                     $result['exception'] = 'Especificacion incorrecta';
                 } elseif (!$producto->setPrecio($_POST['precio'])) {
                     $result['exception'] = 'Precio incorrecto';

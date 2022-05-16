@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
     document.getElementById('titulo').textContent = 'Crear producto';
-    fillSelect(ENDPOINT_CATEGORIA_ESPECIE, 'categoria', null);
     fillSelect(ENDPOINT_ESPECIE, 'especie', null);
 });
 
@@ -52,10 +51,13 @@ document.getElementById('search-form').addEventListener('submit', function (even
     searchRows(API_PRODUCTOS, 'search-form');
 });
 
-// document.getElementById('categoria').addEventListener('change', function (event) {
-//     event.preventDefault();
-//     readSelect(ENDPOINT_CATEGORIA_ESPECIE, 'categoria');
-// });
+document.getElementById('especie').addEventListener('change', function (event) {
+    // Se define un objeto con los datos del registro seleccionado.
+    //const data = new FormData();
+    //data.append('id', document.getElementById('especie').value);
+    const ESPECIE = document.getElementById('especie').value;
+    fillSelect(ENDPOINT_CATEGORIA_ESPECIE + '&id_especie=' + ESPECIE, 'categoria', null);
+ });
 
 // Función para preparar el formulario al momento de insertar un registro.
 function openCreate() {
@@ -118,6 +120,9 @@ function openUpdate(id) {
 
 // Método manejador de eventos que se ejecuta cuando se envía el formulario de guardar.
 document.getElementById('save-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+    document.getElementById('especificacion').value = quill.container.firstChild.innerHTML;
+    console.log(document.getElementById('especificacion').value);
     // Se define una variable para establecer la acción a realizar en la API.
     let action = '';
     // Se comprueba si el campo oculto del formulario esta seteado para actualizar, de lo contrario será para crear.
