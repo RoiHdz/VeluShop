@@ -255,10 +255,12 @@ textarea{
 .index_body{
     background: var(--color-tres) url('../img/bg_index.png') repeat center/126px;
 }
-.xd{
+.hiden{
+    display: none;
 }
 .card_login{
     height: 70vh;
+    border: #999 1px solid;
     border-radius: 10px;
     display: flex;
     overflow: hidden;

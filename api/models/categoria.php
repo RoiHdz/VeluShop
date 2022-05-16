@@ -82,4 +82,58 @@ class Categoria extends Validator
     {
         return $this->activo;
     }
+
+    /*
+    *   Métodos para realizar las operaciones SCRUD (search, create, read, update, delete).
+    */
+    public function searchRows($value)
+    {
+        $sql = 'SELECT id_categoria, categoria, descripcion, activo FROM categoria
+                WHERE categoria ILIKE ?
+                ORDER BY id_categoria desc';
+        $params = array("%$value%");
+        return Database::getRows($sql, $params);
+    }
+
+    public function createRow()
+    {
+        $sql = 'INSERT INTO  categoria(categoria, descripcion, activo) 
+                VALUES (?,?,?)';
+        $params = array($this->categoria, $this->descripcion, $this->activo);
+        return Database::executeRow($sql, $params);
+    }
+
+    public function readAll()
+    {
+        $sql = 'SELECT id_categoria, categoria, descripcion, activo FROM categoria
+                ORDER BY id_categoria desc';
+        $params = null;
+        return Database::getRows($sql, $params);
+    }
+
+    public function readOne()
+    {
+        $sql = 'SELECT id_categoria, categoria, descripcion, activo FROM categoria
+                WHERE id_categoria = ?';
+        $params = array($this->id_categoria);
+        return Database::getRow($sql, $params);
+    }
+
+    public function updateRow($current_image)
+    {
+        $sql = 'UPDATE categorias
+                SET imagen_categoria = ?, nombre_categoria = ?, descripcion_categoria = ?
+                WHERE id_categoria = ?';
+        $params = array($this->imagen, $this->nombre, $this->descripcion, $this->id);
+        return Database::executeRow($sql, $params);
+    }
+
+    public function deleteRow()
+    {
+        $sql = 'DELETE FROM categorias
+                WHERE id_categoria = ?';
+        $params = array($this->id);
+        return Database::executeRow($sql, $params);
+    }
 }
+

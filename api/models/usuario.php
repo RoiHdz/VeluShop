@@ -12,7 +12,7 @@ class Usuario extends Validator{
     private $nombre = null;
     private $apellido = null;
     private $activo = null;
-    private $id_rol = null;
+    private $id_rol = 1;
 
     public function setId_usuario($value)
     {
@@ -37,7 +37,7 @@ class Usuario extends Validator{
     public function setPssword($value)
     {
         if ($this->validatePassword($value)) {
-            $this->pssword = $value;
+            $this->pssword = password_hash($value, PASSWORD_DEFAULT);
             return true;
         } else {
             return false;
@@ -169,7 +169,7 @@ class Usuario extends Validator{
     public function changePassword()
     {
         $sql = 'UPDATE usuario SET pssword = ? WHERE id_usuario = ?';
-        $params = array($this->clave, $_SESSION['id_usuario']);
+        $params = array($this->pssword, $_SESSION['id_usuario']);
         return Database::executeRow($sql, $params);
     }
 
@@ -196,10 +196,9 @@ class Usuario extends Validator{
     */
     public function searchRows($value)
     {
-        $sql = 'SELECT id_usuario, username, pssword, email, nombre, apellido, activo, rol
-                FROM usuario INNER JOIN rol r ON r.id_rol = usuario.id_rol
-                WHERE username ILIKE ? OR nombre ILIKE ? OR apellido ILIKE ?';
-        $params = array("%$value%", "%$value%", "%$value%");
+        $sql = 'SELECT id_usuario,username,pssword,email,nombre,activo,rol FROM v_usuario
+                WHERE username ILIKE ?';
+        $params = array("%$value%");
         return Database::getRows($sql, $params);
     }
 
@@ -213,8 +212,7 @@ class Usuario extends Validator{
 
     public function readAll()
     {
-        $sql = 'SELECT id_usuario, username, pssword, email, nombre, apellido, activo, rol
-                FROM usuario INNER JOIN rol r ON r.id_rol = usuario.id_rol
+        $sql = 'SELECT id_usuario ,username ,pssword ,email ,nombre ,activo , rol FROM v_usuario
                 ORDER BY id_usuario desc';
         $params = null;
         return Database::getRows($sql, $params);
@@ -222,8 +220,7 @@ class Usuario extends Validator{
 
     public function readOne()
     {
-        $sql = 'SELECT id_usuario, username, pssword, email, nombre, apellido, activo, rol
-                FROM usuario INNER JOIN rol r ON r.id_rol = usuario.id_rol
+        $sql = 'SELECT id_usuario,username,pssword,email,nombre,activo,rol FROM v_usuario
                 WHERE id_usuario = ?';
         $params = array($this->id_usuario);
         return Database::getRow($sql, $params);

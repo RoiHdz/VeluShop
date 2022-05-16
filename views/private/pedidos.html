@@ -24,65 +24,8 @@
 
 <body>
     <!-- Slidebar -->
-    <nav class="navegacion">
-        <ul>
-            <li>
-                <a href="#">
-                    <span class="navegacion-icon"><img src="../../resources/img/icono.png" height="40"></span>
-                    <span class="navegacion-title">Velu Shop</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="navegacion-icon"><i class="fa-solid fa-house"></i></span>
-                    <span class="navegacion-title">Dasboard</span>
-                </a>
-            </li>
-            <li>
-                <a href="productos.html">
-                    <span class="navegacion-icon"><i class="fa-solid fa-box"></i></span>
-                    <span class="navegacion-title">Producto</span>
-                </a>
-            </li>
-            <li>
-                <a href="Pedidos.html">
-                    <span class="navegacion-icon"><i class="fa-solid fa-truck"></i></span>
-                    <span class="navegacion-title">Pedido</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="navegacion-icon" data-bs-toggle="collapse" href="#collapseUsuario" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa-solid fa-user"></i></span>
-                    <span class="navegacion-title" data-bs-toggle="collapse" href="#collapseUsuario" role="button" aria-expanded="false" aria-controls="collapseExample">Usuario</span>
-                </a>
-                <div class="collapse" id="collapseUsuario">
-                    <div class="card card-body card_collapse">
-                        <a href="usuario_clientes.html" class="btn cb"><i class="fa-solid fa-angle-right"></i>Clientes</a>
-                        <a href="usuario_usuario.html" class="btn cb mt-1"><i class="fa-solid fa-angle-right"></i>Usuarios</a>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <a href="#">
-                    <span alt="Admin" class="navegacion-icon" data-bs-toggle="collapse" href="#collapseAdmin" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa-solid fa-user-tie"></i></span>
-                    <span class="navegacion-title" data-bs-toggle="collapse" href="#collapseAdmin" role="button" aria-expanded="false" aria-controls="collapseExample">Admnistración</span>
-                </a>
-                <div class="collapse" id="collapseAdmin">
-                    <div class="card card-body card_collapse">
-                        <a href="administracion_ce.html" class="btn cb"><i class="fa-solid fa-angle-right"></i>Categoria/Especie</a>
-                        <a href="administracion_asignacion.html" class="btn cb mt-1"><i class="fa-solid fa-angle-right"></i>Asignacion</a>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <span class="navegacion-icon"><i class="fa-solid fa-right-from-bracket"></i></span>
-                    <span class="navegacion-title">Cerar sesión</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-
+    <nav class="navegacion"></nav>
+    <!-- Contenido principal -->
     <main class="main_topbar">
         <div class="topbar">
             <div class="toggle">
@@ -92,7 +35,7 @@
                 <h4>Manejo de pedidos</h4>
             </div>
             <div class="user">
-
+                <h6 id="user"></h6>
             </div>
         </div>
         <div class="container">
@@ -102,8 +45,8 @@
                         <div class="col-4">
                             <div class="forms align-items-center line_forms-div">
                                 <div class="forms_label">Buscar:</div>
-                                <form class="search_nav d-flex">
-                                    <input class="nav_center-buscar border" type="search" placeholder="Buscar">
+                                <form class="search_nav d-flex" id="search-form" name="search-form">
+                                    <input class="nav_center-buscar border" type="search" placeholder="Buscar" id="buscar" name="buscar">
                                     <button class="nav_center-buscar_boton border" type="submit">
                                         <i class="fa-solid fa-magnifying-glass"></i>
                                     </button>
@@ -130,30 +73,15 @@
                         <thead>
                             <tr>
                                 <th style="width: 10%;" class="text-center">ID</th>
-                                <th style="width: 14%;">Username</th>
+                                <th style="width: 14%;">Cliente</th>
                                 <th class="text-center">Metodo de pago</th>
                                 <th class="text-center">Pago</th>
                                 <th class="text-center">Estado</th>
-                                <th class="text-center">Subtotal</th>
                                 <th class="text-center">Total</th>
                                 <th class="text-center" style="width: 10%;">Accion</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <th class="text-center align-middle">20220200007</th>
-                                <td class="align-middle">Roi</td>
-                                <td class="align-middle text-center">Tarjeta de credito</td>
-                                <td class="align-middle text-center">Pagado</td>
-                                <td class="align-middle text-center">Pendiente</td>
-                                <td class="align-middle text-center">$50.00</td>
-                                <td class="align-middle text-center">$50.00</td>
-                                <td class="text-center align-middle">
-                                    <a href="#"><i class="fa-solid fa-pencil table_icon"></i></a>
-                                    <a href="#"><i class="fa-solid fa-eye table_icon"></i></a>
-                                </td>
-                            </tr>
-                        </tbody>
+                        <tbody id="tbody-rows"></tbody>
                     </table>
                 </div>
             </section>  
@@ -162,5 +90,8 @@
     <!-- JavaScript -->
     <script src="../../resources/js/slide.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="../../controller/components.js"></script>
+    <script src="../../controller/private/online.js"></script>
+    <script src="../../controller/private/venta.js"></script>
 </body>
 </html>

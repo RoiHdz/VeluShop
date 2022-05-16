@@ -2,13 +2,15 @@
 *   CONTROLADOR DE USO GENERAL EN TODAS LAS PÁGINAS WEB.
 */
 
-//Ruta de la API
+/*
+*   Constante para establecer la ruta del servidor.
+*/
 const SERVER = 'http://localhost/velushop/api/';
 
 /*
 *   Función para obtener todos los registros disponibles en los mantenimientos de tablas (operación read).
 *
-*   Parámetros: api (ruta del servidor).
+*   Parámetros: api (ruta del servidor para obtener los datos).
 *
 *   Retorno: ninguno.
 */
@@ -25,7 +27,7 @@ function readRows(api) {
                 if (response.status) {
                     data = response.dataset;
                 } else {
-                    sweetAlert(4, response.exception, null);
+                    alert(response.exception);
                 }
                 // Se envían los datos a la función del controlador para llenar la tabla en la vista.
                 fillTable(data);
@@ -56,9 +58,9 @@ function searchRows(api, form) {
                 if (response.status) {
                     // Se envían los datos a la función del controlador para que llene la tabla en la vista y se muestra un mensaje de éxito.
                     fillTable(response.dataset);
-                    sweetAlert(1, response.message, null);
+                    alert(response.message);
                 } else {
-                    sweetAlert(2, response.exception, null);
+                    alert(response.exception);
                 }
             });
         } else {
@@ -74,7 +76,7 @@ function searchRows(api, form) {
 *
 *   Retorno: ninguno.
 */
-function saveRow(api, action, form, modal) {
+function saveRow(api, action, form) {
     fetch(api + action, {
         method: 'post',
         body: new FormData(document.getElementById(form))
@@ -82,18 +84,16 @@ function saveRow(api, action, form, modal) {
         // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje en la consola indicando el problema.
         if (request.ok) {
             // Se obtiene la respuesta en formato JSON.
-            request.json().then(function (response) {
-                // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
-                if (response.status) {
-                    // Se cierra la caja de dialogo (modal) del formulario.
-                    M.Modal.getInstance(document.getElementById(modal)).close();
-                    // Se cargan nuevamente las filas en la tabla de la vista después de guardar un registro y se muestra un mensaje de éxito.
-                    readRows(api);
-                    sweetAlert(1, response.message, null);
-                } else {
-                    sweetAlert(2, response.exception, null);
-                }
-            });
+                request.json().then(function (response) {
+                    // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+                    if (response.status) {
+                        // Se cargan nuevamente las filas en la tabla de la vista después de guardar un registro y se muestra un mensaje de éxito.
+                        readRows(api);
+                        console.log(response.message);
+                    } else {
+                        console.log(response.exception);
+                    }
+                });
         } else {
             console.log(request.status + ' ' + request.statusText);
         }
@@ -233,8 +233,6 @@ function fillSelect(endpoint, select, selected) {
                 }
                 // Se agregan las opciones a la etiqueta select mediante su id.
                 document.getElementById(select).innerHTML = content;
-                // Se inicializa el componente Select del formulario para que muestre las opciones.
-                M.FormSelect.init(document.querySelectorAll('select'));
             });
         } else {
             console.log(request.status + ' ' + request.statusText);
@@ -334,36 +332,23 @@ function pieGraph(canvas, legends, values, title) {
 
 // Función para mostrar un mensaje de confirmación al momento de cerrar sesión.
 function logOut() {
-    swal({
-        title: 'Advertencia',
-        text: '¿Está seguro de cerrar la sesión?',
-        icon: 'warning',
-        buttons: ['No', 'Sí'],
-        closeOnClickOutside: false,
-        closeOnEsc: false
-    }).then(function (value) {
-        // Se verifica si fue cliqueado el botón Sí para hacer la petición de cerrar sesión, de lo contrario se muestra un mensaje.
-        if (value) {
-            fetch(API + 'logOut', {
-                method: 'get'
-            }).then(function (request) {
-                // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje en la consola indicando el problema.
-                if (request.ok) {
-                    // Se obtiene la respuesta en formato JSON.
-                    request.json().then(function (response) {
-                        // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
-                        if (response.status) {
-                            sweetAlert(1, response.message, 'index.html');
-                        } else {
-                            sweetAlert(2, response.exception, null);
-                        }
-                    });
+    fetch(API + 'logOut', {
+        method: 'get'
+    }).then(function (request) {
+        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje en la consola indicando el problema.
+        if (request.ok) {
+            // Se obtiene la respuesta en formato JSON.
+            request.json().then(function (response) {
+                // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+                if (response.status) {
+                    alert(response.message);
+                    location.href = 'index.html'
                 } else {
-                    console.log(request.status + ' ' + request.statusText);
+                    alert(response.exception);
                 }
             });
         } else {
-            sweetAlert(4, 'Puede continuar con la sesión', null);
+            console.log(request.status + ' ' + request.statusText);
         }
     });
 }

@@ -59,4 +59,58 @@ class Especie extends Validator
     {
         return $this->activo;
     }
+
+    /*
+    *   Métodos para realizar las operaciones SCRUD (search, create, read, update, delete).
+    */
+
+    public function searchRows($value)
+    {
+        $sql = 'SELECT id_especie,especie,activo FROM especie
+                WHERE especie ILIKE ? 
+                ORDER BY id_especie DESC';
+        $params = array("%$value%");
+        return Database::getRows($sql, $params);
+    }
+
+    public function createRow()
+    {
+        $sql = 'INSERT INTO especie(especie, activo)
+                VALUES(?, ?)';
+        $params = array($this->especie, $this->activo);
+        return Database::executeRow($sql, $params);
+    }
+
+    public function readAll()
+    {
+        $sql = 'SELECT id_especie,especie,activo FROM especie
+                ORDER BY especie DESC';
+        $params = null;
+        return Database::getRows($sql, $params);
+    }
+
+    public function readOne()
+    {
+        $sql = 'SELECT id_especie,especie,activo FROM especie
+                WHERE id_especie = ?';
+        $params = array($this->id_especie);
+        return Database::getRow($sql, $params);
+    }
+
+    public function updateRow($current_image)
+    {
+        $sql = 'UPDATE especie
+                SET especie = ?, activo = ?
+                WHERE id_especie = ?';
+        $params = array($this->especie, $this->activo, $this->id_especie);
+        return Database::executeRow($sql, $params);
+    }
+
+    public function deleteRow()
+    {
+        $sql = 'DELETE FROM especie
+                WHERE id_especie = ?';
+        $params = array($this->id_especie);
+        return Database::executeRow($sql, $params);
+    }
 }

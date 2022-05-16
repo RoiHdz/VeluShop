@@ -26,4 +26,26 @@ class Rol extends Validator
             return false;
         }
     }
+
+    /*
+    *   Métodos para obtener valores de los atributos.
+    */
+    public function getId_rol()
+    {
+        return $this->id_rol;
+    }
+
+    public function getRol()
+    {
+        return $this->rol;
+    }
+
+    //Metodo para leer todos los datos a travez de un select
+
+    public function readAll()
+    {
+        $sql = 'SELECT id_rol,rol.rol FROM Rol';
+        $params = null;
+        return Database::getRows($sql, $params);
+    }
 }

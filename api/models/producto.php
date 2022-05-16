@@ -14,7 +14,7 @@ class Producto extends Validator
     private $stock = null;
     private $disponible = null;
     private $activo = null;
-    private $id_categoria_especie = null;
+    private $id_categoria_especie = 2;
 
 
     /*
@@ -32,7 +32,7 @@ class Producto extends Validator
 
     public function setProducto($value)
     {
-        if ($this->validateString($value, 1, 50)) {
+        if ($this->validateAlphabetic($value, 1, 50)) {
             $this->producto = $value;
             return true;
         } else {
@@ -162,39 +162,38 @@ class Producto extends Validator
     *   Métodos para realizar las operaciones SCRUD (search, create, read, update, delete).
     */
     
-    
     public function searchRows($value)
     {
         $sql = 'SELECT id_producto, producto, descripcion, especificacion, precio, stock, disponible, activo, categoria, especie 
                 FROM v_producto
-                WHERE producto ILIKE ? OR 
+                WHERE producto ILIKE ? OR categoria ILIKE ? OR especie ILIKE ?
                 ORDER BY producto';
-        $params = array("%$value%");
+        $params = array("%$value%","$value%","$value%");
         return Database::getRows($sql, $params);
     }
 
     public function createRow()
     {
-        $sql = 'INSERT INTO productos(nombre_producto, descripcion_producto, precio_producto, imagen_producto, estado_producto, id_categoria, id_usuario)
-                VALUES(?, ?, ?, ?, ?, ?, ?)';
-        $params = array($this->nombre, $this->descripcion, $this->precio, $this->imagen, $this->estado, $this->categoria, $_SESSION['id_usuario']);
+        $sql = 'INSERT INTO producto(producto, descripcion, especificacion, precio, stock, disponible, activo, id_categoria_especie)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?);';
+        $params = array($this->producto, $this->descripcion, $this->especificacion, $this->precio, $this->stock, $this->disponible, $this->activo, $this->id_categoria_especie);
         return Database::executeRow($sql, $params);
     }
 
     public function readAll()
     {
         $sql = 'SELECT id_producto, producto, descripcion, especificacion, precio, stock, disponible, activo, categoria, especie 
-                FROM v_producto';
+                FROM v_producto ORDER BY id_producto desc';
         $params = null;
         return Database::getRows($sql, $params);
     }
 
     public function readOne()
     {
-        $sql = 'SELECT id_producto, nombre_producto, descripcion_producto, precio_producto, imagen_producto, id_categoria, estado_producto
-                FROM productos
+        $sql = 'SELECT id_producto, producto, descripcion, especificacion, precio, stock, disponible, activo, categoria, especie 
+                FROM v_producto
                 WHERE id_producto = ?';
-        $params = array($this->id);
+        $params = array($this->id_producto);
         return Database::getRow($sql, $params);
     }
 
@@ -203,8 +202,8 @@ class Producto extends Validator
         // Se verifica si existe una nueva imagen para borrar la actual, de lo contrario se mantiene la actual.
         //($this->imagen) ? $this->deleteFile($this->getRuta(), $current_image) : $this->imagen = $current_image;
 
-        $sql = 'UPDATE productos
-                SET imagen_producto = ?, nombre_producto = ?, descripcion_producto = ?, precio_producto = ?, estado_producto = ?, id_categoria = ?
+        $sql = 'UPDATE producto
+                SET producto = ?, descripcion = ?, especificacion = ?, precio = ?, stock = ?, disponible = ?
                 WHERE id_producto = ?';
         $params = array($this->imagen, $this->nombre, $this->descripcion, $this->precio, $this->estado, $this->categoria, $this->id);
         return Database::executeRow($sql, $params);
@@ -212,9 +211,9 @@ class Producto extends Validator
 
     public function deleteRow()
     {
-        $sql = 'DELETE FROM productos
+        $sql = 'DELETE FROM producto
                 WHERE id_producto = ?';
-        $params = array($this->id);
+        $params = array($this->id_producto);
         return Database::executeRow($sql, $params);
     }
 
@@ -227,7 +226,6 @@ class Producto extends Validator
         $params = array($this->id);
         return Database::getRows($sql, $params);
     }
-
 
 }
     

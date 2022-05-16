@@ -1,7 +1,5 @@
 // Constantes para establecer las rutas y parámetros de comunicación con la API.
-const API_PRODUCTOS = SERVER + 'private/producto.php?action=';
-const ENDPOINT_CATEGORIA_ESPECIE = SERVER + 'private/categoria_especie.php?action=readSelect';
-const ENDPOINT_ESPECIE = SERVER + 'private/especies.php?action=readAll';
+const API_PRODUCTOS = SERVER + 'private/venta.php?action=';
 
 // Método manejador de eventos que se ejecuta cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', function () {
@@ -28,15 +26,14 @@ function fillTable(dataset) {
         // Se crean y concatenan las filas de la tabla con los datos de cada registro.
         content += `
         <tr>
-            <th class="text-center align-middle">${row.id_producto}</th>
-            <td class="align-middle">${row.producto} 
-                <span class="badge bg-danger" style="display:${row.activo == 'Activo'?'none':''}">Inactivo</span>
-            </td>
-            <td class="align-middle text-center">${row.disponible}</td>
-            <td class="align-middle text-center">${row.precio}</td>
-            <td class="align-middle text-center">${row.stock}</td>
+            <th class="text-center align-middle">${row.id_venta}</th>
+            <td class="align-middle">${row.nombre}</td>
+            <td class="align-middle text-center">${row.metodo_pago}</td>
+            <td class="align-middle text-center">${row.pago}</td>
+            <td class="align-middle text-center">${row.venta_estado}</td>
+            <td class="align-middle text-center">${row.total}</td>
             <td class="text-center align-middle">
-                <a onclick="openCreate(${row.id_producto})"><i class="fa-solid fa-pencil table_icon"></i></a>
+                <a href="#"><i class="fa-solid fa-pencil table_icon"></i></a>
                 <a href="#"><i class="fa-solid fa-eye table_icon"></i></a>
             </td>
         </tr>

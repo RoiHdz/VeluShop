@@ -1,5 +1,7 @@
-// Constante para establecer la ruta y parámetros de comunicación con la API.
+// Constante para establecer conectar con la api de usuario
 const API_USUARIOS = SERVER + 'private/usuario.php?action=';
+const ENDPOINT_ESPECIE = SERVER + 'private/especies.php?action=readAll';
+const ENDPOINT_ROL = SERVER + 'private/rol.php?action=readAll';
 
 // Método manejador de eventos que se ejecuta cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', function () {
@@ -13,8 +15,8 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('save-form').reset();
         }
     }
-    // Se inicializa el componente Modal para que funcionen las cajas de diálogo.
-    //M.Modal.init(document.querySelectorAll('.modal'), options);
+    document.getElementById('titulo').textContent = 'Crear usuario';
+    fillSelect(ENDPOINT_ROL, 'rol', null);
 });
 
 // Función para llenar la tabla con los datos de los registros. Se manda a llamar en la función readRows().
@@ -22,14 +24,15 @@ function fillTable(dataset) {
     let content = '';
     // Se recorre el conjunto de registros (dataset) fila por fila a través del objeto row.
     dataset.map(function (row) {
-        // Se crean y concatenan las filas de la tabla con los datos de cada registro.
+        // Se crean las filas con los datos de la base de datos
         content += `
             <tr>
                 <th class="text-center align-middle">${row.id_usuario}</th>
-                <td class="align-middle">${row.nombre}</td>
+                <td class="align-middle">${row.nombre}
+                    <span class="badge bg-danger" style="display:${row.activo == 'Activo'?'none':''}">Inactivo</span>
+                </td>
                 <td class="align-middle">${row.username}</td>
                 <td class="align-middle text-center">${row.rol}</td>
-                <td class="align-middle text-center">${row.activo}</td>
                 <td class="text-center align-middle">
                     <a href="#"><i class="fa-solid fa-pencil table_icon"></i></a>
                     <a href="#"><i class="fa-solid fa-eye table_icon"></i></a>
@@ -43,22 +46,13 @@ function fillTable(dataset) {
 
 // Método manejador de eventos que se ejecuta cuando se envía el formulario de buscar.
 document.getElementById('search-form').addEventListener('submit', function (event) {
-    // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
-    // Se llama a la función que realiza la búsqueda. Se encuentra en el archivo components.js
     searchRows(API_USUARIOS, 'search-form');
 });
 
 // Función para preparar el formulario al momento de insertar un registro.
 function openCreate() {
-    // Se abre la caja de diálogo (modal) que contiene el formulario.
-    M.Modal.getInstance(document.getElementById('save-modal')).open();
-    // Se asigna el título para la caja de diálogo (modal).
-    document.getElementById('modal-title').textContent = 'Crear usuario';
-    // Se habilitan los campos de alias y contraseña.
-    document.getElementById('alias').disabled = false;
-    document.getElementById('clave').disabled = false;
-    document.getElementById('confirmar').disabled = false;
+    
 }
 
 // Función para preparar el formulario al momento de modificar un registro.
@@ -104,14 +98,11 @@ function openUpdate(id) {
 
 // Método manejador de eventos que se ejecuta cuando se envía el formulario de guardar.
 document.getElementById('save-form').addEventListener('submit', function (event) {
-    // Se evita recargar la página web después de enviar el formulario.
-    event.preventDefault();
-    // Se define una variable para establecer la acción a realizar en la API.
     let action = '';
     // Se comprueba si el campo oculto del formulario esta seteado para actualizar, de lo contrario será para crear.
     (document.getElementById('id').value) ? action = 'update' : action = 'create';
     // Se llama a la función para guardar el registro. Se encuentra en el archivo components.js
-    saveRow(API_USUARIOS, action, 'save-form', 'save-modal');
+    saveRow(API_USUARIOS, action, 'save-form');
 });
 
 // Función para establecer el registro a eliminar y abrir una caja de diálogo de confirmación.

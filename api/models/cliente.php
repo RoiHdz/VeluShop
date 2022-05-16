@@ -173,5 +173,59 @@ class Cliente extends Validator
     {
         return $this->activo;
     }
+
+    /*
+    *   Métodos para realizar las operaciones SCRUD (search, create, read, update, delete).
+    */
+    
+    public function searchRows($value)
+    {
+        $sql = 'SELECT id_cliente,nombre,username,pssword,email,municipio,departamento,direccion1,direccion2,activo
+        FROM v_cliente WHERE nombre ILIKE ? OR username ILIKE ?';
+        $params = array("%$value%","$value%");
+        return Database::getRows($sql, $params);
+    }
+
+    public function createRow()
+    {
+        $sql = 'INSERT INTO cliente(nombre, apellido, username, pssword, email, id_municipio, direccion1, direccion2, activo)
+                VALUES (?,?,?,?,?,?,?,?,?);';
+        $params = array($this->nombre, $this->apellido, $this->username, $this->pssword, $this->email, $this->id_municipio, $this->direccion_1, $this->direccion_2, $this->activo);
+        return Database::executeRow($sql, $params);
+    }
+
+    public function readAll()
+    {
+        $sql = 'SELECT id_cliente,nombre,username,pssword,email,municipio,departamento,direccion1,direccion2,activo
+        FROM v_cliente ORDER BY id_cliente desc';
+        $params = null;
+        return Database::getRows($sql, $params);
+    }
+
+    public function readOne()
+    {
+        $sql = 'SELECT id_cliente,nombre,username,pssword,email,municipio,direccion1,direccion2,activo
+        FROM v_cliente WHERE id_cliente = ?';
+        $params = array($this->id_cliente);
+        return Database::getRow($sql, $params);
+    }
+
+    public function updateRow($current_image)
+    {
+        $sql = 'UPDATE producto
+                SET producto = ?, descripcion = ?, especificacion = ?, precio = ?, stock = ?, disponible = ?
+                WHERE id_producto = ?';
+        $params = array($this->imagen, $this->nombre, $this->descripcion, $this->precio, $this->estado, $this->categoria, $this->id);
+        return Database::executeRow($sql, $params);
+    }
+
+    public function deleteRow()
+    {
+        $sql = 'DELETE FROM producto
+                WHERE id_producto = ?';
+        $params = array($this->id_producto);
+        return Database::executeRow($sql, $params);
+    }
+
 }
 

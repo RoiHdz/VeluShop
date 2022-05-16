@@ -23,64 +23,7 @@
 
 <body>
     <!-- Slidebar -->
-    <nav class="navegacion">
-        <ul>
-            <li>
-                <a href="#">
-                    <span class="navegacion-icon"><img src="../../resources/img/icono.png" height="40"></span>
-                    <span class="navegacion-title">Velu Shop</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="navegacion-icon"><i class="fa-solid fa-house"></i></span>
-                    <span class="navegacion-title">Dasboard</span>
-                </a>
-            </li>
-            <li>
-                <a href="productos.html">
-                    <span class="navegacion-icon"><i class="fa-solid fa-box"></i></span>
-                    <span class="navegacion-title">Producto</span>
-                </a>
-            </li>
-            <li>
-                <a href="Pedidos.html">
-                    <span class="navegacion-icon"><i class="fa-solid fa-truck"></i></span>
-                    <span class="navegacion-title">Pedido</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="navegacion-icon" data-bs-toggle="collapse" href="#collapseUsuario" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa-solid fa-user"></i></span>
-                    <span class="navegacion-title" data-bs-toggle="collapse" href="#collapseUsuario" role="button" aria-expanded="false" aria-controls="collapseExample">Usuario</span>
-                </a>
-                <div class="collapse" id="collapseUsuario">
-                    <div class="card card-body card_collapse">
-                        <a href="usuario_clientes.html" class="btn cb"><i class="fa-solid fa-angle-right"></i>Clientes</a>
-                        <a href="usuario_usuario.html" class="btn cb mt-1"><i class="fa-solid fa-angle-right"></i>Usuarios</a>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <a href="#">
-                    <span alt="Admin" class="navegacion-icon" data-bs-toggle="collapse" href="#collapseAdmin" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa-solid fa-user-tie"></i></span>
-                    <span class="navegacion-title" data-bs-toggle="collapse" href="#collapseAdmin" role="button" aria-expanded="false" aria-controls="collapseExample">Admnistración</span>
-                </a>
-                <div class="collapse" id="collapseAdmin">
-                    <div class="card card-body card_collapse">
-                        <a href="administracion_ce.html" class="btn cb"><i class="fa-solid fa-angle-right"></i>Categoria/Especie</a>
-                        <a href="administracion_asignacion.html" class="btn cb mt-1"><i class="fa-solid fa-angle-right"></i>Asignacion</a>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <span class="navegacion-icon"><i class="fa-solid fa-right-from-bracket"></i></span>
-                    <span class="navegacion-title">Cerar sesión</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
+    <nav class="navegacion"></nav>
     
     <main class="main_topbar">
         <div class="topbar">
@@ -91,10 +34,11 @@
                 <h4>Categorias y Especies</h4>
             </div>
             <div class="user">
-
+                <h6 id="user"></h6>
             </div>
         </div>
         <div class="container">
+            <!-- Todo lo relacionado con las categorias (tabla, crear y buscar) -->
             <h4 class="text-center mt-5 mb-3">Categorias</h4>
             <section class="row mb-5">
                 <div class="col-12 mt-4">
@@ -102,8 +46,8 @@
                         <div class="col-4">
                             <div class="forms align-items-center line_forms-div">
                                 <div class="forms_label">Buscar:</div>
-                                <form class="search_nav d-flex">
-                                    <input class="nav_center-buscar border" type="search" placeholder="Buscar">
+                                <form class="search_nav d-flex" id="search-form" name="search-form" method="post">
+                                    <input class="nav_center-buscar border" type="search" placeholder="Buscar" id="buscar" name="buscar">
                                     <button class="nav_center-buscar_boton border" type="submit">
                                         <i class="fa-solid fa-magnifying-glass"></i>
                                     </button>
@@ -133,42 +77,14 @@
                                 <th style="width: 10%;" class="text-center">ID</th>
                                 <th style="width: 20%;">Categoria</th>
                                 <th style="width: 35%;">Descripcion</th>
-                                <th class="text-center">Estado</th>
                                 <th class="text-center" style="width: 10%;">Accion</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <th class="text-center align-middle">1</th>
-                                <td class="align-middle">Accesorios</td>
-                                <td class="align-middle">Accesorios para cualquier tipo de animal</td>
-                                <td class="align-middle text-center">Activo</td>
-                                <td class="text-center align-middle">
-                                    <a href="#"><i class="fa-solid fa-pencil table_icon"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th class="text-center align-middle">2</th>
-                                <td class="align-middle">Juguetes</td>
-                                <td class="align-middle">Juguetes para cualquier tipo de especie que se le asigne esta categoria</td>
-                                <td class="align-middle text-center">Activo</td>
-                                <td class="text-center align-middle">
-                                    <a href="#"><i class="fa-solid fa-pencil table_icon"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th class="text-center align-middle">3</th>
-                                <td class="align-middle">Decoracion</td>
-                                <td class="align-middle">Catgoria exclusiva para peces, decoracion para peceras</td>
-                                <td class="align-middle text-center" style="color: red;">Inactivo</td>
-                                <td class="text-center align-middle">
-                                    <a href="#"><i class="fa-solid fa-pencil table_icon"></i></a>
-                                </td>
-                            </tr>
-                        </tbody>
+                        <tbody id="tbody-rows"></tbody>
                     </table>
                 </div>
             </section>
+            <!-- Todo lo relacionado con las especies (tabla, crear y buscar) -->
             <h4 class="text-center mt-5 mb-3">Especies</h4>
             <section class="row mb-5">
                 <div class="col-12 mt-4">
@@ -176,8 +92,8 @@
                         <div class="col-4">
                             <div class="forms align-items-center line_forms-div">
                                 <div class="forms_label">Buscar:</div>
-                                <form class="search_nav d-flex">
-                                    <input class="nav_center-buscar border" type="search" placeholder="Buscar">
+                                <form class="search_nav d-flex" id="search-form_especie">
+                                    <input class="nav_center-buscar border" type="search" placeholder="Buscar" id="buscar_especie" name="buscar_especie">
                                     <button class="nav_center-buscar_boton border" type="submit">
                                         <i class="fa-solid fa-magnifying-glass"></i>
                                     </button>
@@ -206,35 +122,10 @@
                             <tr>
                                 <th class="text-center">ID</th>
                                 <th class="text-center">Especie</th>
-                                <th class="text-center">Estado</th>
                                 <th class="text-center" style="width: 10%;">Accion</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <th class="text-center align-middle">1</th>
-                                <td class="align-middle text-center">Perros</td>
-                                <td class="align-middle text-center">Activo</td>
-                                <td class="text-center align-middle">
-                                    <a href="#"><i class="fa-solid fa-pencil table_icon"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th class="text-center align-middle">2</th>
-                                <td class="align-middle text-center">Gatos</td>
-                                <td class="align-middle text-center">Activo</td>
-                                <td class="text-center align-middle">
-                                    <a href="#"><i class="fa-solid fa-pencil table_icon"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th class="text-center align-middle">3</th>
-                                <td class="align-middle text-center">Roedores</td>
-                                <td class="align-middle text-center">Activo</td>
-                                <td class="text-center align-middle">
-                                    <a href="#"><i class="fa-solid fa-pencil table_icon"></i></a>
-                                </td>
-                            </tr>
+                        <tbody id="tbody-rows_especie">
                         </tbody>
                     </table>
                 </div>
@@ -263,7 +154,7 @@
         <div class="modal fade" id="addCategoria" data-bs-backdrop="static" tabindex="-1" aria-labelledby="addCategoria" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
-                    <div class="modal-body row">
+                    <form class="modal-body row" id="save-form" name="save-form" method="post">
                         <div class="col-md-12 mt-2">
                             <label for="nombre" class="form-label">Nombre:</label>
                             <input type="text" class="form-control" id="nombre" name="nombreCategoria" required
@@ -278,7 +169,7 @@
                             <label class="form-check-label" for="activo">Activo</label>
                             <input class="form-check-input" type="checkbox" value="" id="activoCategoria" name="activoCategoria" checked>
                         </div>
-                    </div>
+                    </form>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#saveCategoria">Guardar</button>
@@ -340,5 +231,10 @@
     <!-- JavaScript -->
     <script src="../../resources/js/slide.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="../../controller/components.js"></script>
+    <script src="../../controller/private/online.js"></script>
+    <script src="../../controller/private/especies.js"></script>
+    <!-- <script src="../../controller/private/categorias.js"></script> -->
+    
 </body>
 </html>

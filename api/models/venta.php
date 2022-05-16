@@ -118,4 +118,56 @@ class Venta extends Validator{
         return $this->total;
     }
 
+    /*
+    *   Métodos para realizar las operaciones SCRUD (search, create, read, update, delete).
+    */
+    public function searchRows($value)
+    {
+        $sql = 'SELECT id_venta,nombre,fecha,pago,metodo_pago,venta_estado,total FROM v_venta
+        WHERE nombre ILIKE ?';
+        $params = array("%$value%");
+        return Database::getRows($sql, $params);
+    }
+
+    public function createRow()
+    {
+        $sql = 'insert into public.venta (id_cliente, fecha, pago, metodo_pago, id_venta_estado, total) 
+        values (?,?,?,?,?,?);';
+        $params = array($this->username, $this->pssword, $this->email, $this->nombre, $this->apellido, $this->activo, $this->id_rol);
+        return Database::executeRow($sql, $params);
+    }
+
+    public function readAll()
+    {
+        $sql = 'SELECT id_venta,nombre,fecha,pago,metodo_pago,venta_estado,total FROM v_venta
+                ORDER BY id_venta desc';
+        $params = null;
+        return Database::getRows($sql, $params);
+    }
+
+    public function readOne()
+    {
+        $sql = 'SELECT id_usuario,username,pssword,email,nombre,activo,rol FROM v_usuario
+                WHERE id_usuario = ?';
+        $params = array($this->id_usuario);
+        return Database::getRow($sql, $params);
+    }
+
+    public function updateRow()
+    {
+        $sql = 'UPDATE usuarios 
+                SET nombres_usuario = ?, apellidos_usuario = ?, correo_usuario = ?
+                WHERE id_usuario = ?';
+        $params = array($this->nombres, $this->apellidos, $this->correo, $this->id);
+        return Database::executeRow($sql, $params);
+    }
+
+    public function deleteRow()
+    {
+        $sql = 'DELETE FROM usuarios
+                WHERE id_usuario = ?';
+        $params = array($this->id);
+        return Database::executeRow($sql, $params);
+    }
+
 }

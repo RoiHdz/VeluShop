@@ -1,14 +1,14 @@
 <?php
 require_once('../helpers/database.php');
 require_once('../helpers/validator.php');
-require_once('../models/producto.php');
+require_once('../models/cliente.php');
 
 // Se comprueba si existe una acción a realizar, de lo contrario se finaliza el script con un mensaje de error.
 if (isset($_GET['action'])) {
     // Se crea una sesión o se reanuda la actual para poder utilizar variables de sesión en el script.
     session_start();
     // Se instancia la clase correspondiente.
-    $producto = new Producto;
+    $producto = new Cliente;
     // Se declara e inicializa un arreglo para guardar el resultado que retorna la API.
     $result = array('status' => 0, 'message' => null, 'exception' => null);
     // Se verifica si existe una sesión iniciada como administrador, de lo contrario se finaliza el script con un mensaje de error.
@@ -40,23 +40,21 @@ if (isset($_GET['action'])) {
                 break;
             case 'create':
                 $_POST = $producto->validateForm($_POST);
-                if (!$producto->setProducto($_POST['nombre'])) {
+                if (!$producto->setNombre($_POST['nombre'])) {
                     $result['exception'] = 'Nombre incorrecto';
-                } elseif (!$producto->setDescripcion($_POST['descripcion'])) {
+                } elseif (!$producto->setApellido($_POST['descripcion'])) {
                     $result['exception'] = 'Descripción incorrecta';
-                }elseif (!$producto->setEspecificacion($_POST['descripcion'])) {
+                } elseif (!$producto->setUsername($_POST['descripcion'])) {
                     $result['exception'] = 'Especificacion incorrecta';
-                } elseif (!$producto->setPrecio($_POST['precio'])) {
+                } elseif (!$producto->setPssword($_POST['precio'])) {
                     $result['exception'] = 'Precio incorrecto';
-                } elseif (!$producto->setStock(($_POST['stock']))) {
+                } elseif (!$producto->setEmail(($_POST['stock']))) {
                     $result['exception'] = 'Stock incorrecto';
-                } elseif (!$producto->setDisponible(isset($_POST['disponible']) ? 1 : 0)) {
-                    $result['exception'] = 'Valor incorrecto';
                 } elseif (!$producto->setActivo(isset($_POST['activo']) ? 1 : 0)) {
                     $result['exception'] = 'Valor incorrecto';
                 } elseif (!isset($_POST['categoria'])) {
                     $result['exception'] = 'Seleccione una rol';
-                } elseif (!$producto->setId_categoria_especie($_POST['categoria'])) {
+                } elseif (!$producto->setId_municipio($_POST['categoria'])) {
                     $result['exception'] = 'Rol incorrecto';
                 } elseif ($producto->createRow()) {
                     $result['status'] = 1;
@@ -66,7 +64,7 @@ if (isset($_GET['action'])) {
                 }
                 break;
             case 'readOne':
-                if (!$producto->setId_producto($_POST['id'])) {
+                if (!$producto->setId_cliente($_POST['id'])) {
                     $result['exception'] = 'Producto incorrecto';
                 } elseif ($result['dataset'] = $producto->readOne()) {
                     $result['status'] = 1;
@@ -78,25 +76,23 @@ if (isset($_GET['action'])) {
                 break;
             case 'update':
                 $_POST = $producto->validateForm($_POST);
-                if (!$producto->setId_producto($_POST['id'])) {
+                if (!$producto->setId_cliente($_POST['id'])) {
                     $result['exception'] = 'Producto incorrecto';
                 } elseif (!$data = $producto->readOne()) {
                     $result['exception'] = 'Producto inexistente';
-                } elseif (!$producto->setProducto($_POST['nombre'])) {
+                } elseif (!$producto->setNombre($_POST['nombre'])) {
                     $result['exception'] = 'Nombre incorrecto';
-                } elseif (!$producto->setDescripcion($_POST['descripcion'])) {
+                } elseif (!$producto->setApellido($_POST['descripcion'])) {
                     $result['exception'] = 'Descripción incorrecta';
-                }elseif (!$producto->setEspecificacion($_POST['descripcion'])) {
+                } elseif (!$producto->setUsername($_POST['descripcion'])) {
                     $result['exception'] = 'Especificacion incorrecta';
-                } elseif (!$producto->setPrecio($_POST['precio'])) {
+                } elseif (!$producto->setPssword($_POST['precio'])) {
                     $result['exception'] = 'Precio incorrecto';
-                } elseif (!$producto->setStock(isset($_POST['stock']))) {
+                } elseif (!$producto->setEmail($_POST['stock'])) {
                     $result['exception'] = 'Stock incorrecto';
-                } elseif (!$producto->setDisponible(isset($_POST['disponible']) ? 1 : 0)) {
+                } elseif (!$producto->setActivo(isset($_POST['disponible']) ? 1 : 0)) {
                     $result['exception'] = 'Valor incorrecto';
-                } elseif (!$producto->setActivo(isset($_POST['activo']) ? 1 : 0)) {
-                    $result['exception'] = 'Valor incorrecto';
-                } elseif (!$producto->setId_categoria_especie($_POST['categoria'])) {
+                } elseif (!$producto->setId_municipio($_POST['categoria'])) {
                     $result['exception'] = 'Seleccione una categoría';
                 } elseif ($producto->updateRow($data['imagen_producto'])) {
                     $result['status'] = 1;
@@ -105,7 +101,7 @@ if (isset($_GET['action'])) {
                 }
                 break;
             case 'delete':
-                
+
                 break;
             default:
                 $result['exception'] = 'Acción no disponible dentro de la sesión';

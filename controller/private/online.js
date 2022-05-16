@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Se revisa si el usuario está autenticado, de lo contrario se envía a iniciar sesión.
                 if (response.session) {
                     // Se comprueba si la respuesta es satisfactoria, de lo contrario se direcciona a la página web principal.
+                    console.log(response);
                     if (response.status) {
                         const nav = `
                         <ul>
@@ -71,49 +72,20 @@ document.addEventListener('DOMContentLoaded', function () {
                                 </div>
                             </li>
                             <li>
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <a href="#" onclick="logOut()">
                                     <span class="navegacion-icon"><i class="fa-solid fa-right-from-bracket"></i></span>
                                     <span class="navegacion-title">Cerar sesión</span>
                                 </a>
                             </li>
                         </ul>
                         `;
-                        const footer = `
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col s12 m6">
-                                        <h6 class="white-text">Dashboard</h6>
-                                        <a class="white-text" href="mailto:dacasoft@outlook.com">
-                                            <i class="material-icons left">email</i>Ayuda
-                                        </a>
-                                    </div>
-                                    <div class="col s12 m6">
-                                        <h6 class="white-text">Enlaces</h6>
-                                        <a class="white-text" href="../public/" target="_blank">
-                                            <i class="material-icons left">store</i>Sitio público
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="footer-copyright">
-                                <div class="container">
-                                    <span>© 2018-2022 Copyright CoffeeShop. Todos los derechos reservados.</span>
-                                    <span class="right">Diseñado con
-                                        <a href="http://materializecss.com/" target="_blank">
-                                            <img src="../../resources/img/materialize.png" height="20" style="vertical-align:middle" alt="Materialize">
-                                        </a>
-                                    </span>
-                                </div>
-                            </div>
+                        const user = `
+                            <h6 class="me-5">${response.username}</h6>
                         `;
                         document.querySelector('nav').innerHTML = nav;
-                        document.querySelector('footer').innerHTML = footer;
-                        // Se inicializa el componente Dropdown para que funcione la lista desplegable en los menús.
-                        M.Dropdown.init(document.querySelectorAll('.dropdown-trigger'));
-                        // Se inicializa el componente Sidenav para que funcione la navegación lateral.
-                        M.Sidenav.init(document.querySelectorAll('.sidenav'));
+                        document.getElementById('user').innerHTML = user;
                     } else {
-                        sweetAlert(3, response.exception, 'index.html');
+                        location.href = 'index.html';
                     }
                 } else {
                     location.href = 'index.html';

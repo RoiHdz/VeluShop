@@ -1,23 +1,16 @@
 // Constantes para establecer las rutas y parámetros de comunicación con la API.
-const API_PRODUCTOS = SERVER + 'private/producto.php?action=';
-const ENDPOINT_CATEGORIA_ESPECIE = SERVER + 'private/categoria_especie.php?action=readSelect';
-const ENDPOINT_ESPECIE = SERVER + 'private/especies.php?action=readAll';
-
+const API_ESPECIES = SERVER + 'private/especies.php?action=';
 // Método manejador de eventos que se ejecuta cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', function () {
     // Se llama a la función que obtiene los registros para llenar la tabla. Se encuentra en el archivo components.js
-    readRows(API_PRODUCTOS);
+    readRows(API_ESPECIES);
     // Se define una variable para establecer las opciones del componente Modal.
     let options = {
         dismissible: false,
         onOpenStart: function () {
-            // Se restauran los elementos del formulario.
-            document.getElementById('save-form').reset();
+            //document.getElementById('save-form').reset();
         }
     }
-    document.getElementById('titulo').textContent = 'Crear producto';
-    fillSelect(ENDPOINT_CATEGORIA_ESPECIE, 'categoria', null);
-    fillSelect(ENDPOINT_ESPECIE, 'especie', null);
 });
 
 // Función para llenar la tabla con los datos de los registros. Se manda a llamar en la función readRows().
@@ -28,28 +21,24 @@ function fillTable(dataset) {
         // Se crean y concatenan las filas de la tabla con los datos de cada registro.
         content += `
         <tr>
-            <th class="text-center align-middle">${row.id_producto}</th>
-            <td class="align-middle">${row.producto} 
-                <span class="badge bg-danger" style="display:${row.activo == 'Activo'?'none':''}">Inactivo</span>
+            <th class="text-center align-middle">${row.id_especie}</th>
+            <td class="align-middle text-center">${row.especie}
+                <span class="badge bg-danger" style="display:${row.activo === true ? 'none':''}">Inactivo</span>
             </td>
-            <td class="align-middle text-center">${row.disponible}</td>
-            <td class="align-middle text-center">${row.precio}</td>
-            <td class="align-middle text-center">${row.stock}</td>
             <td class="text-center align-middle">
-                <a onclick="openCreate(${row.id_producto})"><i class="fa-solid fa-pencil table_icon"></i></a>
-                <a href="#"><i class="fa-solid fa-eye table_icon"></i></a>
+                <a href="#"><i class="fa-solid fa-pencil table_icon"></i></a>
             </td>
         </tr>
         `;
     });
     // Se agregan las filas al cuerpo de la tabla mediante su id para mostrar los registros.
-    document.getElementById('tbody-rows').innerHTML = content;
+    document.getElementById('tbody-rows_especie').innerHTML = content;
 }
 
 // Método manejador de eventos que se ejecuta cuando se envía el formulario de buscar.
-document.getElementById('search-form').addEventListener('submit', function (event) {
+document.getElementById('search-form_especie').addEventListener('submit', function (event) {
     event.preventDefault();
-    searchRows(API_PRODUCTOS, 'search-form');
+    searchRows(API_ESPECIES, 'search-form_especie');
 });
 
 // document.getElementById('categoria').addEventListener('change', function (event) {
@@ -70,12 +59,6 @@ function openReport() {
     window.open(url);
 }
 
-// Función para capturar contenido dentro del WYSIWYG
-function quillSave() {
-    var especificacionQuill = quill.container.firstChild.innerHTML;
-    console.log(especificacionQuill);
-}
-
 // Función para preparar el formulario al momento de modificar un registro.
 function openUpdate(id) {
     location.href = 'f_producto.html'
@@ -83,7 +66,7 @@ function openUpdate(id) {
     const data = new FormData();
     data.append('id', id);
     // Petición para obtener los datos del registro solicitado.
-    fetch(API_PRODUCTOS + 'readOne', {
+    fetch(API_ESPECIES + 'readOne', {
         method: 'post',
         body: data
     }).then(function (request) {
@@ -123,7 +106,7 @@ document.getElementById('save-form').addEventListener('submit', function (event)
     // Se comprueba si el campo oculto del formulario esta seteado para actualizar, de lo contrario será para crear.
     (document.getElementById('id').value) ? action = 'update' : action = 'create';
     // Se llama a la función para guardar el registro. Se encuentra en el archivo components.js
-    saveRow(API_PRODUCTOS, action, 'save-form');
+    saveRow(API_ESPECIES, action, 'save-form');
 });
 
 // Función para establecer el registro a eliminar y abrir una caja de diálogo de confirmación.
@@ -132,5 +115,5 @@ function openDelete(id) {
     const data = new FormData();
     data.append('id', id);
     // Se llama a la función que elimina un registro. Se encuentra en el archivo components.js
-    confirmDelete(API_PRODUCTOS, data);
+    confirmDelete(API_ESPECIES, data);
 }
