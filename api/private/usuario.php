@@ -88,6 +88,28 @@ if (isset($_GET['action'])) {
                     $result['exception'] = Database::getException();
                 }
                 break;
+            case 'update':
+                $_POST = $usuario->validateForm($_POST);
+                if (!$usuario->setId_usuario($_POST['id'])) {
+                    $result['exception'] = 'Producto incorrecto';
+                } elseif (!$data = $usuario->readOne()) {
+                    $result['exception'] = 'Producto inexistente';
+                } elseif (!$usuario->setNombre($_POST['nombre'])) {
+                    $result['exception'] = 'Nombre incorrecto';
+                } elseif (!$usuario->setApellido($_POST['apellido'])) {
+                    $result['exception'] = 'Descripción incorrecta';
+                }elseif (!$usuario->setEmail($_POST['email'])) {
+                    $result['exception'] = 'Especificacion incorrecta';
+                } elseif (!$usuario->setActivo(isset($_POST['activo']) ? 1 : 0)) {
+                    $result['exception'] = 'Valor incorrecto';
+                } elseif (!$usuario->setId_rol($_POST['rol'])) {
+                    $result['exception'] = 'Rol incorrecto';
+                } elseif ($usuario->updateRow()) {
+                    $result['status'] = 1;
+                } else {
+                    $result['exception'] = Database::getException();
+                }
+                break;
             case 'readOne':
                 if (!$usuario->setId_usuario($_POST['id'])) {
                     $result['exception'] = 'Usuario incorrecto';

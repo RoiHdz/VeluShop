@@ -1,23 +1,13 @@
 // Constantes para establecer las rutas y parámetros de comunicación con la API.
-const API_PRODUCTOS = SERVER + 'private/producto.php?action=';
-// Endpoint para rellenar el select de categoria
-const ENDPOINT_CATEGORIA_ESPECIE = SERVER + 'private/categoria_especie.php?action=readSelect';
-// Endpoint para rellenar el select de especie
-const ENDPOINT_ESPECIE = SERVER + 'private/especies.php?action=readAll';
+const API_PRODUCTOS = SERVER + 'private/ingreso.php?action=';
+// Endpoint para rellenar el select de productos
+const ENDPOINT_PRODUCTO = SERVER + 'private/producto.php?action=readAll';
 
 // Método manejador de eventos que se ejecuta cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', function () {
     // Se llama a la función que obtiene los registros para llenar la tabla
     readRows(API_PRODUCTOS);
 
-    //Obtenemos el valor del id por el URL
-    let defined = getQueryVariable("id");
-    //Si no hay ninguna id definida significa que sera un create y si es undefined se ejecutara el update
-    if (defined == undefined) {
-    }
-    else{
-        openUpdate(defined);
-    }
     // Se define una variable para establecer las opciones del componente Modal.
     let options = {
         dismissible: false,
@@ -26,22 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('save-form').reset();
         }
     }
-    document.getElementById('titulo').textContent = 'Crear producto';
-    fillSelect(ENDPOINT_ESPECIE, 'especie', null);
 });
-
-
-function getQueryVariable(variable) {
-    var query = window.location.search.substring(1);
-    var vars = query.split("&");
-    for (var i=0; i < vars.length; i++) {
-        var pair = vars[i].split("=");
-        if(pair[0] === variable) {
-            return pair[1];
-        }
-    }
-    return undefined;
-}
 
 // Función para llenar la tabla con los datos de los registros. Se manda a llamar en la función readRows().
 function fillTable(dataset) {
@@ -51,15 +26,12 @@ function fillTable(dataset) {
         // Se crean y concatenan las filas de la tabla con los datos de cada registro.
         content += `
         <tr>
-            <th class="text-center align-middle">${row.id_producto}</th>
-            <td class="align-middle">${row.producto} 
-                <span class="badge bg-danger" style="display:${row.activo == 'Activo'?'none':''}">Inactivo</span>
-            </td>
-            <td class="align-middle text-center">${row.disponible}</td>
-            <td class="align-middle text-center">${row.precio}</td>
-            <td class="align-middle text-center">${row.stock}</td>
+            <th class="text-center align-middle">${row.id_ingreso}</th>
+            <td class="align-middle">${row.producto}</td>
+            <td class="align-middle text-center">${row.cantidad}</td>
+            <td class="align-middle text-center">${row.fecha}</td>
             <td class="text-center align-middle">
-                <a onclick="openEdit(${row.id_producto})"><i class="fa-solid fa-pencil table_icon"></i></a>
+                <a onclick="openUpdate(${row.id_ingreso})" data-bs-toggle="modal" data-bs-target="#addIngreso"><i class="fa-solid fa-pencil table_icon"></i></a>
                 <a href="#"><i class="fa-solid fa-eye table_icon"></i></a>
             </td>
         </tr>
@@ -71,21 +43,18 @@ function fillTable(dataset) {
 
 // Método manejador de eventos que se ejecuta cuando se envía el formulario de buscar.
 document.getElementById('search-form').addEventListener('submit', function (event) {
+    //Se evita recargar la pagina
     event.preventDefault();
+    //Esta funcion es la que realizara la busqueda que esta en components.js
     searchRows(API_PRODUCTOS, 'search-form');
-});
-
-document.getElementById('especie').addEventListener('change', function (event) {
-    // Se define un objeto con los datos del registro seleccionado.
-    //const data = new FormData();
-    //data.append('id', document.getElementById('especie').value);
-    const ESPECIE = document.getElementById('especie').value;
-    fillSelect(ENDPOINT_CATEGORIA_ESPECIE + '&id_especie=' + ESPECIE, 'categoria', null);
 });
 
 // Función para preparar el formulario al momento de insertar un registro.
 function openCreate() {
-    location.href = 'f_producto.html'
+    // Se asigna el título para la caja de diálogo (modal).
+    document.getElementById('modal-title').textContent = 'Nuevo ingreso';
+    // Se llama a la función que llena el select del formulario. Se encuentra en el archivo components.js
+    fillSelect(ENDPOINT_PRODUCTO, 'producto', null);
 }
 
 // Función para abrir el reporte de productos.
@@ -96,12 +65,10 @@ function openReport() {
     window.open(url);
 }
 
-function openEdit(id) {
-    //Se llama al formulario html para rellenar el formulario
-    window.location.replace (`f_producto.html?id=${id}`)
-}
 // Función para preparar el formulario al momento de modificar un registro.
 function openUpdate(id) {
+    // Se asigna el título para la caja de diálogo (modal).
+    document.getElementById('modal-title').textContent = 'Actualizar ingreso';
     // Se define un objeto con los datos del registro seleccionado.
     const data = new FormData();
     data.append('id', id);
@@ -117,18 +84,9 @@ function openUpdate(id) {
                 // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
                 if (response.status) {
                     // Se inicializan los campos del formulario con los datos del registro seleccionado.
-                    document.getElementById('id').value = response.dataset.id_producto;
-                    document.getElementById('nombre').value = response.dataset.producto;
-                    document.getElementById('descripcion').value = response.dataset.descripcion;
-                    document.getElementById('precio').value = response.dataset.precio;
-                    document.getElementById('stock').value = response.dataset.stock;
-                    if (response.dataset.activo === 'Activo') {
-                        document.getElementById('activo').checked = true;
-                    } else {
-                        document.getElementById('activo').checked = false;
-                    }
-                    fillSelect(ENDPOINT_ESPECIE, 'especie', response.dataset.id_categoria);
-                    document.getElementsByClassName("ql-editor")[0].innerHTML = response.dataset.especificacion;
+                    document.getElementById('id').value = response.dataset.id_ingreso;
+                    fillSelect(ENDPOINT_PRODUCTO, 'producto', response.dataset.id_producto);
+                    document.getElementById('cantidad').value = response.dataset.cantidad;
                 } else {
                     console.log(response.exception);
                 }
@@ -141,9 +99,8 @@ function openUpdate(id) {
 
 // Método manejador de eventos que se ejecuta cuando se envía el formulario de guardar.
 document.getElementById('save-form').addEventListener('submit', function (event) {
+    // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
-    document.getElementById('especificacion').value = quill.container.firstChild.innerHTML;
-    console.log(document.getElementById('especificacion').value);
     // Se define una variable para establecer la acción a realizar en la API.
     let action = '';
     // Se comprueba si el campo oculto del formulario esta seteado para actualizar, de lo contrario será para crear.
@@ -151,12 +108,3 @@ document.getElementById('save-form').addEventListener('submit', function (event)
     // Se llama a la función para guardar el registro. Se encuentra en el archivo components.js
     saveRow(API_PRODUCTOS, action, 'save-form');
 });
-
-// Función para establecer el registro a eliminar y abrir una caja de diálogo de confirmación.
-function openDelete(id) {
-    // Se define un objeto con los datos del registro seleccionado.
-    const data = new FormData();
-    data.append('id', id);
-    // Se llama a la función que elimina un registro. Se encuentra en el archivo components.js
-    confirmDelete(API_PRODUCTOS, data);
-}

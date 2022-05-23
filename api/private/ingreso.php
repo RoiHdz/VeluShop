@@ -1,33 +1,22 @@
 <?php
 require_once('../helpers/database.php');
 require_once('../helpers/validator.php');
-require_once('../models/categoria_especie.php');
+require_once('../models/ingreso.php');
 
 // Se comprueba si existe una acción a realizar, de lo contrario se finaliza el script con un mensaje de error.
 if (isset($_GET['action'])) {
     // Se crea una sesión o se reanuda la actual para poder utilizar variables de sesión en el script.
     session_start();
     // Se instancia la clase correspondiente.
-    $categoria = new Categoria_especie;
+    $producto = new Ingreso;
     // Se declara e inicializa un arreglo para guardar el resultado que retorna la API.
     $result = array('status' => 0, 'message' => null, 'exception' => null);
     // Se verifica si existe una sesión iniciada como administrador, de lo contrario se finaliza el script con un mensaje de error.
     if (isset($_SESSION['id_usuario'])) {
         // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
-            case 'readSelect':
-                if (!$categoria->setId_especie($_GET['id_especie'])){
-                    $result['exception'] ='Especie incorrecta';
-                } elseif ($result['dataset'] = $categoria->readSelect()) {
-                    $result['status'] = 1;
-                } elseif (Database::getException()) {
-                    $result['exception'] = Database::getException();
-                } else {
-                    $result['exception'] = 'No hay datos registrados';
-                }
-                break;
             case 'readAll':
-                if ($result['dataset'] = $categoria->readAll()) {
+                if ($result['dataset'] = $producto->readAll()) {
                     $result['status'] = 1;
                 } elseif (Database::getException()) {
                     $result['exception'] = Database::getException();
@@ -36,10 +25,11 @@ if (isset($_GET['action'])) {
                 }
                 break;
             case 'search':
-                $_POST = $categoria->validateForm($_POST);
+                $_POST = $producto->validateForm($_POST);
+                // El'buscar' que esta dentro de $_POST es el Id del input de buscar
                 if ($_POST['buscar'] == '') {
                     $result['exception'] = 'Ingrese un valor para buscar';
-                } elseif ($result['dataset'] = $categoria->searchRows($_POST['buscar'])) {
+                } elseif ($result['dataset'] = $producto->searchRows($_POST['buscar'])) {
                     $result['status'] = 1;
                     $result['message'] = 'Valor encontrado';
                 } elseif (Database::getException()) {
@@ -49,54 +39,43 @@ if (isset($_GET['action'])) {
                 }
                 break;
             case 'create':
-                $_POST = $categoria->validateForm($_POST);
-                if (!$categoria->setId_categoria($_POST['categoria'])) {
+                $_POST = $producto->validateForm($_POST);
+                if (!$producto->setId_producto($_POST['producto'])) {
                     $result['exception'] = 'Nombre incorrecto';
-                } elseif (!$categoria->setId_especie($_POST['especie'])) {
+                } elseif (!$producto->setCantidad($_POST['cantidad'])) {
                     $result['exception'] = 'Descripción incorrecta';
-                } elseif ($categoria->createRow()) {
+                } elseif ($producto->createRow()) {
                     $result['status'] = 1;
+                    $result['message'] = 'Se realizo el ingreso de forma correcta';
                 } else {
-                    $result['exception'] = Database::getException();
+                    $result['exception'] = Database::getException();;
                 }
                 break;
             case 'readOne':
-                if (!$categoria->setId_categoria_especie($_POST['id'])) {
-                    $result['exception'] = 'Categoría incorrecta';
-                } elseif ($result['dataset'] = $categoria->readOne()) {
+                if (!$producto->setId_ingreso($_POST['id'])) {
+                    $result['exception'] = 'Ingreso incorrecto';
+                } elseif ($result['dataset'] = $producto->readOne()) {
                     $result['status'] = 1;
                 } elseif (Database::getException()) {
                     $result['exception'] = Database::getException();
                 } else {
-                    $result['exception'] = 'Categoría inexistente';
+                    $result['exception'] = 'Ingreso inexistente';
                 }
                 break;
             case 'update':
-                $_POST = $categoria->validateForm($_POST);
-                if (!$categoria->setId_categoria_especie($_POST['id'])) {
-                    $result['exception'] = 'Categoría incorrecta';
-                } elseif (!$data = $categoria->readOne()) {
-                    $result['exception'] = 'Categoría inexistente';
-                } elseif (!$categoria->setId_categoria($_POST['categoria'])) {
-                    $result['exception'] = 'Categoria incorrecta';
-                } elseif (!$categoria->setId_especie($_POST['especie'])) {
-                    $result['exception'] = 'Especie incorrecta';
-                } elseif ($categoria->updateRow()) {
+                $_POST = $producto->validateForm($_POST);
+                if (!$producto->setId_producto($_POST['producto'])) {
+                    $result['exception'] = 'Producto incorrecto';
+                } elseif (!$producto->setCantidad($_POST['cantidad'])) {
+                    $result['exception'] = 'Cantidad incorrecta';
+                } elseif ($producto->updateRow()) {
                     $result['status'] = 1;
                 } else {
                     $result['exception'] = Database::getException();
                 }
                 break;
             case 'delete':
-                if (!$categoria->setId_categoria($_POST['id'])) {
-                    $result['exception'] = 'Categoría incorrecta';
-                } elseif (!$data = $categoria->readOne()) {
-                    $result['exception'] = 'Categoría inexistente';
-                } elseif ($categoria->deleteRow()) {
-                    $result['status'] = 1;
-                } else {
-                    $result['exception'] = Database::getException();
-                }
+
                 break;
             default:
                 $result['exception'] = 'Acción no disponible dentro de la sesión';

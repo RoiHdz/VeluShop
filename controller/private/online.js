@@ -30,16 +30,23 @@ document.addEventListener('DOMContentLoaded', function () {
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="main.html">
                                     <span class="navegacion-icon"><i class="fa-solid fa-house"></i></span>
                                     <span class="navegacion-title">Dasboard</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="productos.html">
-                                    <span class="navegacion-icon"><i class="fa-solid fa-box"></i></span>
-                                    <span class="navegacion-title">Producto</span>
+                                <a href="#">
+                                    <span class="navegacion-icon" data-bs-toggle="collapse" href="#collapseProductos" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa-solid fa-box"></i></span>
+                                    <span class="navegacion-title" data-bs-toggle="collapse" href="#collapseProductos" role="button" aria-expanded="false" aria-controls="collapseExample">Producto</span>
                                 </a>
+                                <div class="collapse" id="collapseProductos">
+                                    <div class="card card-body card_collapse">
+                                        <a href="productos.html" class="btn cb"><i class="fa-solid fa-angle-right"></i>Productos</a>
+                                        <a href="ingreso.html" class="btn cb mt-1"><i class="fa-solid fa-angle-right"></i>Orden de ingreso</a>
+                                        <a href="comentario.html" class="btn cb mt-1"><i class="fa-solid fa-angle-right"></i>Comentarios</a>
+                                    </div>
+                                </div>
                             </li>
                             <li>
                                 <a href="Pedidos.html">

@@ -220,7 +220,7 @@ class Usuario extends Validator{
 
     public function readOne()
     {
-        $sql = 'SELECT id_usuario,username,pssword,email,nombre,activo,rol FROM v_usuario
+        $sql = 'SELECT id_usuario,username,pssword,email,nombre,apellido,activo,id_rol FROM usuario
                 WHERE id_usuario = ?';
         $params = array($this->id_usuario);
         return Database::getRow($sql, $params);
@@ -228,10 +228,10 @@ class Usuario extends Validator{
 
     public function updateRow()
     {
-        $sql = 'UPDATE usuarios 
-                SET nombres_usuario = ?, apellidos_usuario = ?, correo_usuario = ?
+        $sql = 'UPDATE usuario 
+                SET email = ?, nombre = ?, apellido = ?, activo = ?, id_rol = ?
                 WHERE id_usuario = ?';
-        $params = array($this->nombres, $this->apellidos, $this->correo, $this->id);
+        $params = array($this->email, $this->nombre, $this->apellido, $this->activo, $this->id_rol, $this->id_usuario);
         return Database::executeRow($sql, $params);
     }
 

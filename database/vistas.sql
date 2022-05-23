@@ -53,3 +53,38 @@ INNER JOIN cliente c on c.id_cliente = v.id_cliente
 INNER JOIN venta_estado ve on ve.id_venta_estado = v.id_venta_estado
 SELECT * FROM v_venta
 
+CREATE FUNCTION insert_stock() RETURNS TRIGGER AS
+$$
+BEGIN
+    UPDATE producto SET
+    stock = (stock + new.cantidad)
+    WHERE id_producto = new.id_producto;
+    RETURN NEW;
+END
+$$
+language plpgsql;
+
+CREATE FUNCTION update_stock() RETURNS TRIGGER AS
+$$
+BEGIN
+    UPDATE producto SET
+    stock = (stock - old.cantidad + new.cantidad)
+    WHERE id_producto = new.id_producto;
+    RETURN NEW;
+END
+$$
+language plpgsql;
+
+CREATE TRIGGER stock_ingreso_insert AFTER INSERT ON ingreso
+FOR EACH ROW
+EXECUTE PROCEDURE insert_stock();
+
+CREATE TRIGGER stock_ingreso_update AFTER UPDATE ON ingreso
+FOR EACH ROW
+EXECUTE PROCEDURE update_stock();
+
+CREATE VIEW V_comentario AS
+SELECT id_comentario,producto,concat(c.nombre,' ',c.apellido) AS Nombre,comentario FROM comentario
+INNER JOIN cliente c on c.id_cliente = comentario.id_cliente
+INNER JOIN producto p on p.id_producto = comentario.id_producto
+

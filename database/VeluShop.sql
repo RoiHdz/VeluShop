@@ -196,3 +196,12 @@ create table anuncio
     anuncio    varchar(50) not null
 );
 
+create table ingreso
+(
+    id_ingreso  serial                    not null
+        constraint ingreso_pk
+            primary key,
+    id_producto int                       not null,
+    cantidad    int                       not null,
+    fecha       date default current_date not null
+);

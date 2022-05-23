@@ -197,15 +197,12 @@ class Producto extends Validator
         return Database::getRow($sql, $params);
     }
 
-    public function updateRow($current_image)
+    public function updateRow()
     {
-        // Se verifica si existe una nueva imagen para borrar la actual, de lo contrario se mantiene la actual.
-        //($this->imagen) ? $this->deleteFile($this->getRuta(), $current_image) : $this->imagen = $current_image;
-
         $sql = 'UPDATE producto
-                SET producto = ?, descripcion = ?, especificacion = ?, precio = ?, stock = ?, disponible = ?
-                WHERE id_producto = ?';
-        $params = array($this->imagen, $this->nombre, $this->descripcion, $this->precio, $this->estado, $this->categoria, $this->id);
+        SET producto = ?, descripcion = ?, especificacion = ?,precio = ?, stock = ?, disponible = ?, activo = ?, id_categoria_especie = ?
+        WHERE id_producto = ?';
+        $params = array($this->producto, $this->descripcion, $this->especificacion, $this->precio, $this->stock, $this->disponible, $this->activo, $this->id_categoria_especie, $this->id_producto);
         return Database::executeRow($sql, $params);
     }
 
