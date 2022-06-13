@@ -90,7 +90,7 @@ if (isset($_GET['action'])) {
                     $result['exception'] = 'Especificacion incorrecta';
                 } elseif (!$producto->setPrecio($_POST['precio'])) {
                     $result['exception'] = 'Precio incorrecto';
-                } elseif (!$producto->setStock(isset($_POST['stock']))) {
+                } elseif (!$producto->setStock(($_POST['stock']))) {
                     $result['exception'] = 'Stock incorrecto';
                 } elseif (!$producto->setDisponible(isset($_POST['disponible']) ? 1 : 0)) {
                     $result['exception'] = 'Valor incorrecto';
