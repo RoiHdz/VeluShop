@@ -1,543 +1,69 @@
 <!DOCTYPE html>
+<!-- Declaración del idioma para el documento -->
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Codificación de caracteres para el documento -->
+    <meta charset="utf-8">
+    <!-- Título del documento -->
+    <title>VeluShop - Tu tienda de mascotas</title>
+    <!-- Optimización de la página web para dispositivos móviles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="rsc/icono.png" />
-    <!-- Fuentes -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-    <!-- FontAwesome *iconos* -->
-    <script src="https://kit.fontawesome.com/a478d5fd56.js" crossorigin="anonymous"></script>
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
-    <!-- CSS propio -->
-    <link rel="stylesheet" href="css/Navbar.css">
-    <link rel="stylesheet" href="css/Footer.css">
-    <link rel="stylesheet" href="css/style.css">
-    <!-- JavaScript -->
-    <script src="js/main.js"></script>
-    <title>VeluShop - Inicio</title>
+    <!-- Llamada de archivo como icono -->
+    <link type="image/png" rel="icon" href="../../api/images/logo_verde.png">
+    <!-- Importación de archivos CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../../resources/css/public.css">
 </head>
+
 <body>
-    <!-- Navbar normal y responsive -->
-    <nav class="navbarshop navbar">
-        <div class="nav_info">
-            <div class="nav_info-left">
-                <p>Envio gratis a todo El Salvador</p>
-            </div>
-            <div class="nav_info-right">
-                <p class="nav_info-items"><i class="fa-solid fa-envelope"></i> Info@velushop.com</p>
-                <p><i class="fa-solid fa-phone"></i> 2200-0102</p>
-            </div>
-        </div>
-        <div class="nav_superior">
-            <div class="nav_left">
-                <a href="#"><img src="rsc/logo.png" class="img_nav"></a>
-            </div>
-            <div class="nav_center">
-                <form class="search_nav d-flex">
-                    <input class="nav_center-buscar" type="search" placeholder="Buscar">
-                    <button class="nav_center-buscar_boton" type="submit">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </button>
-                </form>
-            </div>
-            <div class="nav_right">
-                <a href="../SitioPublico/html/carrito.html"><i class="fa-solid fa-cart-shopping cart_nav"></i></a>
-                <a href="../SitioPrivado/index.html"><i class="fa-solid fa-user user_nav"></i></a>
-                <form class="">
-                    <a class="btn login_nav" type="button" data-bs-toggle="modal" data-bs-target="#login">Login</a>
-                </form>
-            </div>
-        </div>
-        <div class="nav_inferior navbar-expand-lg">
-            <ul class="navbar-nav">
-                <li class="nav-item dropdown">
-                    <a class="nav-link nav_especies dropdown-toggle" href="categoria.html" id="navbarDarkDropdownMenuLink"
-                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Productos
-                    </a>
-              </li>
-         </ul>
-     </div>
+    <!-- Encabezado del documento -->
+    <header></header>
+    <!-- Contenido principal del documento -->
+    <main>
+        <!-- Componente Slider con indicadores, altura de 300 px y una duración entre transiciones de 6 segundos -->
+        <div class="slider" id="slider">
+            <ul class="slides">
+                <li>
+                    <img src="../../resources/img/slider/perras.jpg" alt="Primera foto">
+                    <div class="caption center-align">
+                    </div>
+                </li>
+                <li>
+                    <img src="../../resources/img/slider/perras2.jpg" alt="Segunda foto">
+                    <div class="caption left-align">
 
-        <div class="responsive_nav">
-            <a class="navbar-brand" href="#">
-                <img src="rsc/logo.png" alt="" width="140" height="65">
-            </a>
-            <div class="responsive_nav-left">
-                <form class="">
-                    <a class="btn login_nav" type="button" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal">Login</a>
-                </form>
-                <button class="navbar-toggler responsive_nav-icon" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbar_responsive" aria-controls="navbar_responsive" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar_responsive">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active navbar_responsive-item" aria-current="page" href="html/favs.html">Lista de
-                            favoritos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active navbar_responsive-item" aria-current="page" href="#">Carrito de
-                            compras</a>
-                    </li>
-                <form class="search_nav d-flex mb-3">
-                    <input class="nav_center-buscar" type="search" placeholder="Buscar">
-                    <button class="nav_center-buscar_boton" type="submit"><i
-                            class="fa-solid fa-magnifying-glass"></i></button>
-                </form>
-            </div>
+                    </div>
+                </li>
+                <li>
+                    <img src="../../resources/img/slider/perras3.jpg" alt="Tercera foto">
+                    <div class="caption right-align">
+                    </div>
+                </li>
+                <li>
+                    <img src="../../resources/img/slider/gatitos.jpg" alt="Cuarta foto">
+                    <div class="caption center-align">
+                    </div>
+                </li>
+            </ul>
         </div>
-        <div class="modal fade" id="login" tabindex="-1" aria-labelledby="login" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="login">Iniciar secion</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <img src="" class="login_img" alt="">
-                            <div class="mt-4 mb-1">
-                                <label for="user" class="form-label">Username</label>
-                                <input type="email" class="form-control" id="user" placeholder="nombre de usuario">
-                              </div>
-                              <div class="mb-3">
-                                <label for="passw" class="form-label">Contraseña</label>
-                                <input type="password" class="form-control" id="passw" placeholder="Contraseña">
-                            </div>
-                            <a class="btn btn-primary login_btn" type="button" href="html/manejo_productos.html">Inicia sesión</a>
-                        </div>
-                    </div>
-                    <div class="modal-body">
-
-                        <a type="button" class="btn btn-link" data-bs-toggle="modal"
-                            data-bs-target="#registrar">Registrate aqui</a>
-                    </div>
-                </div>
-            </div>
+        <!-- Contenedor para mostrar el catálogo de tipos de producto -->
+        <div class="container">
+            <!-- Título del contenido principal -->
+            <h4 class="center indigo-text" id="title">Nuestro catálogo</h4>
+            <!-- Fila para mostrar las categorías disponibles -->
+            <div class="row" id="categorias"></div>
         </div>
-        <div class="modal fade" id="registrar" tabindex="-1" aria-labelledby="registrar" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="registrar">Registrar usuario</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        ...
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
-    <main class="container">
-        <a>
-        <div class="col-12 col-md-6">
-            <nav aria-label="Page navigation example">
-                <ul class="pagination">
-
-                    <li class="page-item active"><a class="page-link" href="categoria.html">Productos</a></li>
-                    <li class="page-item"><a class="page-link" href="index.html">inicio</a></li>
-                </ul>
-            </nav>
-        </div>
-        </a>
-        <!-- Carousel (header) -->
-        <header class="row">
-            <div id="ads" class="carousel slide mt-4 mb-4 ads" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item ">
-                        <img src="rsc/promo2.jpg" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item active">
-                        <img src="rsc/promo1.jpg" class="d-block w-100" alt="...">
-                    </div>
-                </div>
-                <a class="carousel-control-prev" type="button" data-bs-target="#ads" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Anterior</span>
-                </a>
-                <a class="carousel-control-next" type="button" data-bs-target="#ads" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Siguiente</span>
-                </a>
-            </div>
-        </header>
-        <!-- Productos recientes -->
-        <section class="row reciente mb-5">
-            <h2 class="encabezado text-center mt-5 mb-5">Lo mas reciente</h2>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="velucard">
-                    <img src="rsc/ComidaGato1.jpg" class="velucard_img" alt="">
-                    <div class="velucard_body">
-                        <div class="row">
-                            <div class="col-10">
-                                <h5 class="card-title">Comida para gato adulto Whiskas</h5>
-                            </div>
-                            <div class="col-2">
-                                <i class="fa-regular fa-heart favs" id="icon1" onclick="addFavs(this,icon12)"></i>
-                                <i class="fa-solid fa-heart favs inactive" id="icon12" onclick="removeFavs(this,icon1)"></i>
-                            </div>
-                        </div>
-                        <h6 class="card-subtitle mt-2 mb-2 text-muted">$33.00</h6>
-                        <a class="btn card_button">Agregar al carrito</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="velucard">
-                    <a href=""><img src="rsc/ComidaGato2.jpg
-                        " class="velucard_img" alt=""></a>
-                    <div class="velucard_body">
-                        <div class="row">
-                            <div class="col-10">
-                                <h5 class="card-title">Fillets para gato sabor pavo</h5>
-                            </div>
-                            <div class="col-2">
-                                <i class="fa-regular fa-heart favs" id="icon2" onclick="addFavs(this,icon22)"></i>
-                                <i class="fa-solid fa-heart favs inactive" id="icon22" onclick="removeFavs(this,icon2)"></i>
-                            </div>
-                        </div>
-                        <h6 class="card-subtitle mt-2 mb-2 text-muted">$27.00</h6>
-                        <a class="btn card_button">Agregar al carrito</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="velucard">
-                    <img src="rsc/ComidaPerro1.jfif" class="velucard_img" alt="">
-                    <div class="velucard_body">
-                        <div class="row">
-                            <div class="col-10">
-                                <h5 class="card-title">Comida para perro adulto, pedigree, 25Kg</h5>
-                            </div>
-                            <div class="col-2">
-                                <i class="fa-regular fa-heart favs" id="icon3" onclick="addFavs(this,icon32)"></i>
-                                <i class="fa-solid fa-heart favs inactive icon2" id="icon32" onclick="removeFavs(this,icon3)"></i>
-                            </div>
-                        </div>
-                        <h6 class="card-subtitle mt-2 mb-2 text-muted">$64.00</h6>
-                        <a class="btn card_button">Agregar al carrito</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="velucard">
-                    <img src="rsc/PremiosPerro.png" class="velucard_img" alt="">
-                    <div class="velucard_body">
-                        <div class="row">
-                            <div class="col-10">
-                                <h5 class="card-title">Premios para perro pedigree</h5>
-                            </div>
-                            <div class="col-2">
-                                <i class="fa-regular fa-heart favs" id="icon4" onclick="addFavs(this,icon42)"></i>
-                                <i class="fa-solid fa-heart favs inactive icon2" id="icon42" onclick="removeFavs(this,icon4)"></i>
-                            </div>
-                        </div>
-                        <h6 class="card-subtitle mt-2 mb-2 text-muted">$271.00</h6>
-                        <a class="btn card_button">Agregar al carrito</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="velucard">
-                    <img src="rsc/ComidaPez1.png" class="velucard_img" alt="">
-                    <div class="velucard_body">
-                        <div class="row">
-                            <div class="col-10">
-                                <h5 class="card-title">Comida para peces en pelets Animal Planet</h5>
-                            </div>
-                            <div class="col-2">
-                                <i class="fa-regular fa-heart favs" id="icon5" onclick="addFavs(this,icon52)"></i>
-                                <i class="fa-solid fa-heart favs inactive icon2" id="icon52" onclick="removeFavs(this,icon5)"></i>
-                            </div>
-                        </div>
-                        <h6 class="card-subtitle mt-2 mb-2 text-muted">$25.00</h6>
-                        <a class="btn card_button">Agregar al carrito</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="velucard">
-                    <img src="rsc/ComidaReptiles.jfif" class="velucard_img" alt="">
-                    <div class="velucard_body">
-                        <div class="row">
-                            <div class="col-10">
-                                <h5 class="card-title">Comida para resptiles en pelets </h5>
-                            </div>
-                            <div class="col-2">
-                                <i class="fa-regular fa-heart favs" id="icon6" onclick="addFavs(this,icon62)"></i>
-                                <i class="fa-solid fa-heart favs inactive" id="icon62" onclick="removeFavs(this,icon6)"></i>
-                            </div>
-                        </div>
-                        <h6 class="card-subtitle mt-2 mb-2 text-muted">$23.00</h6>
-                        <a class="btn card_button">Agregar al carrito</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="velucard">
-                    <img src="rsc/JuguetePerro.jpg" class="velucard_img" alt="">
-                    <div class="velucard_body">
-                        <div class="row">
-                            <div class="col-10">
-                                <h5 class="card-title">Juguete de entrenamiento </h5>
-                            </div>
-                            <div class="col-2">
-                                <i class="fa-regular fa-heart favs" id="icon7" onclick="addFavs(this,icon72)"></i>
-                                <i class="fa-solid fa-heart favs inactive" id="icon72" onclick="removeFavs(this,icon7)"></i>
-                            </div>
-                        </div>
-                        <h6 class="card-subtitle mt-2 mb-2 text-muted">$44.00</h6>
-                        <a class="btn card_button">Agregar al carrito</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="velucard">
-                    <img src="rsc/Bayfeed.jpg" class="velucard_img" alt="">
-                    <div class="velucard_body">
-                        <div class="row">
-                            <div class="col-10">
-                                <h5 class="card-title">Complemento alimenticio Bayfeed</h5>
-                            </div>
-                            <div class="col-2">
-                                <i class="fa-regular fa-heart favs" id="icon8" onclick="addFavs(this,icon82)"></i>
-                                <i class="fa-solid fa-heart favs inactive" id="icon82" onclick="removeFavs(this,icon8)"></i>
-                            </div>
-                        </div>
-                        <h6 class="card-subtitle mt-2 mb-2 text-muted">$139.00</h6>
-                        <a class="btn card_button">Agregar al carrito</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Nuestras marcas -->
-        <section class="row justify-content-center marcas mb-5">
-            <h2 class="encabezado text-center mt-5 mb-5">Nuestras marcas</h2>
-            <div class="col-6 col-sm-6 col-md-4 col-lg-3 mt-4 text-center">
-                <img src="rsc/marca1.png" alt="" class="marcas_img">
-            </div>
-            <div class="col-6 col-sm-6 col-md-4 col-lg-3 mt-4 text-center">
-                <img src="rsc/marca2.png" alt="" class="marcas_img">
-            </div>
-            <div class="col-6 col-sm-6 col-md-4 col-lg-3 mt-4 text-center">
-                <img src="rsc/marca3.png" alt="" class="marcas_img">
-            </div>
-            <div class="col-6 col-sm-6 col-md-4 col-lg-3 mt-4 text-center">
-                <img src="rsc/marca4.png" alt="" class="marcas_img">
-            </div>
-            <div class="col-6 col-sm-6 col-md-4 col-lg-3 mt-4 text-center">
-                <img src="rsc/marca5.png" alt="" class="marcas_img">
-            </div>
-            <div class="col-6 col-sm-6 col-md-4 col-lg-3 mt-4 text-center">
-                <img src="rsc/marca6.png" alt="" class="marcas_img">
-            </div>
-            <div class="col-6 col-sm-6 col-md-4 col-lg-3 mt-4 text-center">
-                <img src="rsc/marca7.png" alt="" class="marcas_img">
-            </div>
-        </section>
-        <!-- Productos Populares -->
-        <section class="row populares mb-5">
-            <h2 class="encabezado text-center mt-5 mb-5">Lo mas popular</h2>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="velucard">
-                    <img src="rsc/BarcoPecera.jpg" class="velucard_img" alt="">
-                    <div class="velucard_body">
-                        <div class="row">
-                            <div class="col-10">
-                                <h5 class="card-title">Barco decorativo para peceras</h5>
-                            </div>
-                            <div class="col-2">
-                                <i class="fa-regular fa-heart favs" id="icon1" onclick="addFavs(this,icon12)"></i>
-                                <i class="fa-solid fa-heart favs inactive" id="icon12" onclick="removeFavs(this,icon1)"></i>
-                            </div>
-                        </div>
-                        <h6 class="card-subtitle mt-2 mb-2 text-muted">$15.00</h6>
-                        <a class="btn card_button">Agregar al carrito</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="velucard">
-                    <img src="rsc/TorreGato.jpeg" class="velucard_img" alt="">
-                    <div class="velucard_body">
-                        <div class="row">
-                            <div class="col-10">
-                                <h5 class="card-title">Torre para gatos</h5>
-                            </div>
-                            <div class="col-2">
-                                <i class="fa-regular fa-heart favs" id="icon2" onclick="addFavs(this,icon22)"></i>
-                                <i class="fa-solid fa-heart favs inactive" id="icon22" onclick="removeFavs(this,icon2)"></i>
-                            </div>
-                        </div>
-                        <h6 class="card-subtitle mt-2 mb-2 text-muted">$15.00</h6>
-                        <a class="btn card_button">Agregar al carrito</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="velucard">
-                 <img src="rsc/DentalFreshGato.png" class="velucard_img" alt="">
-                    <div class="velucard_body">
-                        <div class="row">
-                            <div class="col-10">
-                                <h5 class="card-title">Bocadillos para limpieza dental</h5>
-                            </div>
-                            <div class="col-2">
-                                <i class="fa-regular fa-heart favs" id="icon3" onclick="addFavs(this,icon32)"></i>
-                                <i class="fa-solid fa-heart favs inactive icon2" id="icon32" onclick="removeFavs(this,icon3)"></i>
-                            </div>
-                        </div>
-                        <h6 class="card-subtitle mt-2 mb-2 text-muted">$15.00</h6>
-                        <a class="btn card_button">Agregar al carrito</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="velucard">
-                    <img src="rsc/PlatoComidaReptiles.jpg" class="velucard_img" alt="">
-                    <div class="velucard_body">
-                        <div class="row">
-                            <div class="col-10">
-                                <h5 class="card-title">Plato para comida de reptiles</h5>
-                            </div>
-                            <div class="col-2">
-                                <i class="fa-regular fa-heart favs" id="icon4" onclick="addFavs(this,icon42)"></i>
-                                <i class="fa-solid fa-heart favs inactive icon2" id="icon42" onclick="removeFavs(this,icon4)"></i>
-                            </div>
-                        </div>
-                        <h6 class="card-subtitle mt-2 mb-2 text-muted">$15.00</h6>
-                        <a class="btn card_button">Agregar al carrito</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="velucard">
-                 <img src="rsc/ShampooGato.jfif" class="velucard_img" alt="">
-                    <div class="velucard_body">
-                        <div class="row">
-                            <div class="col-10">
-                                <h5 class="card-title">Shampoo para gatos</h5>
-                            </div>
-                            <div class="col-2">
-                                <i class="fa-regular fa-heart favs" id="icon5" onclick="addFavs(this,icon52)"></i>
-                                <i class="fa-solid fa-heart favs inactive icon2" id="icon52" onclick="removeFavs(this,icon5)"></i>
-                            </div>
-                        </div>
-                        <h6 class="card-subtitle mt-2 mb-2 text-muted">$15.00</h6>
-                        <a class="btn card_button">Agregar al carrito</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="velucard">
-                  <img src="rsc/ShampooPerro.jpg" class="velucard_img" alt="">
-                    <div class="velucard_body">
-                        <div class="row">
-                            <div class="col-10">
-                                <h5 class="card-title">Shampo para perros CAMPEON</h5>
-                            </div>
-                            <div class="col-2">
-                                <i class="fa-regular fa-heart favs" id="icon6" onclick="addFavs(this,icon62)"></i>
-                                <i class="fa-solid fa-heart favs inactive" id="icon62" onclick="removeFavs(this,icon6)"></i>
-                            </div>
-                        </div>
-                        <h6 class="card-subtitle mt-2 mb-2 text-muted">$15.00</h6>
-                        <a class="btn card_button">Agregar al carrito</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="velucard">
-                   <img src="rsc/DentalFreshPerro.jfif" class="velucard_img" alt="">
-                    <div class="velucard_body">
-                        <div class="row">
-                            <div class="col-10">
-                                <h5 class="card-title">Bocadillo para limpieza dental </h5>
-                            </div>
-                            <div class="col-2">
-                                <i class="fa-regular fa-heart favs" id="icon7" onclick="addFavs(this,icon72)"></i>
-                                <i class="fa-solid fa-heart favs inactive" id="icon72" onclick="removeFavs(this,icon7)"></i>
-                            </div>
-                        </div>
-                        <h6 class="card-subtitle mt-2 mb-2 text-muted">$15.00</h6>
-                        <a class="btn card_button">Agregar al carrito</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="velucard">
-               <img src="rsc/EnjuaguePerro.jpg" class="velucard_img" alt="">
-                    <div class="velucard_body">
-                        <div class="row">
-                            <div class="col-10">
-                                <h5 class="card-title">Enjuague bucal para perros DENTAL FRESH</h5>
-                            </div>
-                            <div class="col-2">
-                                <i class="fa-regular fa-heart favs" id="icon8" onclick="addFavs(this,icon82)"></i>
-                                <i class="fa-solid fa-heart favs inactive" id="icon82" onclick="removeFavs(this,icon8)"></i>
-                            </div>
-                        </div>
-                        <h6 class="card-subtitle mt-2 mb-2 text-muted">$15.00</h6>
-                        <a class="btn card_button">Agregar al carrito</a>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
-    <footer class="footershop">
-        <div class="footershop_container">
-            <div class="footershop_column">
-                <h4 class="text-left footershop_column-title">VeluShop</h4>
-                <p class="footershop_text">Oficinas Administrativas: Av. Las Magnolias, Edificio Insigne, local 501.
-                    Colonia San Benito. San Salvador, El Salvador, Centroamérica</p>
-            </div>
-            <div class="footershop_column">
-                <h4 class="text-left footershop_column-title">Soporte</h4>
-                <h6 class="text-left footershop_column-item"><a href="#" class="footershop_column-items">Centro de
-                        ayuda</a></h6>
-                <h6 class="text-left footershop_column-item"><a href="#" class="footershop_column-items">Politica de
-                        rembolso</a></h6>
-                <h6 class="text-left footershop_column-item"><a href="#" class="footershop_column-items">Community
-                        Guidelines</a></h6>
-            </div>
-            <div class="footershop_column">
-                <h4 class="text-left footershop_column-title">Informacion legal</h4>
-                <h6 class="text-left footershop_column-item"><a href="#" class="footershop_column-items">Politica sobre
-                        cookies</a></h6>
-                <h6 class="text-left footershop_column-item"><a href="#" class="footershop_column-items">Politicas de
-                        privacidad</a></h6>
-                <h6 class="text-left footershop_column-item"><a href="#" class="footershop_column-items">Terminos de
-                        servicio</a></h6>
-            </div>
-            <div class="footershop_column">
-                <h4 class="text-left footershop_column-title">Metodos de pago</h4>
-                <img src="../public/rsc/chivo.png" alt="" width="120" height="100">
-                <img src="../public/rsc/visa.png" alt="" width="120" height="80">
-                <img src="../public/rsc/master.png" alt="" width="130" height="100">
-                <img src="../publicrsc/pay.png" alt="" width="120" height="120">
-
-            </div>
-        </div>
-        <div class="footershop_bottom">
-            <p>©Roi VeluShop.com – Todos los derechos reservados 2022</p>
-        </div>
-    </footer>
+    <!-- Pie del documento -->
+    <footer class="page-footer black"></footer>
+    <!-- Importación de archivos JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript" src="../../controllers/components.js"></script>
+    <script type="text/javascript" src="../../controllers/public/account.js"></script>
+    <script type="text/javascript" src="../../controllers/public/index.js"></script>
 </body>
 
 </html>

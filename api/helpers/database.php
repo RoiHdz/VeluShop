@@ -16,7 +16,7 @@ class Database
     {
         // Credenciales para establecer la conexión con la base de datos.
         $server = 'localhost';
-        $database = 'VeluShop';
+        $database = 'Velushop';
         $username = 'postgres';
         $password = '1234';
 
@@ -165,4 +165,3 @@ class Database
         return self::$error;
     }
 }
-?>
